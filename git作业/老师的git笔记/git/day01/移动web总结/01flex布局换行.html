@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            display: flex;
+            flex-wrap: wrap;
+            height: 500px;
+            background-color: orange;
+            justify-content: center;
+            align-items: center; /* align-items 考虑的是单行子元素的情况下的垂直居中*/
+            align-content: center; /* align-content 考虑的是多行子元素的情况下，如何垂直居中*/
+        }
+        .father>div{
+            width: 20%;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>

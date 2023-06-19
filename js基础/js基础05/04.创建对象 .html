@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建对象1
+        let student = {
+            uname:'jack',
+            number:10086,
+            sex:'男',
+            hobby:['唱跳','rap','篮球'],
+            behavior:function(){
+                console.log(`唱跳，rap，打篮球`)
+            }
+        }
+        console.log(student)
+        student.behavior()
+        console.log(student.hobby)
+
+        //创建对象2
+        let car = {
+            uname:'宝马',
+            model:'x6',
+            price:'55w',
+            behavior:function(){
+                console.log('爆炸');
+            }
+        }
+        console.log(car)
+        car.behavior()
+        //创建对象3
+        let teacher = {
+            uname:'俊哥',
+            number:10000,
+            sex:'男',
+            age:30,
+            trait:['长得好看','说话好听'],
+            behavior:function(){
+                console.log('会讲课')
+            }
+        }
+        console.log(teacher)
+        teacher.behavior()
+        console.log(`${teacher.uname}是个${teacher.sex}的，今年${teacher.age}岁了！`);
+        //创建对象4
+        let computer = {
+            uname:'小米',
+            model:'pro 15',
+            price:8000,
+            color:'银色',
+            behavior:function(){
+                console.log(会开机和关机)
+            }
+        }
+        console.log(computer)
+        teacher.behavior()
+        //创建对象5
+        let hero = {
+            uname:'后羿',
+            blood:750,
+            attack:1500,
+            range:2500,
+            skill:function(){
+                console.log('有三个行为')
+            }
+        }
+        console.log(hero)
+        hero.skill()
+        //创建对象6
+        let object = {
+            uname:'周杰伦',
+            age:44,
+            job:'singer',
+            sing:function(){
+
+            },
+            movie(){
+
+            }
+        }
+        console.log(object)
+        object.movie()
+
+    </script>
+</body>
+</html>

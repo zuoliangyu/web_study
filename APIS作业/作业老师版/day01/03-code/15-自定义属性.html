@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义属性</title>
+</head>
+
+<body>
+  <div class="box" data-id="1" data-name="box"></div>
+  <script>
+    // 自定义属性
+    // 1. 获取盒子
+    const box = document.querySelector('.box')
+
+    // 2. 得到自定义属性值
+    // console.log(box.dataset)  // 得到一个对象集合
+    // console.log(box.dataset.id) // 1
+    // console.log(box.dataset)  // 得到一个对象集合
+    console.log(box.dataset.name) // box
+  </script>
+</body>
+
+</html>

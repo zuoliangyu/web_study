@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件流</title>
+  <style>
+    .father {
+      overflow: hidden;
+      width: 500px;
+      height: 500px;
+      background-color: pink;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    .son {
+      width: 300px;
+      height: 300px;
+      background-color: skyblue;
+      margin: 80px auto;
+      text-align: center;
+      line-height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="father">
+    父盒子
+    <div class="son">子盒子</div>
+  </div>
+  <script>
+    // 事件流
+    const father = document.querySelector('.father')
+    const son = document.querySelector('.son')
+    // 1. 事件捕获
+    // // 点击父盒子
+    // father.addEventListener('click', function () {
+    //   alert('我是爸爸')
+    // }, true)  // 事件捕获
+    // // 点击子盒子
+    // son.addEventListener('click', function () {
+    //   alert('我是儿子')
+    // }, true) // 事件捕获
+
+    // 2. 事件冒泡
+    // 点击父盒子
+    father.addEventListener('click', function () {
+      alert('我是爸爸')
+    })
+    // 点击子盒子
+    son.addEventListener('click', function () {
+      alert('我是儿子')
+    }, false) 
+  </script>
+</body>
+
+</html>

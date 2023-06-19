@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隐藏手机号中间四位案例.</title>
+  <style>
+    .wrapper {
+      width: 840px;
+      height: 420px;
+      background: url(./images/bg01.jpg) no-repeat center / cover;
+      padding: 100px 250px;
+      box-sizing: border-box;
+    }
+
+    .wrapper strong {
+      font-size: 50px;
+    }
+
+    .wrapper span {
+      color: #b10e0d;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <strong>年会抽奖</strong>
+    <h1>获奖手机号：<span class="phone">???</span></h1>
+  </div>
+
+  <script>
+    // 隐藏手机号中间四位案例
+    const tel = '13611112222'
+    // 1. 利用正则划分手机号
+    // const reg = /^(\d{3})\d{4}(\d{4})$/
+
+    // 2. 利用replace 替换   
+    // $1 可以得到正则中第一个小括号里面的内容
+    // $2 可以得到正则中第二个小括号里面的内容
+    // const str = tel.replace(reg, '$1****$2')
+    // console.log(str)
+
+    // 3. 新需求： 只显示后面四位手机号  字符串重复 repeat方法
+    const reg = /^\d{7}(\d{4})$/
+    // const str = tel.replace(reg, '*******$1')
+    const str = tel.replace(reg, `${'*'.repeat(7)}$1`)
+    document.querySelector('.phone').innerHTML = str
+  </script>
+</body>
+
+</html>

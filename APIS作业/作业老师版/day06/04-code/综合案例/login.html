@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>小兔鲜儿 - 新鲜 惠民 快捷!</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_2143783_iq6z4ey5vu.css">
+</head>
+
+<body>
+  <!-- 登录头部 -->
+  <div class="xtx-login-header">
+    <h1 class="logo"></h1>
+    <a class="home" href="./index.html">进入网站首页</a>
+  </div>
+  <!-- 登录内容 -->
+  <div class="xtx-login-main">
+    <div class="wrapper">
+      <form action="" autocomplete="off">
+        <div class="box">
+          <div class="tab-nav">
+            <a href="javascript:;" class="active" data-id="0">账户登录</a>
+            <a href="javascript:;" data-id="1">二维码登录</a>
+          </div>
+          <div class="tab-pane">
+            <div class="link">
+              <a href="javascript:;">手机验证码登录</a>
+            </div>
+            <div class="input">
+              <span class="iconfont icon-user"></span>
+              <input required type="text" placeholder="请输入用户名称/手机号码" name="username">
+            </div>
+            <div class="input">
+              <span class="iconfont icon-safe"></span>
+              <input required type="password" placeholder="请输入密码" name="password">
+            </div>
+            <div class="agree">
+              <label for="my-checkbox">
+                <input type="checkbox" value="1" id="my-checkbox" class="remember" name="agree">
+              </label>
+              我已同意 <a href="javascript:;">《服务条款》</a href="javascript:;"> 和 <a>《服务条款》</a>
+            </div>
+            <div class="button clearfix">
+              <button type="submit" class="dl">登 录</button>
+              <!-- <a class="dl" href="./center.html">登 录</a> -->
+              <a class="fl" href="./forget.html">忘记密码？</a>
+              <a class="fr" href="./register.html">免费注册</a>
+            </div>
+          </div>
+          <div class="tab-pane" style="display: none;">
+            <img class="code" src="./images/code.png" alt="">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- 登录底部 -->
+  <div class="xtx-login-footer">
+    <!-- 版权信息 -->
+    <div class="copyright">
+      <p>
+        <a href="javascript:;">关于我们</a>
+        <a href="javascript:;">帮助中心</a>
+        <a href="javascript:;">售后服务</a>
+        <a href="javascript:;">配送与验收</a>
+        <a href="javascript:;">商务合作</a>
+        <a href="javascript:;">搜索推荐</a>
+        <a href="javascript:;">友情链接</a>
+      </p>
+      <p>CopyRight &copy; 小兔鲜儿</p>
+    </div>
+  </div>
+  <script>
+    // 1. tab栏切换业务
+    // 1.1 事件委托形式注册点击
+    const tab_nav = document.querySelector('.tab-nav')
+    const panes = document.querySelectorAll('.tab-pane')
+    tab_nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        // alert(11)
+        // 移除前面一个active这个类
+        tab_nav.querySelector('.active').classList.remove('active')
+        // 点击了谁，谁添加active 就高亮
+        e.target.classList.add('active')
+
+        // 得到当前点击链接的索引号
+        console.log(e.target.dataset.id)
+
+        // 让两个 pane 大盒子先全部隐藏
+        for (let i = 0; i < panes.length; i++) {
+          panes[i].style.display = 'none'
+        }
+        // 1.2 让下面对应的大盒子显示
+        panes[e.target.dataset.id].style.display = 'block'
+      }
+    })
+
+    // 2. 点击登录可以跳转页面案例
+    // 2.1 注册提交事件，先要阻止提交行为
+    const form = document.querySelector('form')
+    const remember = document.querySelector('.remember')
+    const username = document.querySelector('[name=username]')
+    form.addEventListener('submit', function (e) {
+      e.preventDefault()
+      // 2.2 用户名和密码不能为空  
+      // 2.3 我同意协议需要勾选
+      console.log(remember.checked)
+      if (!remember.checked) {
+        return alert('请您勾选同意协议')
+      }
+      // 2.4 先记录用户名到本地存储里面  跳转页面
+      localStorage.setItem('xtx-uname', username.value)
+      location.href = './index.html'
+    })
+  </script>
+
+
+
+</body>
+
+</html>

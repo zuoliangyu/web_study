@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面显示日期时间案例</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 40px;
+      border: 1px solid pink;
+      text-align: center;
+      line-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    // 页面显示日期和时间 格式为：2088年8月8号 08:08:56 
+    // 1. 封装一个 getDateTime函数，里面格式化时间对象
+    function getDateTime() {
+      const date = new Date()
+      const y = date.getFullYear() // 年
+      const m = date.getMonth() + 1 // 月
+      const d = date.getDate() // 日
+      let hh = date.getHours()
+      let mm = date.getMinutes()
+      let ss = date.getSeconds()
+      // 2. 注意里面的时分秒要补0操作
+      hh = hh < 10 ? '0' + hh : hh
+      mm = mm < 10 ? '0' + mm : mm
+      ss = ss < 10 ? '0' + ss : ss
+      return `${y}年${m}月${d}日 ${hh}:${mm}:${ss}`
+    }
+    // 注意： 先写上这句话，防止盒子有1秒的空白期
+    document.querySelector('.box').innerText = getDateTime()
+    // 3. 显示到box盒子里面，并且添加定时器
+    setInterval(function () {
+      document.querySelector('.box').innerText = getDateTime()
+    }, 1000)
+  </script>
+</body>
+
+</html>

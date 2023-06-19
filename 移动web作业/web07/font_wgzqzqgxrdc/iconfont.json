@@ -1,0 +1,58 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "201588",
+      "name": "3.1列表",
+      "font_class": "31liebiao",
+      "unicode": "f020e",
+      "unicode_decimal": 983566
+    },
+    {
+      "icon_id": "949558",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "1221178",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e6e4",
+      "unicode_decimal": 59108
+    },
+    {
+      "icon_id": "1901645",
+      "name": "评论",
+      "font_class": "pinglun",
+      "unicode": "f0302",
+      "unicode_decimal": 983810
+    },
+    {
+      "icon_id": "2306764",
+      "name": "BILIBILI_LOGO",
+      "font_class": "bilibili",
+      "unicode": "e6b4",
+      "unicode_decimal": 59060
+    },
+    {
+      "icon_id": "4942661",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "12247927",
+      "name": "下箭头",
+      "font_class": "xiajiantou",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    }
+  ]
+}

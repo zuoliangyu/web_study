@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.father{
+            width: 800px;
+            height: 800px;
+            border: 1px solid #000;
+            background-color: transparent;
+            padding:300px;
+            transform: rotateY(60deg)
+        }
+        
+        body{
+            /* 设置body元素，距离屏幕的距离有1000px */
+            /* 至少要开启透视才能看到立体效果 */
+            perspective: 1000px;
+        }
+        .father{
+            /* 开启三维立体空间的效果，可以呈现出更好的三维效果 */
+            transform-style:preserve-3d;
+        }
+        .father>div{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+        .one{
+            /* 前 */
+            background-color: rgba(255,0,0,0.5);
+            transform: translateZ(100px)
+        }
+        .two{
+            /* 后 */
+            background-color: rgba(0,255,0,0.5);
+            transform: translateZ(-100px)
+        }
+        .three{
+            /* 左 */
+            background-color: rgba(0,0,255,0.5);
+            transform: translateX(-100px) rotateY(90deg)
+        }
+        .four{
+            /* 右 */
+            background-color: rgba(255,255,0,0.5);
+            transform: translateX(100px) rotateY(90deg)
+        }
+        .five{
+            /* 上 */
+            background-color: rgba(255,0,255,0.5);
+            transform: translateY(-100px) rotateX(90deg)
+        }
+        .six{
+            /* 下 */
+            background-color: rgba(0,255,255,0.5);
+            transform: translateY(100px) rotateX(90deg)
+        }
+
+        .seven{
+            /* 下 */
+            background-color: rgba(0,0,0,0.5);
+            transform: translateY(300px) scaleX(2)
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. 准备一个透视的父盒子，父盒子里面放置6个面的子盒子 -->
+    <!-- 2. 将所有子盒子定位叠在一起 -->
+    <!-- 3. 将前后两个盒子分别向 Z轴移动 -->
+    <!-- 4. 将左右两个盒子分别向 X轴方向进行移动，并且沿着y轴进行旋转90deg -->
+    <!-- 5. 将上下两个盒子分别向 Y轴方向进行移动，沿着x轴进行旋转90deg -->
+    <div class="father">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+        <div class="five"></div>
+        <div class="six"></div>
+
+        <div class="seven"></div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        body{
+            perspective: 1000px;
+        }
+        ul{
+            margin: 200px;
+            transform-style: preserve-3d;
+            /* transform: rotateY(60deg) rotateX(-20deg); */
+        }
+        li{
+            position: relative;
+            width: 70px;
+            height: 40px;
+            transition: all 1s;
+            transform-style: preserve-3d;
+            /* background-color: pink; */
+        }
+
+        a{
+            position: absolute;
+            width: 70px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: block;
+        }
+        a:nth-of-type(1){
+            transform: translateZ(20px);
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        a:nth-of-type(2){
+            transform: translateY(-20px) rotateX(90deg);
+            background-color: rgba(255,0,0,0.5);
+        }
+
+        li:hover{
+            transform: rotateX(-90deg);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="">正面</a>
+            <a href="">上面</a>
+        </li>
+    </ul>
+</body>
+</html>

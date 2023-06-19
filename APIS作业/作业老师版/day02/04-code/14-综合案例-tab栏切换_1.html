@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>综合案例-tab栏切换</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .tab {
+      width: 590px;
+      height: 340px;
+      margin: 20px;
+      border: 1px solid #e4e4e4;
+    }
+
+    .tab-nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+    }
+
+    .tab-nav h3 {
+      margin-left: 20px;
+      font-size: 24px;
+      font-weight: normal;
+    }
+
+    .tab-nav ul {
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+    }
+
+    .tab-nav ul li {
+      margin: 0 20px;
+      font-size: 14px;
+    }
+
+    .tab-nav ul li a {
+      border-bottom: 2px solid transparent;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .tab-nav ul li a.active {
+      border-color: #e1251b;
+      color: #e1251b;
+    }
+
+    .tab-content {
+      padding: 0 16px;
+    }
+
+    .tab-content .item {
+      display: none;
+    }
+
+    .tab-content .item.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab">
+    <div class="tab-nav">
+      <h3>每日特价</h3>
+      <ul>
+        <li><a class="active" href="javascript:;">精选</a></li>
+        <li><a href="javascript:;">美食</a></li>
+        <li><a href="javascript:;">百货</a></li>
+        <li><a href="javascript:;">个护</a></li>
+        <li><a href="javascript:;">预告</a></li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <div class="item active"><img src="./images/tab00.png" alt="" /></div>
+      <div class="item"><img src="./images/tab01.png" alt="" /></div>
+      <div class="item"><img src="./images/tab02.png" alt="" /></div>
+      <div class="item"><img src="./images/tab03.png" alt="" /></div>
+      <div class="item"><img src="./images/tab04.png" alt="" /></div>
+    </div>
+  </div>
+  <script>
+    // 业务1： 鼠标经过谁，谁会高亮显示
+    // 1.1 获取5个链接，利用循环注册鼠标经过事件
+    const as = document.querySelectorAll('.tab-nav a')
+    const items = document.querySelectorAll('.item')
+    for (let i = 0; i < as.length; i++) {
+      as[i].addEventListener('mouseenter', function () {
+        // console.log(as[i])
+        // 1.2 利用排他思想，其余的链接移除active类，当前链接添加active
+        document.querySelector('.tab-nav .active').classList.remove('active')
+        this.classList.add('active')
+
+        // 业务2：底部盒子跟随变化
+        // console.log(i)
+        // 2.1 先把5个div里面带有 active的类移除掉，就隐藏
+        document.querySelector('.tab-content .active').classList.remove('active')
+        // 2.2 利用索引号 i 来选 想要的 div.item 添加 active类就可以显示
+        // console.log(items[i])
+        items[i].classList.add('active')
+      })
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 200px;
+        }
+
+        div.one{
+            transform: rotate(45deg);
+        }
+
+        div.two{
+            transform-origin: right bottom;
+            transform: rotate(45deg);
+        }
+
+        img:hover{
+            transition: all 2s;
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/rotate.png" alt="">
+    <div>
+        这是一个盒子
+    </div>
+    <div class="one">
+        这是一个盒子
+    </div>
+    <div class="two">
+        这是一个盒子
+    </div>
+
+</body>
+</html>

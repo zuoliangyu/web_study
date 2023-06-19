@@ -1,0 +1,34 @@
+@baseColor: yellow;
+// 在07.less文件中引入 index.less文件
+// 最后处理好的 07.css文件中就会同时包含两个文件的样式代码。
+@import './index.less';
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// 在开发中，如果有一个颜色值，px值，rem值他们被使用了多次
+// 我们就可以将这种值保存在一个地方(变量)
+// 在原本使用这些值的地方不去写固定数字，而是写变量
+// 当我们修改变量的时候，所有使用变量的地方会随之发生变化
+
+// 创建了一个baseColor的变量，保存了主题颜色
+@baseColor: yellow;
+
+.container{
+    display: flex;
+    border:2px solid @baseColor;
+    padding:3px;
+    >div{
+    width: 100px;
+    height: 100px;
+        &:nth-of-type(2n){
+            background-color: @baseColor;
+        }
+        &:nth-of-type(3n){
+            color:@baseColor;
+        }
+    }
+}

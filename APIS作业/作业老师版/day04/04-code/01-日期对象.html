@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日期对象</title>
+</head>
+
+<body>
+  <script>
+    // 1. 实例化日期对象
+    // 1.1 得到当前的日期和时间
+    const date = new Date()
+    console.log(date)
+
+    // 1.2 得到指定的日期和时间
+    const date1 = new Date('2099-12-12 08:08:08')
+    console.log(date1)
+
+    // 2. 格式化日期对象-转换成开发中常见的日期和时间格式
+    const myDate = new Date()
+    console.log(myDate.getFullYear()) // 得到年份 数字型的 2023
+    console.log(myDate.getMonth() + 1) // 得到月份 数字型的 0 需要加1
+    console.log(myDate.getDate()) // 得到几号 数字型的 27 
+    console.log(myDate.getDay()) // 得到星期  数字型 5 
+    console.log(myDate.getHours()) // 得到小时
+    console.log(myDate.getMinutes()) // 得到分钟
+    console.log(myDate.getSeconds()) // 得到秒数
+    console.log(`现在的日期是:${myDate.getFullYear()}年${myDate.getMonth() + 1}月${myDate.getDate()}日`)
+
+  </script>
+</body>
+
+</html>

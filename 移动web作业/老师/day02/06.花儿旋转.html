@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes zhuan{
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        img{
+            animation: zhuan 3s infinite;
+        }
+
+        img:hover{
+            animation-play-state: paused;
+        }
+        /* 练习：将花儿转动案例制作成一个动画进行使用，然后鼠标悬停的时候，花儿停止转动
+        否则花儿会一直无限的转动。
+        1. 创建一个动画，设置 to{ transform: rotate(360deg) }
+        2. 给花儿元素设置动画，
+        3. 将动画次数设置为无限
+        4. 给花儿元素添加鼠标悬停效果，将动画状态设置为暂停。 */
+    </style>
+</head>
+<body>
+    <img src="./images/rotate.png" alt="">
+</body>
+</html>

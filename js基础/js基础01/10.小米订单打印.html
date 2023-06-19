@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title {
+        text-align: center;
+        color: #3e3e3e;
+        }
+
+        .order {
+          /* 合并相邻边框 */
+          border-collapse: collapse;
+          height: 80px;
+          margin: 0 auto;
+          text-align: center;
+          border-radius: 10px 10px 0 0;
+          overflow: hidden;
+        }
+
+        /* 给行添加渐变背景颜色 */
+        .order tr:nth-child(1) {
+          background-image: linear-gradient(to right, #f46e33, #f057a5);
+        }
+
+        .order tr:nth-child(2) {
+          background-image: linear-gradient(to right, #fdf0eb, #fdeff6);
+        }
+
+        .order tr:nth-child(2) :last-child {
+          color: #f282bb;
+        }
+
+        .order th {
+          padding: 5px 50px;
+          color: #fff;
+        }
+
+        .order,
+        th,
+        td {
+        border: 1px solid #fff;
+        line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        let price = +prompt('请输入商品价格：')
+        let num = +prompt('请输入商品数量：')
+        let address = prompt('请输入收货地址：')
+        let total = price * num
+        document.write(`
+        <h1 class="title">订单详情页面</h1>
+        <table class="order">
+            <tr>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品数量</th>
+                <th>总价</th>
+                <th>收货地址</th>
+            </tr>
+            <tr>
+                <td>小米青春版PLUS</td>
+                <td>${price}</td>
+                <td>${num}</td>
+                <td>${total}</td>
+                <td>${address}</td>
+            </tr>
+        </table>
+        `)
+    </script>
+</body>
+</html>

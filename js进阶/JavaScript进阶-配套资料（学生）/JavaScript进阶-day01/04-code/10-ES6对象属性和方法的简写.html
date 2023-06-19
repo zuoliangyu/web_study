@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6对象属性和方法的简写</title>
+</head>
+
+<body>
+  用户名: <input type="text" class="username"> <br>
+  密　码: <input type="password" class="password"> <br>
+  <button>点击</button>
+  <script>
+    // ES6对象属性和方法的简写
+    // 1. 对象属性的简写 (点击按钮生成对象)
+    document.querySelector('button').addEventListener('click', function () {
+      const username = document.querySelector('.username').value
+      const password = document.querySelector('.password').value
+      // const obj = {
+      //   username: username,
+      //   password: password
+      // }
+      // 属性名和属性值相同的时候，可以只写属性名
+      // 2. 对象方法的简写
+      // const obj = {
+      //   username,
+      //   password,
+      //   sayHi: function() {
+      //     console.log('hi~')
+      //   }
+      // }
+      const obj = {
+        username,
+        password,
+        sayHi() {
+          console.log('hi~')
+        }
+      }
+      console.log(obj)
+    })
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let jack = {
+            uname:'jack',
+            age:20,
+            girFriend:{
+                name:'rose',
+                age:20,
+            }
+        }
+        let jackCopy = JSON.parse(JSON.stringify(jack))
+        console.log(jackCopy)
+        console.log(jack === jackCopy)
+        console.log(jack.girFriend === jackCopy.girlFriend)
+        let student = {
+            name:'李好',
+            age:18,
+            school:undefined,
+            sing:function(){
+                console.log('我会唱歌')
+            }
+        }
+        let studentCopy = JSON.parse(JSON.stringify(student))
+        console.log(studentCopy)
+        //JSON序列化实现深拷贝会忽略undefined和函数
+    </script>
+</body>
+</html>

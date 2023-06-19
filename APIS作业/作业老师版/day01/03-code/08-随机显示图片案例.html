@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>随机显示图片案例</title>
+  <style>
+    img {
+      width: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./images/1.png" alt="">
+  <script>
+    // 随机显示图片案例
+    // 图片地址
+    const arr = [
+      './images/1.png',
+      './images/2.png',
+      './images/3.png',
+      './images/4.png'
+    ]
+    // 获取图片元素
+    const img = document.querySelector('img')
+
+    // 1. 利用随机数抽取数组中的一个地址
+    const random = Math.floor(Math.random() * arr.length)
+    console.log(arr[random]) // 得到图片地址
+
+    // 2. 把地址赋值给图片src属性
+    img.src = arr[random]
+  </script>
+</body>
+
+</html>

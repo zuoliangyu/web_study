@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元素的尺寸和位置</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .father {
+      /* position: relative; */
+      width: 300px;
+      height: 300px;
+      padding: 5px;
+      border: 10px solid red;
+      margin: 100px;
+      background-color: pink;
+    }
+
+    .son {
+      width: 100px;
+      background-color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="father">
+    <div class="son">
+      里面包含一些文字
+      里面包含一些文字
+      里面包含一些文字
+    </div>
+  </div>
+  <script>
+    // offset家族
+    const father = document.querySelector('.father')
+    const son = document.querySelector('.son')
+    // 1. 元素尺寸 offsetWidth 和 offsetHeight
+    console.log(father.clientWidth) // 不带边框
+    console.log(father.offsetWidth) // 带边框
+    console.log(son.clientHeight)
+    console.log(son.offsetHeight)
+
+    // 2. 元素位置 offsetTop 和 offsetLeft  （类似于绝对定位）
+    // 2.1 如果父亲有定位则以父亲为准
+    // console.log(son.offsetLeft)  // 5
+
+    // 2.2 如果所有的父级都没有定位，则以浏览器文档为准
+    console.log(son.offsetLeft)  // 115
+
+  </script>
+</body>
+
+</html>

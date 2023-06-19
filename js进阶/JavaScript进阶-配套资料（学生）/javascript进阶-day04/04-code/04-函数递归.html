@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数递归</title>
+</head>
+
+<body>
+  <script>
+    // 函数自己调用自己，称为递归
+
+    // 1.利用函数递归打印3句话
+    let i = 1
+    function fn() {
+      console.log(`我是第${i}句话`)
+      if (i >= 3) return
+      i++
+      fn()  // 递归
+    }
+    fn()
+
+    // 2. 练习 利用递归函数实现 setTimeout 每隔一秒钟输出当前时间
+    function timer() {
+      const time = new Date().toLocaleString()
+      console.log(time)  // 输出当前时间
+      setTimeout(timer, 1000)  // 函数递归
+    }
+    timer()
+
+  </script>
+</body>
+
+</html>

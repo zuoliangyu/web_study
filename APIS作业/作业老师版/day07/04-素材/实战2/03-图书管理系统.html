@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图书管理</title>
+    <style>
+      h1 {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      table,
+      th,
+      td {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      table {
+        width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      th,
+      td {
+        border: 1px solid #bcbcbc;
+        padding: 5px 10px;
+      }
+
+      th {
+        background: #42b983;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      tr:nth-of-type(even) {
+        background: #ddd;
+      }
+
+      .add {
+        width: 400px;
+        padding: 10px 50px;
+        margin: 10px auto;
+        background: #ccc;
+        border-radius: 5px;
+      }
+
+      p,
+      input {
+        height: 30px;
+        line-height: 30px;
+      }
+
+      input {
+        width: 300px;
+        font-size: 20px;
+        padding-left: 10px;
+      }
+
+      button {
+        background: #42b983;
+        border: none;
+        cursor: pointer;
+      }
+
+      p button {
+        float: right;
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      td button {
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2>图书管理系统</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>书名</th>
+            <th>作者</th>
+            <th>价格</th>
+            <th>标签</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>西游记</td>
+            <td>吴承恩</td>
+            <td>999</td>
+            <td>名著</td>
+            <td>
+              <button>删除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="add">
+        <h2>添加新书</h2>
+        <div class="form-group">
+          <p>书名：<input name="name" type="text" /></p>
+          <p>作者：<input name="author" type="text" /></p>
+          <p>价格：<input name="price" type="text" /></p>
+          <p>标签：<input name="tag" type="text" /></p>
+          <p>
+            <button>添加</button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 需要渲染的数据数组
+      let list = [
+        {
+          id: 1,
+          name: '《三国演义》',
+          author: '罗贯中',
+          price: '99.99',
+          tag: '经典',
+        },
+        {
+          id: 2,
+          name: '《红楼梦》',
+          author: '曹雪芹',
+          price: '88',
+          tag: '推荐',
+        },
+        {
+          id: 3,
+          name: '《水浒传》',
+          author: '施耐庵',
+          price: '77',
+          tag: '热销',
+        },
+        {
+          id: 4,
+          name: '《西游记》',
+          author: '吴承恩',
+          price: '60',
+          tag: '经典',
+        },
+      ]
+
+      // 1、找对象——》获取需要操作的元素
+      let tbody = document.querySelector('tbody')
+      let addBtn = document.querySelector('.add button')
+      let dataInputs = document.querySelectorAll('.form-group input')
+
+      // 渲染数组到页面中的函数
+      function renderList() {
+        // 把数据数组中的每一项拼接成多个tr组合在一起的字符串，最后渲染
+        // 把拼接之后的字符串，渲染到tbody中去
+      }
+
+      // 首屏一来先渲染数据----------------------------
+
+      // 添加数据功能---------------------------------------------
+      // 1、给addBtn注册点击事件
+      // 2、点击之后，把用户填写的数据添加到数组中去
+      // 3、清空表单
+      // 4、如果内容有空，则alert弹框，不去添加
+      addBtn.addEventListener('click', function () {
+        // 把表单的数据获取储存好
+        // 如果数组被清空，则此时id从1开始
+        // 判断内容是否有空，如果内容有空，则阻止添加，alert提醒
+        // 如果内容ok，此时添加数据
+        // 渲染数据
+        // 清除表单数据
+      })
+
+      // 删除数据功能-------------------------------------------------
+      // 1、利用事件委托，判断如果是btn被点击了，此时通过btn上的id，找到数组中对应的这一项，删除掉，然后重新渲染
+      tbody.addEventListener('click', function (e) {})
+    </script>
+  </body>
+</html>

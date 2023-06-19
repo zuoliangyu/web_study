@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>随机显示背景图片案例</title>
+  <style>
+    body {
+      overflow: hidden;
+      min-height: 620px;
+      background: url(./images/bg1.jpg) no-repeat center center/cover;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // 随机显示背景图片案例
+
+    // 背景图片地址数组
+    const arr = [
+      './images/bg1.jpg',
+      './images/bg2.jpg',
+      './images/bg3.jpg',
+      './images/bg4.jpg',
+      './images/bg5.jpg'
+    ]
+
+    // 1. 利用随机数得到数组的图片地址
+    const random = Math.floor(Math.random() * arr.length)
+    console.log(arr[random])
+
+    // 2. 修改body背景样式
+    // console.log(document.body) 
+    // 2.1 因为页面就一个body标签，所以获取body可以通过document.body
+    document.body.style.backgroundImage = `url(${arr[random]})`
+  </script>
+</body>
+
+</html>

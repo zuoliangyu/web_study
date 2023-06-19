@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="add">生成</button>
+        <ul>
+            <li v-for="item of list">{{ item.num }} <button @click="del(item.id)">删除</button></li>
+        </ul>
+        
+    </div>
+    <script src="../准备代码/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                
+                list:[
+                    {id:1,num:1},
+                    {id:2,num:5}
+                ]
+            },
+            methods:{
+                del(id){
+                    this.list = this.list.filter(item => item.id !== id)
+                },
+                add(){
+                   this.list.push({
+                    id:Math.max(0,...this.list.map(item=>item.id)) + 1,
+                    num:Math.round(Math.random()*20)
+                   }) 
+                }
+            }
+        })
+    </script>
+</body>
+</html>

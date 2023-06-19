@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串方法split</title>
+</head>
+
+<body>
+  <script>
+    // 字符串方法split 
+    const str = '传智播客'
+    // 1. split('分隔符')  把字符串转换为数组
+    console.log(str.split(''))
+    const str1 = '小米,华为,苹果'
+    console.log(str1.split(','))
+
+    // 2. join('分隔符')可以把数组转换为字符串
+
+    // 3. 把传智播客这字符串做一个翻转 变成 客播智传
+
+    // 把字符串转换为数组， 数组里面reverse翻转，再把数组转换为字符串
+    console.log(str.split('').reverse())
+    console.log(str.split('').reverse().join(''))
+  </script>
+</body>
+
+</html>

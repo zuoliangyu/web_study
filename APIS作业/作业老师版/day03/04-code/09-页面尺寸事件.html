@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面尺寸事件</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      padding: 5px;
+      border: 10px solid red;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    // 1.页面尺寸事件
+    window.addEventListener('resize', function () {
+      console.log('页面尺寸变了')
+    })
+
+    // 2. 元素的宽度和高度,包含 width padding但是不包含border margin等等
+    const box = document.querySelector('.box')
+    console.log(box.clientWidth)
+    console.log(document.documentElement.clientWidth)
+
+  </script>
+</body>
+
+</html>

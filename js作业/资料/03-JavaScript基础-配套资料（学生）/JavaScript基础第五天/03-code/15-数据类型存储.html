@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据类型存储</title>
+</head>
+
+<body>
+  <script>
+
+    // 第一题   基本数据类型赋值给的是 值
+    // let x = 10
+    // let y = x
+    // x = 20
+    // console.log(y)
+
+    // 第二题  引用数据类型赋值给的是 地址
+
+    let obj1 = {
+      age: 18
+    }
+    let obj2 = obj1
+    obj1.age = 20
+    console.log(obj2)
+
+  </script>
+</body>
+
+</html>

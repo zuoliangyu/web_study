@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 通过媒体查询 给 iphone 678 设置背景颜色 skyblue， 设置字号为37.5 */
+        /* 通过媒体查询 给 iphone 678 plus 设置背景颜色 orange， 设置字号为41.4 */
+
+        /* 也可以设置min-width 或者 max-width */
+        /* min-width:375px： 屏幕宽度最小是 375px   > 375px */
+        /* max-width:375px： 屏幕宽度最大是 375px   < 375px */
+
+        /* 练习：设置320px的屏幕背景颜色为 pink  设置375px的屏幕背景颜色为 cyan  设置414px的屏幕颜色为 skyblue */
+        /* 320px屏幕的html根字号设置为32px  375px屏幕的html跟字号设置为37.5px  414px的屏幕html跟字号设置为41.4px */
+        /* 布局四个盒子，每个盒子的宽高都是 2.5rem */
+        @media screen and (min-width:375px){
+            html{
+                background-color: skyblue;
+                font-size: 37.5px;
+            }
+        }
+
+        @media screen and (min-width:414px){
+            html{
+                background-color: orange;
+                font-size: 41.4px;
+            }
+        }
+
+        div{
+            width: 1rem;
+            height: 1rem;
+            background-color: pink;
+        }
+        body{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div>123</div>
+</body>
+</html>

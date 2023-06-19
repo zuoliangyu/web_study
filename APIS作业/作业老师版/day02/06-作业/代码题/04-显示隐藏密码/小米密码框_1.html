@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小米密码框</title>
+  <style>
+    .mi-form {
+      display: table;
+      width: 356px;
+      height: 60px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0);
+      background-color: #f9f9f9;
+    }
+
+    .mi-control {
+      position: relative;
+      display: table-cell;
+      width: 294px;
+    }
+
+    .mi-input {
+      box-sizing: border-box;
+      width: 100%;
+      height: 60px;
+      border: 0;
+      padding: 30px 20px 10px;
+      outline: none;
+      background: none;
+      appearance: none;
+      font-size: 17px;
+      font-family: "Noto Color Emoji";
+      color: #333;
+      line-height: 20px;
+    }
+
+
+    .mi-control label {
+      user-select: none;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 20px;
+      font-weight: 400;
+      font-size: 17px;
+      color: rgba(0, 0, 0, .4);
+      line-height: 20px;
+      transition: top .15s cubic-bezier(.4, 0, .2, 1), font-size .15s cubic-bezier(.4, 0, .2, 1), color .15s cubic-bezier(.4, 0, .2, 1);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .mi-control label.active {
+      top: 6px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .mi-password {
+      display: table-cell;
+      width: 60px;
+      color: rgba(0, 0, 0, .85);
+      font-size: 14px;
+      vertical-align: middle;
+      background: url(./images/close.png) center/30px 30px no-repeat;
+      cursor: pointer;
+      /* 防止选中文字 防止点击选中文本框的文字 */
+      user-select: none;
+    }
+
+    .mi-password.active {
+      background-image: url(./images/open.png);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mi-form">
+    <div class="mi-control">
+      <input type="password" class="mi-input">
+      <label>密码</label>
+    </div>
+    <div class="mi-password">
+
+    </div>
+  </div>
+  <script>
+    const mi = document.querySelector('.mi-input')
+    const label = document.querySelector('label')
+    // 1. 第一个模块，文字移动
+    // input获得焦点，让label 添加类，则文字移动并且变小
+    mi.addEventListener('focus', function () {
+      label.classList.add('active')
+    })
+    // 当我们失去焦点，判断input表单里面的值是否为空，如果为空，则让label去掉active类
+    mi.addEventListener('blur', function () {
+      if (this.value === '') {
+        label.classList.remove('active')
+      }
+    })
+
+    // 2. 第二个模块， 点击可以切换眼睛
+    const pwd = document.querySelector('.mi-password')
+    let flag = true  // 声明一个开关变量
+    pwd.addEventListener('click', function () {
+      // 点击可以切换类，这样可以实现睁眼和闭眼睛
+      this.classList.toggle('active')
+      mi.type = flag ? 'text' : 'password'
+      // 每次点击都要给flag取反
+      flag = !flag
+    })
+  </script>
+</body>
+
+</html>

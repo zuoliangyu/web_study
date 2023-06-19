@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100%;
+            height: 100px;
+            border: 1px solid #000;
+            margin-top: 50px;
+        }
+        div img{
+            height: 100%;
+            transition: all 1s;
+        }
+        .one:hover img:nth-of-type(1){
+            transform: translate(500px);
+        }
+
+        .two:hover img:nth-of-type(1){
+            transform: rotate(180deg);
+        }
+
+        .three:hover img:nth-of-type(1){
+            transform: scale(2);
+        }
+
+        @keyframes move {
+            from {
+                transform: translate(0px);
+            }
+
+            to {
+                transform: translate(500px);
+            }
+        }
+
+        .four:hover img{
+            animation: move 5s steps(5);
+        }
+
+        .five{
+            width: 50px;
+            background-color: pink;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .six{
+            width: 50px;
+            display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+            -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+            -webkit-line-clamp: 2; /* 2行，只有 webkit内核支持 */
+            word-break: break-all; /* 纯英文换行 */
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <img src="./images/1.jpeg" alt="">
+    </div>
+
+    <div class="two">
+        <img src="./images/1.jpeg" alt="">
+    </div>
+
+    <div class="three">
+        <img src="./images/1.jpeg" alt="">
+    </div>
+
+    <div class="four">
+        <img src="./images/1.jpeg" alt="">
+    </div>
+
+    <div class="five">
+        hello everyone,good morning 
+    </div>
+
+    <div class="six">
+        hello everyone,good morning!im fine thank you 
+    </div>
+</body>
+</html>

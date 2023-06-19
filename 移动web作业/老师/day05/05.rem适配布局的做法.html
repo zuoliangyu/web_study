@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #ccc;
+        }
+        .container{
+            /* 85px 是 375px设计稿中的85像素，要将之转换为rem单位，375px的屏幕 1rem = 37.5px
+               85px = ?rem  算法：85/37.5 = ?rem */
+            height: 2.26rem; 
+            /* 当高度设置为 2.26rem时候，在375px屏幕下，会将高度值设置为 2.26rem * 37.5 = 84.88px
+               当高度设置为 2.26rem的时候，在414屏幕下，会将高度值设置为 2.26rem * 41.4 = 93.56px */
+            padding: 0.293rem;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            margin:0.293rem;
+            width: 1.3333rem;
+        }
+        .left{
+            width: 0.8rem;
+            height: 0.8rem;
+            margin-top: 0.64rem;
+            margin-left: 0.293rem;
+            background-color: cyan;
+        }
+
+        .right{
+            width: 1.1733rem;
+            height: 1.1733rem;
+            margin-top: .4533rem;
+            background-color: pink;
+        }
+
+        /* @media screen and (min-width:375px) {
+            html{
+                font-size: 37.5px;
+            }
+        }
+
+        @media screen and (min-width:414px) {
+            html{
+                font-size: 41.4px;
+            }
+        } */
+    </style>
+    <link rel="stylesheet" href="./fonts/iconfont.css">
+    <!-- 使用script标签去引入 flexible.js -->
+    <script src="./js/flexible.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="left">
+            <i class="iconfont icon-Location"></i>
+        </div>
+        <div class="right">
+            >
+        </div>
+    </div>
+</body>
+</html>

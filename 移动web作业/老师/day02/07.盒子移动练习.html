@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 25%的动画是向右移动800px,50%的动画是向下移动400px，75%的动画是向左移动800px
+        100%的动画是向上移动400px，无限轮播的动画。 */
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            animation: move 6s infinite;
+
+        }
+        @keyframes move {
+            25%{
+                transform: translateX(800px);
+            }
+            50%{
+                transform: translateX(800px) translateY(400px);
+            }
+            75%{
+                transform: translateX(0px) translateY(400px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr4 = [
+        { id: 1, name: '茶杯', price: 18 },
+        { id: 2, name: '电视机', price: 2000 },
+        { id: 3, name: '牙刷', price: 8 },
+        { id: 4, name: '电脑', price: 5000 },
+        ]
+            // for(let i = 0 ;i<arr4.length;i++){
+            //         for(let j =i+1;j<arr4.length;j++){
+            //           if(arr4[i].price>arr4[j].price){
+            //             let sum = arr4[i]
+            //             arr4[i]=arr4[j]
+            //             arr4[j]=sum
+            //           }
+            //         }
+            // }
+            // console.log(arr4)
+        // let newArr = arr4.map(function(ele,index){
+            
+        //     // console.log(ele)
+        //     // console.log(index)
+        //     return ele.price
+        //     // if(ele.price){
+
+        //     // }
+        // })
+        // let down = newArr.sort(compareNumbers)
+        // console.log(down)
+        let newArr = arr4.sort((a,b) => b.price-a.price)
+        console.log(newArr)
+    </script>
+</body>
+</html>

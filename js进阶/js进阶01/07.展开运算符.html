@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr1 = [1,2,3,4,5]
+        let arr2 = [10,20,30,40,50]
+        let max1 = Math.max(...arr1)
+        let min1 = Math.min(...arr1)
+        let max2 = Math.max(...arr2)
+        let min2 = Math.min(...arr2)
+        console.log(max1,min1)
+        console.log(max2,min2)
+        let max3 = Math.max(...arr1,...arr2)
+        console.log(max3)
+        //合并数组
+        let hebing = [...arr1,...arr2]
+        console.log(hebing)
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面加载事件</title>
+  <script>
+    // 1. 页面加载事件 load  等待所有的外部资源加载完毕触发 包括图片、外部的css等等
+    window.addEventListener('load', function () {
+      // const btn = document.querySelector('button')
+      // btn.addEventListener('click', function () {
+      //   alert('我点击了')
+      // })
+      console.log('全部资源加载完毕')
+
+    })
+
+    // 2. 页面加载事件  DOMContentLoaded HTML文档加载完毕触发 不需要等待 外部的图片、css等等
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('HTML文档加载完毕DOM')
+      const btn = document.querySelector('button')
+      btn.addEventListener('click', function () {
+        alert('我点击了')
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <button>点击我</button>
+  <script>
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>美女帅哥走一走</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(item, index) in dataList" :key="item.id">
+          {{item.content}}
+        </li>
+      </ul>
+      <button @click="btnGo">走一走</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          dataList: [
+            { id: 1, content: "美女" },
+            { id: 2, content: "帅哥" },
+            { id: 3, content: "程序员" },
+          ],
+        },
+        methods: {
+          btnGo() {
+            this.dataList.push(this.dataList.shift());
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

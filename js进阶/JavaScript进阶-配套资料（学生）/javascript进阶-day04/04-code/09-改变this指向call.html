@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>改变this指向-call</title>
+</head>
+
+<body>
+  <script>
+    // 1. 改变this指向 - call 
+    const obj = { name: '佩奇' }
+
+    // call() 作用： 第一个调用函数  第二改变this指向
+    function fun(x, y) {
+      console.log(this)
+      // console.log(x + y)
+      return x + y
+    }
+    fun()  // this 指向window
+    // fun.call(obj)  //  this 指向 obj 对象
+    // fun.call(obj, 1, 2)  //  this 指向 obj 对象
+    console.log(fun.call(obj, 1, 2))  // 返回值就是函数 返回值
+
+    // 2. call的应用场景 - 检测数据类型
+    // 2.1 typeof 检测数据类型不够精确的
+    console.log(typeof '123') // string
+    console.log(typeof []) // object
+    console.log(typeof null) // object
+
+    // 2.2 Object.prototype.toString()  返回的结果是[object xxx类型]
+    // console.log(Object.prototype.toString('123')) //  [object Object]
+    console.log(Object.prototype.toString.call('123'))  // [object String]
+    console.log(Object.prototype.toString.call(123))  // [object Number]
+    console.log(Object.prototype.toString.call([]))  // [object Array]
+    console.log(Object.prototype.toString.call(null))  // [object Null]
+  </script>
+</body>
+
+</html>

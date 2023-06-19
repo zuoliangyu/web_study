@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        用户名：<input type="text" class="username" name="username" />
+        <br>
+        密码：<input type="password" class="pwd" name="pwd" />
+        <br>
+        爱好：
+        <input type="checkbox" value="singjump" class="hobbys"> 唱跳
+        <input type="checkbox" value="rap" class="hobbys"> rap
+        <input type="checkbox" value="basket" class="hobbys"> 打篮球
+        <br>
+        <select name="cities" id="select">
+            <option value="gz">广州</option>
+            <option value="cs" selected>长沙</option>
+            <option value="sz">深圳</option>
+        </select>
+        <br>
+        <button type="submit">提交</button>
+    </form>
+    <script>
+        let form = document.querySelector('form')
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+        })
+    </script>
+</body>
+</html>

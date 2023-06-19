@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>三国演义</button>
+    <button>水浒传</button>
+    <button>红楼梦</button>
+    <button>西游记</button>
+    <script>
+      let btns = document.querySelectorAll('button') 
+      for(let i = 0; i < btns.length; i++){
+        btns[i].addEventListener('click',function(){
+            console.log(this.innerText)
+        })
+      } 
+    </script>
+</body>
+</html>

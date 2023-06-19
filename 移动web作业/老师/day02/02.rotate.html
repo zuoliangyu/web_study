@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            
+            margin:10px;
+        }
+        div.father{
+            width: 800px;
+            height: 800px;
+            border: 1px solid #000;
+            background-color: transparent;
+            padding:100px;
+            transform: rotateY(10deg)
+        }
+        .one{
+            position: absolute;
+            left:50%;
+            right:50%;
+            transform: translateZ(100px);
+            background-color: rgba(255,0,0,0.5);
+        }
+        .three{
+            position: absolute;
+            left:50%;
+            right:50%;
+            transform: translateZ(-100px);
+            background-color: rgba(0,0,255,0.5);
+        }
+        .two{
+            position: absolute;
+            left:50%;
+            right:50%;
+            background-color: rgba(0,255,0,0.5);
+        }
+        body{
+            /* 设置body元素，距离屏幕的距离有1000px */
+            /* 至少要开启透视才能看到立体效果 */
+            perspective: 1000px;
+        }
+        .father{
+            /* 开启三维立体空间的效果，可以呈现出更好的三维效果 */
+            transform-style:preserve-3d;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+    
+</body>
+</html>

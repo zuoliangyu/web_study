@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闭包</title>
+</head>
+
+<body>
+  <script>
+    // 1. 闭包 : 内层函数 + 外层函数变量
+    // function outer() {
+    //   const a = 1
+    //   function f() {
+    //     console.log(a)
+    //   }
+    //   f()
+    // }
+    // outer()
+
+    // 2. 闭包的应用： 实现数据的私有。统计函数的调用次数
+    // let count = 1
+    // function fn() {
+    //   count++
+    //   console.log(`函数被调用${count}次`)
+    // }
+
+    // 3. 闭包的写法  统计函数的调用次数
+    function outer() {
+      let count = 1
+      function fn() {
+        count++
+        console.log(`函数被调用${count}次`)
+      }
+      return fn
+    }
+    const re = outer()
+    // const re = function fn() {
+    //   count++
+    //   console.log(`函数被调用${count}次`)
+    // }
+    re()
+    re()
+    // const fn = function() { }  函数表达式
+    // 4. 闭包存在的问题： 可能会造成内存泄漏
+  </script>
+</body>
+
+</html>

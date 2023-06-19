@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            perspective: 1000px;
+        }
+        .father{
+            width: 800px;
+            height: 800px;
+            border: 1px solid #000;
+            background-color: transparent;
+            transform-style: preserve-3d;
+            transform: rotateY(70deg);
+        }
+        .father>div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 25%;
+            top: 25%;
+        }
+        .son1{
+            background-color: rgba(255, 0, 0, 0.5);
+            transform: translateZ(100px);
+        }
+        .son2{
+            background-color: rgba(0, 255, 0, 0.5);
+            transform: translateZ(-100px);
+        }
+        .son3{
+            background-color: rgba(0, 0, 255, 0.5);
+            transform: translateX(-100px) rotateY(90deg);
+        }
+        .son4{
+            background-color: rgba(255, 255, 0, 0.5);
+            transform: translateX(100px) rotateY(90deg);
+        }
+        .son5{
+            background-color: rgba(255, 0, 255, 0.5);
+            transform: translateY(-100px) rotateX(90deg);
+        }
+        .son6{
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(100px) rotateX(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son1"></div>
+        <div class="son2"></div>
+        <div class="son3"></div>
+        <div class="son4"></div>
+        <div class="son5"></div>
+        <div class="son6"></div>
+    </div>
+</body>
+</html>

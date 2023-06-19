@@ -1,0 +1,188 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.father{
+    padding-left: 80px;
+    width: 800px;
+    height: 400px;
+    background-color: green;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    .majiang{
+        padding: 20px;
+        .box{
+            width: 100px;
+            height: 120px;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+        .box1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .son{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: #000;
+            }
+        }
+        .box2{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            .son{
+                background-color: #000;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+        }
+        .box3{
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            .son{
+                background-color: #000;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+            .son1{
+                align-self: flex-start;
+            }
+            .son3{
+                align-self: flex-end;
+            }
+        }
+        .box4{
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .son{
+                background-color: #000;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                align-self: center;
+            }
+        }
+        .box5{
+            padding: 14px 10px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .top{
+                display: flex;
+                justify-content: space-between;
+            }
+            .center{
+                display: flex;
+                justify-content: center;
+            }
+            .bottom{
+                display: flex;
+                justify-content: space-between;
+            }
+            .son{
+                background-color: #000;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                align-self: center;
+            }
+        }
+        .box6{
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .top{
+                display: flex;
+                justify-content: center;
+                .son1,.son2{
+                    background-color: red;
+                }
+            }
+            .bottom{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .son{
+                background-color: #000;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                align-self: center;
+            }
+        }
+        .box7{
+            padding-top: 5px;
+            display: flex;
+            flex-direction: column;
+            .top{
+                padding: 0 5px;
+                display: flex;
+                height: 50px;
+                .son1{
+                    align-self: flex-start;
+                }
+                .son3{
+                    align-self: flex-end;
+                }
+            }
+            .bottom{
+                padding: 0 15px;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .son{
+                color: #fff;
+                background-color: #000;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                align-self: center;
+            }
+        }
+        .box8{
+            padding: 5px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            .son{
+                color: #fff;
+                background-color: #000;
+                width: 27px;
+                height: 27px;
+                border-radius: 50%;
+            }
+        }
+        .box9{
+            padding: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            .son{
+                color: #fff;
+                background-color: #000;
+                width: 27px;
+                height: 27px;
+                border-radius: 50%;
+            }
+        }
+    }
+}

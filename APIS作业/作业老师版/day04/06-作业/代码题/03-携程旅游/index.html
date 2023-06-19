@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document老师</title>
+  <style>
+    .domestic {
+      width: 1200px;
+      margin: 50px auto;
+    }
+
+    .domestic span {
+      padding: 2px 10px;
+      margin: 10px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      float: left;
+      border: 1px solid transparent;
+    }
+
+    .domestic>div span:hover {
+      border-color: #f66;
+      background: #fff;
+      color: #f66;
+    }
+
+    .domestic span.active {
+      background: #f66;
+      color: #fff;
+    }
+
+    .tab_theme {
+      margin: 0;
+      padding: 0;
+      width: 1220px;
+      height: 202px;
+      list-style: none;
+    }
+
+    .tab_theme>li {
+      float: left;
+      width: 293px;
+      margin: 0 10px 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .tab_theme>li img {
+      display: block;
+      width: 100%;
+      margin-top: -20px;
+      position: relative;
+      bottom: 0;
+      -webkit-transiton: bottom 0.3s;
+      transition: bottom 0.3s;
+    }
+
+    .tab_theme .city_name {
+      position: absolute;
+      color: #fff;
+      top: 130px;
+      left: 0;
+      font-size: 30px;
+      text-indent: 0.5em;
+      text-shadow: 1px 1px 7px #000;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="domestic">
+    <div class="clearfix">
+      <span class="active">登高踏青</span>
+      <span>小憩温泉</span>
+      <span>天然氧吧</span>
+      <span>草原撒欢</span>
+    </div>
+    <ul class="tab_theme">
+      <!-- 
+        <li>
+        <a href="#">
+          <div class="pic_add"><img alt="黄山" src="http://img.elongstatic.com/index/termini/dgtq-hs.jpg"></div>
+          <div class="city_name">黄山</div>
+        </a>
+      </li> 
+    -->
+    </ul>
+  </div>
+
+  <script>
+    const arr = [
+      {
+        data: [
+          {
+            name: "黄山",
+            url: "http://img.elongstatic.com/index/termini/dgtq-hs.jpg"
+          },
+          {
+            name: "峨眉山",
+            url: "http://img.elongstatic.com/index/termini/dgtq-ems.jpg"
+          },
+          {
+            name: "五台山",
+            url: "http://img.elongstatic.com/index/termini/dgtq-wts.jpg"
+          },
+          {
+            name: "庐山",
+            url: "http://img.elongstatic.com/index/termini/dgtq-ls.jpg"
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            name: "江苏天目湖",
+            url: "http://img.elongstatic.com/index/termini/hbtl-tianmuhu.jpg"
+          },
+          {
+            name: "威海天沐威海温泉",
+            url:
+              "http://img.elongstatic.com/index/termini/hbtl-tianmuweihai.jpg"
+          },
+          {
+            name: "广东中山温泉",
+            url: "http://img.elongstatic.com/index/termini/hbtl-zhongshan.jpg"
+          },
+          {
+            name: "辽宁大连安波温泉",
+            url: "http://img.elongstatic.com/index/termini/hbtl-anbo.jpg"
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            name: "拉萨",
+            url: "http://img.elongstatic.com/index/termini/hbtl-lasa.jpg"
+          },
+          {
+            name: "大理",
+            url: "http://img.elongstatic.com/index/termini/hbtl-dali.jpg"
+          },
+          {
+            name: "舟山",
+            url: "http://img.elongstatic.com/index/termini/hbtl-zhoushan.jpg"
+          },
+          {
+            name: "厦门",
+            url: "http://img.elongstatic.com/index/termini/hbtl-xiamen.jpg"
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            name: "锡林郭勒",
+            url: "http://img.elongstatic.com/index/termini/cysh-xlgl.jpg"
+          },
+          {
+            name: "坝上",
+            url: "http://img.elongstatic.com/index/termini/cysh-bs.jpg"
+          },
+          {
+            name: "若尔盖",
+            url: "http://img.elongstatic.com/index/termini/cysh-reg.jpg"
+          },
+          {
+            name: "祁连山",
+            url: "http://img.elongstatic.com/index/termini/cysh-qls.jpg"
+          }
+        ]
+      }
+    ]
+
+    const spanList = document.querySelectorAll('.domestic span')
+    for (let i = 0; i < arr.length; i++) {
+      spanList[i].addEventListener('click', function () {
+        // 当前高亮模块
+        document.querySelector('.active').classList.remove('active')
+        this.classList.add('active')
+
+        // 声明空字符串
+        let str = ''
+        // arr[i].data  是点击对应数组
+        //添加元素
+        arr[i].data.forEach(function (ele) {
+          str += `
+            <li>
+              <a href="#">
+                <div class="pic_add"><img alt="${ele.name}" src="${ele.url}"></div>
+                <div class="city_name">${ele.name}</div>
+              </a>
+            </li> 
+          `
+        })
+        document.querySelector('.tab_theme').innerHTML = str
+      }
+      )
+    }
+    //默认点击第一个
+    spanList[0].click()
+  </script>
+</body>
+
+</html>

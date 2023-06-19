@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>逛水果店</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      text-align: center;
+    }
+    table {
+      margin: 0 auto
+    }
+  </style>
+  <body>
+    <div id="app">
+      <h4>欢迎光临_vue开发的收银系统_水果店</h4>
+      <table border="1" width="600" height="100">
+        <caption>
+          苹果10￥/斤，折扣/《8折》
+        </caption>
+        <tbody>
+          <tr>
+            <td>
+              <span>请输入你要购买的斤数</span>
+              <input type="number" placeholder="请输入斤数" v-model.number="goodCatty" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button @click="payMoney">结账买单</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>结账单：总价:{{totalPrice}}元 折后价:{{totalPrice * 0.8}}元 省了:{{totalPrice * 0.2}}元</p>
+    </div>
+  </body>
+</html>
+<script src="vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      goodCatty: 0,
+      totalPrice: 0
+    },
+    methods: {
+      payMoney(){
+        this.totalPrice = parseInt(this.goodCatty.toFixed(2)* 100) / 10
+      }
+    }
+  })
+</script>

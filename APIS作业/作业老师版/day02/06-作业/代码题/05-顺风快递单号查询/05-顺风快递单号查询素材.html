@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .search {
+            position: relative;
+            width: 178px;
+            margin: 100px;
+        }
+
+        .sf {
+            height: 30px;
+            padding-left: 10px;
+            outline: none;
+        }
+
+        .con {
+            display: none;
+            position: absolute;
+            top: -43px;
+            min-width: 178px;
+            max-width: 440px;
+            /* 让连续的数字自动换行 */
+            word-wrap: break-word;
+            border: 1px solid rgba(0, 0, 0, .2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            padding: 5px;
+            font-size: 18px;
+            line-height: 20px;
+            color: #333;
+        }
+
+        .con::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 25px;
+            left: 18px;
+            border-left: 1px solid rgba(0, 0, 0, .2);
+            border-bottom: 1px solid rgba(0, 0, 0, .2);
+            background-color: #fff;
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="con"></div>
+        <input type="text" placeholder="请输入您的快递单号" class="sf">
+    </div>
+    <script>
+
+    </script>
+</body>

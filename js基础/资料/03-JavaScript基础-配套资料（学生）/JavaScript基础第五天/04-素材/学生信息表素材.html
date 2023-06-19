@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h2,
+    p {
+      text-align: center;
+    }
+
+    .student {
+      overflow: hidden;
+      margin: 0 auto;
+      /* 合并相邻边框 */
+      border-collapse: collapse;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+
+    }
+
+    .student tr {
+      cursor: pointer;
+    }
+
+    .student th {
+      padding: 5px 50px;
+      color: #fff;
+    }
+
+    .student,
+    th,
+    td {
+      border: 1px solid #fff;
+      line-height: 45px;
+    }
+
+    /* 给行添加渐变背景颜色 */
+    .student thead tr {
+      background-image: linear-gradient(to right, #f46e33, #f057a5);
+    }
+
+    /* 从第2行开始修改背景颜色 */
+    .student tbody tr {
+      background-image: linear-gradient(to right, #fdf0eb, #fdeff6);
+    }
+
+    /* 从第2行开始 最后一个单元格颜色变化 */
+    .student tbody tr :last-child {
+      color: #f282bb;
+    }
+
+    /* 第一行鼠标经过不要变颜色 */
+    .student tbody tr:hover {
+      background-image: linear-gradient(to right, #f9e3da, #f9d6e8);
+
+    }
+  </style>
+</head>
+
+<body>
+  <h2>学生信息</h2>
+  <p>将数组中存储的学生信息，以表格的形式把数据渲染到页面中...</p>
+
+  <table class="student">
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>家乡</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>小明</td>
+        <td>18</td>
+        <td>男</td>
+        <td>河北省</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>小明</td>
+        <td>18</td>
+        <td>男</td>
+        <td>河北省</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>小明</td>
+        <td>18</td>
+        <td>男</td>
+        <td>河北省</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>小明</td>
+        <td>18</td>
+        <td>男</td>
+        <td>河北省</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</body>
+
+</html>

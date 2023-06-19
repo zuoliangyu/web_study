@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* width: 300px;
+            height: 300px; */
+            width: 80vw;
+            height: 44.977vh;
+            background-color: pink;
+        }
+        /* 因为iphone手机系列有 全面屏手机，也有大按键手机，两种手机型号宽高比不一致
+        如果我们布局的时候，混用vwvh单位，在这两种手机上就可能会呈现不同的效果。
+        最终结论：不要混用vw，vh, 进行适配的时候要么全用vw，要么全用vh */
+    </style>
+</head>
+<body>
+    <!-- 在页面中放置 300*300 的盒子，将盒子的宽为vw,把盒子的高度改为vh, 1vw = 3.75px, 1vh = 6.67px -->
+    <div>123</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通过style操作元素样式</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    // 通过style操作元素样式
+    // 1. 先要获取这个box元素对象
+    const box = document.querySelector('.box')
+
+    // 2. 通过style来从操作样式
+    box.style.width = '300px'
+    box.style.marginTop = '50px'
+    box.style.backgroundColor = 'skyblue'
+
+    // 3. 注意事项
+    // 3.1 给样式赋值的时候，千万不要忘了加单位比如 300px
+    // 3.2 如果有-的样式，我们采取的是小驼峰命名法比如 marginTop
+    // 3.3 一定不要忘了加 style 属性
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      position: relative;
+      width: 190px;
+      height: 260px;
+      color: #fff;
+      background: #e83632 url(./images/bg.png) 50%/contain no-repeat;
+    }
+
+    .title {
+      width: 100%;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 700;
+      padding-top: 31px;
+    }
+
+    .count {
+      margin-top: 90px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .timer {
+      margin-left: auto;
+      margin-right: auto;
+      width: 130px;
+      height: 30px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .timer span {
+      position: relative;
+      float: left;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      background-color: #2f3430;
+      margin-right: 20px;
+      color: white;
+      font-size: 20px;
+    }
+
+    .timer span:nth-child(-n+2)::after {
+      content: ":";
+      display: block;
+      position: absolute;
+      right: -20px;
+      font-weight: bolder;
+      font-size: 18px;
+      width: 20px;
+      height: 100%;
+      top: 0;
+    }
+
+    .timer span:last-child {
+      margin-right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="title">计算时间</div>
+    <div>
+      <div class="count">转换为时分秒</div>
+      <div class="timer">
+        <span class="hour">01</span>
+        <span class="minute">22</span>
+        <span class="second">58</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 转换时分秒案例
+    // 计算公式：计算时分秒
+    // 小时：  h = parseInt(总秒数 / 60 / 60 % 24)
+    // 分钟：  m = parseInt(总秒数 / 60 % 60)
+    // 秒数:   s = parseInt(总秒数 % 60) 
+  </script>
+</body>
+
+</html>

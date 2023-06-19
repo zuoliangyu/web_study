@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let per = {
+            sex:'男',
+            age:'20',
+            hobby:['打篮球','看电影','健身'],
+            speak:function(){
+                console.log('说话声音很好听')
+            },
+            eat(){
+                console.log('每吨能吃三碗饭')
+            }
+        }
+        //方法一
+        // console.log(per.sex)
+        // console.log(per['age'])
+        // console.log(per.hobby)
+        // per.speak()
+        // per['eat']()
+        //方法二：
+        for(let key in per){
+            if(typeof per[key] ==='function'){
+                per[key]()
+            }else{
+                console.log(per[key])
+            }
+        }
+    </script>
+</body>
+</html>

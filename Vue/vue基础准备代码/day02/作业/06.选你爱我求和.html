@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <div
+        v-for="v of arr"
+        style="display: inline-block"
+      >
+        <input :value="v" v-model="arr1" type="checkbox"  />
+        <span>{{ v }}</span>
+      </div>
+      <p>你选中的元素, 累加的值和为: {{ clickTotalNum }}</p>
+    </div>
+  </div>
+  <script src="../准备代码/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        arr: [9, 15, 19, 25, 29, 31, 48, 57, 62, 79, 87],
+        arr1:[]
+      },
+      computed:{
+        clickTotalNum(){
+            return this.arr1.reduce((sum,v) => sum + v,0)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

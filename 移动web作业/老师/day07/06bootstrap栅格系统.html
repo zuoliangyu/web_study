@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.css">
+    <style>
+        div{
+            
+            height: 50px;
+            /* background-color: pink; */
+            
+        }
+        .row>div{
+            box-sizing: border-box;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 栅格系统是将当前容器的宽度分为12份，你可以设置元素占多少份，而且可以设置在什么设备屏幕下占多少份 -->
+        <!-- 在bootstrap中的屏幕设备划分
+                xs(超小): < 768px
+                sm(小屏幕): >= 768px 并且 < 992px
+                md(中等屏幕): >= 992px 并且 < 1200px
+                lg(大屏幕): >= 1200px -->
+        <!-- 在栅格系统中，将容器的宽度分为12份 -->
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">1</div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">2</div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">3</div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">4</div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">5</div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">6</div>
+        </div>
+    </div> -->
+
+    <!-- 练习：
+    在超小屏幕下，一行摆放3个子盒子, 一个盒子占4份
+    在小屏幕和中等屏幕下，一行摆放4个子盒子，一个盒子占3份
+    在大屏幕下，一行摆6个子盒子，一个盒子占2份 -->
+    <div class="glyphicon glyphicon-yen"></div>
+    <div class="glyphicon glyphicon-blackboard"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-sm-3 col-lg-2 col-xs-offset-2">1</div>
+            <div class="col-xs-4 col-sm-3 col-lg-2 col-xs-offset-2">2</div>
+            <div class="col-xs-4 col-sm-3 col-lg-2 hidden-xs">3</div>
+            <div class="col-xs-4 col-sm-3 col-lg-2 hidden-xs">4</div>
+            <div class="col-xs-4 col-sm-3 col-lg-2 col-xs-pull-2">5</div>
+            <div class="col-xs-4 col-sm-3 col-lg-2 col-xs-push-2">6</div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

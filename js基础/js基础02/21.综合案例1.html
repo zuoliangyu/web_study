@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        while(true){
+            let str = prompt(`
+            1.请输入 + - * / 其中一个运算符
+            2.如果输入q则是退出程序
+            `)
+            if(str === 'q'){
+                break
+            }
+            let num1 = +prompt('请输入第一个数字：')
+            let num2 = +prompt('请输入第二个数字：')
+            
+            switch(str){
+                case '+':
+                    let sum = num1 +num2
+                    alert(sum)
+                    break
+                case '-':
+                    let sub = num1 -num2
+                    alert(sub)
+                    break
+                case '*':
+                    let qua = num1 *num2
+                    alert(qua)
+                    break
+                case '/':
+                    let div = num1 /num2
+                    alert(div)
+                    break
+            }
+        }
+    </script>
+</body>
+</html>

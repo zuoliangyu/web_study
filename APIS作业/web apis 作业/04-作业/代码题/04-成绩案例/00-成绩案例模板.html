@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/index.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app" class="score-case">
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <td>1</td>
+            <td>语文</td>
+            <td class="red">46</td>
+            <td><a href="#">删除</a></td>
+          </tr> -->
+         
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <span class="total">总分：246</span>
+              <span style="margin-left: 50px" class="average">平均分：79</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="form">
+      <div class="form-item">
+        <div class="label">姓名：</div>
+        <div class="input">
+          <input type="text" placeholder="请输入姓名" class="username" />
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">科目：</div>
+        <div class="input">
+          <input type="text" placeholder="请输入科目" class="subject" />
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">分数：</div>
+        <div class="input">
+          <input type="text" placeholder="请输入分数" class="score" />
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label"></div>
+        <div class="input">
+          <button class="submit">添加</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const list = [
+      { name: '古丽扎娜', subject: '语文', score: 20 },
+      { name: '佟丽丫丫', subject: '数学', score: 99 },
+      { name: '马尔扎哈', subject: '英语', score: 70 },
+    ]
+    let username = document.querySelector('.username')
+    let subject = document.querySelector('.subject')
+    let score = document.querySelector('.score')
+    let add = document.querySelector('.submit')
+    let total = document.querySelector('.total')
+    let average = document.querySelector('.average')
+    function render(){
+      let str = ''
+      let zf = 0
+      list.forEach(function(item,index){
+        str += `
+          <tr>
+            <td>${item.name}</td>
+            <td>${item.subject}</td>
+            <td class="red">${item.score}</td>
+            <td><a data-index="${index}" href="#">删除</a></td>
+          </tr>`
+          zf += item.score
+      })
+      document.querySelector('tbody').innerHTML = str
+      total.innerHTML = `总分:${zf}`
+      average.innerHTML = `平均分:${zf / list.length || 0}`
+    }
+    render()
+    add.addEventListener('click',function(){
+      if(username.value.trim() === '' || subject.value.trim() === '' || score.value.trim() === ''){
+        alert('姓名，科目和成绩不能为空')
+        return
+      }
+      let stu = {
+        name:username.value.trim(),
+        subject:subject.value.trim(),
+        score:+score.value.trim()
+      }
+      list.push(stu)
+      render()
+      username.value = ''
+      subject.value = ''
+      score.value = ''
+    })
+    //添加事件委托
+    let father = document.querySelector('tbody')
+    father.addEventListener('click',function(e){
+      if(e.target.tagName === 'A'){
+        list.splice(e.target.dataset.index,1)
+        render()
+      }
+    })
+
+  </script>
+</body>
+
+</html>

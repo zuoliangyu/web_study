@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件监听</title>
+</head>
+
+<body>
+  <button class="btn">唐伯虎</button>
+  <script>
+    // 需求： 点击button按钮，页面会弹出一个警示框，内容显示 '秋香'
+
+    // 事件监听语法:
+    // 元素对象.addEventListener('事件类型', 事件处理函数)
+
+    // 1. 获取元素对象 button按钮
+    const btn = document.querySelector('.btn')
+
+    // 2. 事件监听 
+    btn.addEventListener('click', function () {
+      alert('秋香')
+    })
+
+  </script>
+</body>
+
+</html>

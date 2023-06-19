@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tab切换</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .wrapper {
+      margin: 30px auto;
+      width: 80%;
+      font-family: sans-serif;
+      color: #555;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    h1+p {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 16px;
+    }
+
+    .tabs li {
+      float: left;
+      width: 20%;
+    }
+
+    .tabs a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #888;
+      padding: 20px 0;
+      border-bottom: 2px solid #888;
+      background: #f7f7f7;
+    }
+
+    .tabs a:hover,
+    .tabs a.active {
+      background: #ddd;
+    }
+
+    .tabgroup div {
+      display: none;
+      padding: 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .tabgroup div.active {
+      display: block;
+    }
+
+    .clearfix:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>Tab切换</h1>
+    <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+      <li><a href="#tab1" class="active">Tab 1</a></li>
+      <li><a href="#tab2">Tab 2</a></li>
+      <li><a href="#tab3">Tab 3</a></li>
+      <li><a href="#tab4">Tab 4</a></li>
+      <li><a href="#tab5">Tab 5</a></li>
+    </ul>
+    <section id="first-tab-group" class="tabgroup">
+      <div id="tab1" class="active">
+        <h2>标题一</h2>
+        <p>第一段内容</p>
+      </div>
+      <div id="tab2">
+        <h2>标题二</h2>
+        <p>第二段内容</p>
+      </div>
+      <div id="tab3">
+        <h2>标题三</h2>
+        <p>第三段内容</p>
+      </div>
+      <div id="tab4">
+        <h2>标题四</h2>
+        <p>第四段内容</p>
+      </div>
+      <div id="tab5">
+        <h2>标题五</h2>
+        <p>第五段内容</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // 1、找对象——》上方的按钮 + 下面的div
+    let btns = document.querySelectorAll('.tabs a')
+    let divs = document.querySelectorAll('.tabgroup > div')
+
+    // 2、注册事件
+    //   1、遍历所有的btns，注册点击事件——》注意去除a标签的默认跳转功能
+    //   2、点击之后，让btns + divs先排他——》都去除active类，让btn恢复默认颜色，div都隐藏
+    //   3、再让当前的btn + 对应的div添加active类，让btn变色，div显示
+  
+  </script>
+</body>
+
+</html>

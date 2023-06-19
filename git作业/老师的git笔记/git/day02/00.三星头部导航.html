@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.css">
+    <style>
+        nav{
+            display: flex;
+            height: 80px;
+            align-items: center;
+        }
+        .left{
+            margin-right: 60px;
+        }
+        .items{
+            flex:1;
+        }
+        .items .item{
+            float:left;
+            margin:0 8px;
+        }
+        .right{
+            display: flex;
+            align-items: center;
+        }
+        .right .item{
+            float: left;
+            margin:0 8px;
+        }
+        .right img{
+            width: 50px;
+            height: 56px;
+        }
+
+        .icons{
+            display: none;
+            flex: 1;
+            
+            justify-content: flex-end;
+        }
+        .icons i{
+            width: 40px;
+            height: 40px;
+            margin:0 8px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        @media screen and (max-width:1278px){
+            .items{
+                display: none;
+            }
+            .right{
+                display: none;
+            }
+            .icons{
+                display: flex;
+                /* display: block; */
+            }
+        }
+
+        .container{
+            height: 680px;
+            background-color: pink;
+        }
+        .container>div{
+            height: 100%;
+        }
+        .container>div>div{
+            height: 100%;
+            background-color: cyan;
+        }
+        .container>div>div>div{
+            height: 100%;
+        }
+        .container>div>div>div>div{
+            height: 50%;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="left">
+            <img src="./images/logo.png" alt="">
+        </div>
+        <div class="items">
+            <div class="item">三星商城</div>
+            <div class="item">三星商城</div>
+            <div class="item">三星商城</div>
+            <div class="item">三星商城</div>
+            <div class="item">三星商城</div>
+            <div class="item">三星商城</div>
+            <div class="item">三星商城</div>
+            <div class="item">三星商城</div>
+        </div>
+        <div class="right">
+            <div class="item">售后服务</div>
+            <div class="item">售后服务</div>
+            <img src="https://qncdn.samsung.com.cn/publicFile/img/sumLiveIcon.gif?0.3708974958775595" alt="">
+        </div>
+
+        <div class="icons">
+            <i class="glyphicon glyphicon-search"></i>
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">1</div>
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-xs-6">1</div>
+                    <div class="col-xs-6">2</div>
+                    <div class="col-xs-6">3</div>
+                    <div class="col-xs-6">4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

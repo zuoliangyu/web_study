@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal {
+          width: 300px;
+          min-height: 100px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          border-radius: 4px;
+          position: fixed;
+          z-index: 999;
+          left: 50%;
+          top: 50%;
+          transform: translate3d(-50%, -50%, 0);
+          background-color: #fff;
+        }
+    
+        .modal .header {
+          line-height: 40px;
+          padding: 0 10px;
+          position: relative;
+          font-size: 20px;
+        }
+    
+        .modal .header i {
+          font-style: normal;
+          color: #999;
+          position: absolute;
+          right: 15px;
+          top: -2px;
+          cursor: pointer;
+        }
+    
+        .modal .body {
+          text-align: center;
+          padding: 10px;
+        }
+    
+        .modal .footer {
+          display: flex;
+          justify-content: flex-end;
+          padding: 10px;
+        }
+    
+        .modal .footer a {
+          padding: 3px 8px;
+          background: #ccc;
+          text-decoration: none;
+          color: #fff;
+          border-radius: 2px;
+          margin-right: 10px;
+          font-size: 14px;
+        }
+    
+        .modal .footer a.submit {
+          background-color: #369;
+        }
+    </style>
+</head>
+<body>
+    <button class="delete">删除</button>
+    <button class="login">登录</button>
+    <button class="add">新增</button>
+    <script>
+        //创建模态框盒子
+        function Modal(title = '',message = ''){
+            this.modalBox = document.createElement('div')
+            this.modalBox.className = 'modal'
+            this.modalBox.innerHTML = `
+            <div class="header">${title}<i>X</i></div>
+            <div class="body">${message}</div>`
+            // console.log(this.modalBox)
+
+        }
+        // new Modal('温馨提示','您没有权限删除')
+        // new Modal('友情提示','您还没有注册账号')
+        let del = document.querySelector('.delete')
+        let login = document.querySelector('.login')
+        let add = document.querySelector('.add')
+        //添加open方法，让modalbox展示在页面中
+        Modal.prototype.open = function(){
+            let box = document.querySelector('.modal')
+            box && box.remove()
+            document.body.append(this.modalBox)
+            //等盒子显示出来后，绑定关闭方法
+            this.modalBox.querySelector('i').addEventListener('click',() => {
+                this.close()
+            })
+        }
+        //添加close方法
+        Modal.prototype.close = function(){
+            this.modalBox.remove()
+        }
+        //给删除按钮添加点击事件
+        del.addEventListener('click',function(){
+            let shanchu = new Modal('温馨提示','您没有权限删除')
+            shanchu.open()
+        })
+        //给登录按钮添加点击事件
+        login.addEventListener('click',function(){
+            let denglu = new Modal('友情提示','您还没有注册账号')
+            denglu.open()
+        })
+        add.addEventListener('click',function(){
+            let xinzeng = new Modal('温馨提示','您没有权限新增')
+            xinzeng.open()
+        })
+    </script>
+</body>
+</html>

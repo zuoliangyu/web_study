@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面试题</title>
+</head>
+<body>
+    <script>
+        //两个数组 var A = [1, 5, 6]; var B = [2, 6, 7]，实现一个方法，找出仅存在于A 或者 仅 存在于B中的所有数字。
+        var A = [1, 5, 6]
+        var B = [2, 6, 7]
+        function getDiff(arr, brr){
+            console.log(arr, brr)
+    	    // 仅存在于arr中的内容
+            var onlyArr = arr.filter(item => !brr.some(v => item === v))
+            // 仅存在于brr中的内容
+            console.log(onlyArr)
+            var onlyBrr = brr.filter(v => !arr.some(item => v === item))
+            // 需要哪个就返回哪个，或者一起返回
+            return {
+                // "仅存在于arr中的内容": onlyArr,
+                // "仅存在于brr中的内容": onlyBrr
+                onlyArr
+            }
+            console.log(onlyArr,onlyBrr)
+        }
+        getDiff(A, B)
+
+
+
+        
+    </script>
+</body>
+</html>

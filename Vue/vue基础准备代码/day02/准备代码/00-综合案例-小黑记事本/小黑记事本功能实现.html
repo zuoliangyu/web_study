@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="./css/index.css" />
+<title>记事本</title>
+</head>
+<body>
+
+<!-- 主体区域 -->
+<section id="app">
+  <!-- 输入框 -->
+  <header class="header">
+    <h1>小黑记事本</h1>
+    <input @keyup.enter="add" placeholder="请输入任务" v-model="content" class="new-todo" />
+    <button class="add" @click="add">添加任务</button>
+  </header>
+  <!-- 列表区域 -->
+  <section class="main">
+    <ul class="todo-list">
+      <!-- 遍历渲染的标签 -->
+      <li class="todo" v-for="(item, index) in todoList" :key="item.id">
+        <div class="view">
+          <span class="index">{{ index + 1}}.</span> <label>{{ item.name }}</label>
+          <button class="destroy" @click="del(item.id)"></button>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <!-- 统计和清空 -->
+  <footer class="footer" v-show="todoList.length > 0">
+    <!-- 统计 -->
+    <span class="todo-count">合 计:<strong> {{ todoList.length }} </strong></span>
+    <!-- 清空 -->
+    <button class="clear-completed" @click="clear">
+      清空任务
+    </button>
+  </footer>
+</section>
+
+<!-- 底部 -->
+<script src="./../vue.js"></script>
+<script>
+  /*
+    1. 渲染功能 
+      1.1 提供数据
+      1.2 v-for 遍历渲染 
+    2. 删除功能
+      2.1 拿到删除项的id -> filter
+    3. 添加功能
+      3.1 给添加按钮注册点击事件
+      3.2 获取输入的任务 - v-model
+      3.3 将获取到的任务添加到数组中 push() / unshift()   
+      3.4 清空任务
+    4. 合计和清空
+      4.1 合计: 数组的长度
+      4.2 清空: todoList = []  
+  */ 
+  const app = new Vue({
+    el: '#app',
+    data: {
+     content: '', 
+     todoList: [
+      {
+        id: 1,
+        name: '吃火锅'
+      },
+      {
+        id: 2,
+        name: '敲代码'
+      }
+     ] 
+    },
+    methods: {
+      del(id) {
+        this.todoList = this.todoList.filter(item => item.id !== id)
+      },
+      add() {
+        if (this.content.trim() === '') return alert('任务不能为空')
+        this.todoList.unshift({
+          id: + new Date(), // 唯一的id
+          name: this.content
+        })
+        this.content = ''
+      },
+      clear() {
+        this.todoList = []
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

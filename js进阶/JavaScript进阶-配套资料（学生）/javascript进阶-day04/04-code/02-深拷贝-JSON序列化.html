@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深拷贝-JSON序列化</title>
+</head>
+
+<body>
+  <script>
+    // 深拷贝实现方式一：JSON序列化（常用的方式）
+    // const obj = {
+    //   name: '佩奇',
+    //   family: {
+    //     father: '猪爸爸'
+    //   },
+    //   hobby: ['跳泥坑', '唱歌']
+    // }
+
+    // // console.log(JSON.stringify(obj))
+    // // console.log(JSON.parse(JSON.stringify(obj)))
+    // const newObj = JSON.parse(JSON.stringify(obj))
+    // console.log(newObj === obj)  // false
+    // newObj.family.father = 'dad'
+    // console.log(obj)
+    // console.log(newObj)
+
+    // 注意事项：JSON.stringify序列化的时候会忽略 function undefined
+    const obj = {
+      name: '佩奇',
+      love: undefined,
+      family: {
+        father: '猪爸爸'
+      },
+      hobby: ['跳泥坑', '唱歌'],
+      sayHi() {
+        console.log('我会唱歌')
+      }
+    }
+    const newObj = JSON.parse(JSON.stringify(obj))
+    console.log(newObj)
+  </script>
+</body>
+
+</html>

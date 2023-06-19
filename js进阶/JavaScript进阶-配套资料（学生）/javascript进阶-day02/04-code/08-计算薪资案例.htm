@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算薪资案例</title>
+</head>
+
+<body>
+  <script>
+    const arr = [{
+      name: '张三',
+      salary: 10000
+    }, {
+      name: '李四',
+      salary: 15000
+    }, {
+      name: '王五',
+      salary: 20000
+    }
+    ]
+    // 语法： arr.reduce(function(上一次返回值, 当前数组元素){}, 初始值)
+
+    // 计算薪资案例
+    // const total = arr.reduce(function (prev, current) {
+    //   return prev + current.salary
+    // }, 0)
+    const total = arr.reduce((prev, current) => prev + current.salary, 0)
+    console.log(total)
+
+    //  上一次返回值  当前元素的工资    本次返回值  
+    //  0            10000           10000       （第一次遍历）
+    //  10000        15000           25000       （第二次遍历）
+    //  25000       20000           450000       （第三次遍历）
+  </script>
+</body>
+
+</html>

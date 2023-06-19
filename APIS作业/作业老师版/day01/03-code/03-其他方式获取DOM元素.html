@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="box">我是id盒子</div>
+  <div class="item">我是类盒子</div>
+  <div class="item">我是类盒子</div>
+  <div class="item">我是类盒子</div>
+  <p>我是段落</p>
+  <p>我是段落</p>
+  <p>我是段落</p>
+  <input type="text" name="username">
+  <input type="password" name="password">
+  <script>
+    // 其他获取DOM元素方式（了解） 
+    // 1. getElementById   根据id获取
+    const box = document.getElementById('box')
+    console.log(box)
+
+    // 2. getElementsByClassName   根据类名获取  返回伪数组
+    const items = document.getElementsByClassName('item')
+    console.log(items)
+
+    // 3. getElementsByTagName  根据标签名获取 返回伪数组
+    const ps = document.getElementsByTagName('p')
+    console.log(ps)
+
+    // 4. getElementsByName  根据name属性获取 返回伪数组
+    const inputs = document.getElementsByName('username')
+    console.log(inputs)
+
+
+  </script>
+</body>
+
+</html>

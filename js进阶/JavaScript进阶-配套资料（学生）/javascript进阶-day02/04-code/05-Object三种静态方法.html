@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object三种静态方法</title>
+</head>
+
+<body>
+  <script>
+    // Object 三种静态方法
+    const o = { name: '佩奇', age: 6, gender: '女' }
+
+    // 1. Object.keys()  得到对象所有属性（重点） 返回的是数组
+    const key = Object.keys(o)
+    console.log(key)
+
+    // 2. Object.values()  得到对象所有属性值（重点）返回的是数组
+    const value = Object.values(o)
+    console.log(value)
+
+    // 3. Object.assign(目标对象, 源对象)  对象的拷贝   assign 赋值的意思
+    const oo = {}
+    Object.assign(oo, o)
+    oo.name = '小猪佩奇'
+    console.log(oo)
+    console.log(o)
+    // 3.1 注意 拷贝对象之后是两个不同的对象，不会相互影响
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年会抽奖</title>
+  <style>
+    .wrapper {
+      width: 840px;
+      height: 420px;
+      background: url(./images/bg01.jpg) no-repeat center / cover;
+      padding: 100px 250px;
+      box-sizing: border-box;
+    }
+
+    .wrapper span {
+      color: #b10e0d;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <strong>年会抽奖</strong>
+    <h1>一等奖：<span class="one">???</span></h1>
+    <h3>二等奖：<span class="two">???</span></h3>
+    <h5>三等奖：<span class="three">???</span></h5>
+  </div>
+
+  <script>
+    // 数组
+    const arr = ['迪丽热巴', '古丽扎娜', '佟丽丫丫', '马尔扎哈']
+    // 1. 一等奖的做法
+    // 1.1 利用随机数选取数组中的名字
+    const random = Math.floor(Math.random() * arr.length)
+    console.log(random) // 0 ~ 3 之间的随机整数
+    console.log(arr[random]) // 随机名字
+
+    // 1.2 把名字放入对应的盒子里面 span
+    const one = document.querySelector('.one')
+    one.innerText = arr[random]
+
+    // 1.3 不允许重复抽奖，所以要把刚才选出来的名字从数组中删除
+    // arr.splice(随机数, 1)  // 可以删除刚才抽取的名字
+    arr.splice(random, 1)
+    console.log(arr)
+
+    // 2. 二等奖的做法
+    // 2.1 利用随机数选取数组中的名字
+    const random2 = Math.floor(Math.random() * arr.length)
+    console.log(arr[random2]) // 数组里面的名字
+
+    // 2.2 把名字放入对应的盒子里面 span
+    const two = document.querySelector('.two')
+    two.innerText = arr[random2]
+
+    // 2.3 不允许重复抽奖，所以要把刚才选出来的名字从数组中删除
+    arr.splice(random2, 1)
+    console.log(arr)
+
+    // 3. 三等奖的做法
+    // 3.1 利用随机数选取数组中的名字
+    const random3 = Math.floor(Math.random() * arr.length)
+    console.log(arr[random3]) // 数组里面的名字
+
+    // 3.2 把名字放入对应的盒子里面 span
+    const three = document.querySelector('.three')
+    three.innerText = arr[random3]
+
+    // 3.3 不允许重复抽奖，所以要把刚才选出来的名字从数组中删除
+    arr.splice(random3, 1)
+    console.log(arr)
+  </script>
+</body>
+
+</html>

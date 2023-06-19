@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Title</title>
+  <!-- 讲解视频链接：https://www.bilibili.com/video/BV1mS4y1j7YZ?p=21 -->
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      background-image: url(./images/bg1.jpg);
+    }
+
+    #mask {
+      background-color: rgba(255, 255, 255, 0.3);
+      height: 200px;
+      text-align: center;
+    }
+
+    #mask img {
+      width: 200px;
+      margin-top: 35px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="mask">
+    <img src="./images/bg1.jpg" alt="" />
+    <img src="./images/bg2.jpg" alt="" />
+    <img src="./images/bg3.jpg" alt="" />
+    <img src="./images/bg4.jpg" alt="" />
+    <img src="./images/bg5.jpg" alt="" />
+  </div>
+
+  <script>
+    // 1、找到每一个img标签，注册点击事件
+    // 2、点击之后，把img标签的src属性直接设置给body标签的backgroundImage即可
+
+    // 找对象
+    const imgs = document.querySelectorAll('img')
+    console.log(imgs)
+
+    // 遍历给每一个img注册点击事件
+    for (let i = 0; i < imgs.length; i++) {
+      console.log(imgs[i])
+
+      imgs[i].addEventListener('click', function () {
+        //  console.log(111)
+
+        // 把当前的img标签的src属性值赋值给body
+        // console.log(this.src)
+        document.body.style.backgroundImage = `url(${this.src})`
+      })
+    }
+  </script>
+</body>
+
+</html>

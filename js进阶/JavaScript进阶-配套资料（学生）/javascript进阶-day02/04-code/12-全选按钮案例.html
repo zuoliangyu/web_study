@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 500px;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+      height: 35px;
+    }
+
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+
+    .allCheck {
+      width: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th class="allCheck">
+        <input type="checkbox" name="" id="checkAll"> <span class="all">全选</span>
+      </th>
+      <th>商品</th>
+      <th>商家</th>
+      <th>价格</th>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck">
+      </td>
+      <td>小米手机</td>
+      <td>小米</td>
+      <td>￥1999</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck">
+      </td>
+      <td>小米净水器</td>
+      <td>小米</td>
+      <td>￥4999</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck">
+      </td>
+      <td>小米电视</td>
+      <td>小米</td>
+      <td>￥5999</td>
+    </tr>
+  </table>
+  <script>
+    // 全选案例
+    const checkAll = document.querySelector('#checkAll')
+    const cks = document.querySelectorAll('.ck')
+    // 1. 点击全选按钮，下面小按钮跟随变化
+    checkAll.addEventListener('change', function () {
+      // console.log(11)
+      // 得到全选按钮的状态是不是勾选呢？
+      // console.log(this.checked)  // true 代表勾选  false 代表不勾选
+      // 让每一个小复选框的选中状态 修改为 全选按钮的选中状态
+      cks.forEach(ele => ele.checked = this.checked)
+    })
+
+    // 2. 小复选框控制全选按钮 
+    // 2.1 给每个小复选框注册 change 事件
+    cks.forEach(ele => {
+      ele.addEventListener('change', function () {
+        // alert(11)
+        // 2.2 利用every检测小的复选框是否选中，把检测结果给 全选按钮
+        // 注意 伪数组不能使用 every方法所以需要转换为真数组
+        // cks.every()
+        // const flag = Array.from(cks).every(element => element.checked === true)
+        // console.log(flag)
+        checkAll.checked = Array.from(cks).every(element => element.checked === true)
+      })
+    })
+  </script>
+</body>
+
+</html>

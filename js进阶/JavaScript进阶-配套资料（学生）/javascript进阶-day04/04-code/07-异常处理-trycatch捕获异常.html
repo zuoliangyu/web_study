@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>try/catch 捕获错误信息</title>
+</head>
+
+<body>
+  <p>我是测试文字</p>
+  <script>
+    // try/catch 捕获错误信息
+    try {
+      // 要写测试的代码可能出现错误的代码
+      const p = document.querySelector('.p')
+      p.style.color = 'red'
+    } catch (error) {
+      // 如果try里面的代码出现错误，则进入catch ， 参数 error 是错误信息
+      // console.log(error)
+      throw error
+    } finally {
+      // 不管代码是否有错误都会执行
+      console.log('不管代码是否有错误都会执行')
+    }
+
+  </script>
+</body>
+
+</html>

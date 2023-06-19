@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = new Object()
+        obj.name = 'peiqi'
+        obj.age = 6
+        let re1 = Object.keys(obj)
+        console.log(re1)
+        let re2 = Object.values(obj)
+        console.log(re2)
+
+        //Object.assign 方法的效果是将参数2对象中的数据拷贝给参数1对象
+        let people = {}
+        Object.assign(people,obj)
+        console.log(people)
+    </script>
+</body>
+</html>

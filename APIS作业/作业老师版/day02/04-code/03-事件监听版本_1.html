@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件监听版本</title>
+</head>
+
+<body>
+  <button>按钮</button>
+  <script>
+    // 事件监听版本
+    const btn = document.querySelector('button')
+
+    // 1. DOM L0  注册同名 onclick 事件，会出现覆盖的情况
+    // btn.onclick = function () {
+    //   alert('我是弹窗1')
+    // }
+
+    // btn.onclick = function () {
+    //   alert('我是弹窗2')
+    // }
+
+    // 2. DOM L2  注册同名 click 事件，不会出现覆盖的情况
+    btn.addEventListener('click', function () {
+      alert('我是弹窗1')
+    })
+    btn.addEventListener('click', function () {
+      alert('我是弹窗2')
+    })
+
+
+  </script>
+</body>
+
+</html>

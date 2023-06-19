@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            position: relative;
+        }
+        img{
+            width: 300px;
+            vertical-align: bottom;
+        }
+        h3{
+            color: #fff;
+            position: absolute;
+            width: 260px;
+            left: 20px;
+            bottom: 0;
+            z-index: 1;
+        }
+        .box:hover .mask{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 1;
+            background-image: linear-gradient(
+                transparent,
+                rgba(0,0,0,0.6)
+            );
+        }
+        .mask{
+            opacity: 0;
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./images/product.jpeg" alt="">
+        <h3>OceanStor Pacific 海量存储斩获2021 Interop金奖</h3>
+        <div class="mask"></div>
+    </div>
+    <div class="box">
+        <img src="./images/product.jpg" alt="">
+        <h3>OceanStor Pacific 海量存储斩获2021 Interop金奖</h3>
+        <div class="mask"></div>
+    </div>
+</body>
+</html>

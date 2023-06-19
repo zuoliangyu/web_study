@@ -1,0 +1,50 @@
+.orderbottom{
+    height: 137px;
+    .one{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #ccc;
+        margin-bottom: 18px;
+        .goods{
+            flex:1;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+body{
+    background-color: pink;
+    font-size: 16px;
+    div{
+        width: (100rem / 37.5px);
+        height: (100 / 37.5rem);
+        font-size:10+20px;
+        background-color: skyblue;
+        p{
+            font-size:20px;
+
+        }
+        a{
+            color:#000;
+            text-decoration: none;
+            // 鼠标悬停的时候，文字颜色改为 #069
+            // & 符号代表的其实就是父元素
+            &:hover{
+                color:#069;
+            }
+        }
+        // a:hover{
+        //     color:#069;
+        // }
+    }
+}
+
+/*
+1. 安装 easyless 插件
+2. 创建 .less 为后缀名的文件，在文件中编写符合less语法的css代码
+3. 保存 .less 文件之后，会产生对应的css文件，将css文件引入到页面中使用即可
+*/
+
+// 问题：伪元素伪类怎么写？

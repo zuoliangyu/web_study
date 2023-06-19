@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元字符之量词</title>
+</head>
+
+<body>
+  <script>
+    // 元字符之量词
+    // 1. * 重复次数 >= 0 次
+    const reg1 = /^w*$/
+    console.log(reg1.test(''))  // true
+    console.log(reg1.test('w'))  // true
+    console.log(reg1.test('ww'))  // true
+    console.log('-----------------------')
+
+    // 2. + 重复次数 >= 1 次
+    const reg2 = /^w+$/
+    console.log(reg2.test(''))  // false
+    console.log(reg2.test('w'))  // true
+    console.log(reg2.test('ww'))  // true
+    console.log('-----------------------')
+
+    // 3. ? 重复次数  0 || 1 
+    const reg3 = /^w?$/
+    console.log(reg3.test(''))  // true
+    console.log(reg3.test('w'))  // true
+    console.log(reg3.test('ww'))  // false
+    console.log('-----------------------')
+
+
+    // 4. {n} 重复 n 次
+    const reg4 = /^w{3}$/
+    console.log(reg4.test(''))  // false
+    console.log(reg4.test('w'))  // flase
+    console.log(reg4.test('ww'))  // false
+    console.log(reg4.test('www'))  // true
+    console.log(reg4.test('wwww'))  // false
+    console.log('-----------------------')
+
+    // 5. {n,} 重复次数 >= n 
+    const reg5 = /^w{2,}$/
+    console.log(reg5.test(''))  // false
+    console.log(reg5.test('w'))  // false
+    console.log(reg5.test('ww'))  // true
+    console.log(reg5.test('www'))  // true
+    console.log('-----------------------')
+
+    // 6. {n,m}   n =< 重复次数 <= m
+    const reg6 = /^w{2,4}$/
+    console.log(reg6.test('w'))  // false
+    console.log(reg6.test('ww'))  // true
+    console.log(reg6.test('www'))  // true
+    console.log(reg6.test('wwww'))  // true
+    console.log(reg6.test('wwwww'))  // false
+
+    // 7. 注意事项： 逗号两侧千万不要加空格否则会匹配失败
+
+  </script>
+</body>
+
+</html>

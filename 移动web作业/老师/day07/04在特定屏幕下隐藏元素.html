@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            height: 200px;
+        }
+
+        .left{
+            width: 100px;
+            height: 100%;
+            background-color: pink;
+        }
+        .right{
+            flex:1;
+            height: 100%;
+            background-color: cyan;
+        }
+
+        @media screen and (max-width:768px) {
+            .left{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 制作一个布局，制作一个左侧盒子固定宽度100px，右侧盒子自适应的页面布局 -->
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

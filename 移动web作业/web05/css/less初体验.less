@@ -1,0 +1,21 @@
+@mycolor: yellow;
+*{
+    padding: 0;
+    margin: 0;
+}
+.father{
+    width: 600px;
+    height: 600px;
+    border: 5px solid @mycolor;
+    .son{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+    }
+    .son2{
+        background-color: @mycolor;
+    }
+    .son3{
+        color: @mycolor;
+    }
+}

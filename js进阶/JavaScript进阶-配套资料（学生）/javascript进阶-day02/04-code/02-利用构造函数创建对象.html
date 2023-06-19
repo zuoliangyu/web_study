@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>构造函数</title>
+</head>
+
+<body>
+  <script>
+    // 构造函数：是一种特殊的函数，用来创建对象（并完成初始化对象）
+    // 1. 构造函数的2个约定 首字母要大写, 利用new关键字来调用函数
+    // function Pig() {
+
+    // }
+    // console.log(new Pig)
+    // console.log(Pig())
+    function Pig(name, age, gender) {
+      // this.name 属性   
+      // name 是形参也就是属性值
+      this.name = name
+      this.age = age
+      this.gender = gender
+      // return 123
+    }
+    const peiqi = new Pig('佩奇', 6, '女')
+    console.log(peiqi)
+    const qiaozhi = new Pig('乔治', 3, '男')
+    console.log(qiaozhi)
+
+    // 2. 构造函数创建对象说明
+    // 2.1 new 关键字 实例化对象
+    // 2.2 如果构造函数没有参数，则可以省略小括号
+    // 2.3 构造函数里面无需写 return
+    // 2.4 new Object()  new Date() 也是在实例化对象
+  </script>
+</body>
+
+</html>

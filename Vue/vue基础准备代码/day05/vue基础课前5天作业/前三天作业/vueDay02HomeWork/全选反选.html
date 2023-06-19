@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <div>
+        <span>全选:</span>
+        <input type="checkbox" v-model="isAll" />
+        <button @click="reverseBtn">反选</button>
+        <ul>
+          <li v-for="(item, index) in arr" :key="index">
+            <input type="checkbox" v-model="item.checked" />
+            <span>{{item.name}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          arr: [
+            {
+              name: "猪八戒",
+              checked: false,
+            },
+            {
+              name: "孙悟空",
+              checked: false,
+            },
+            {
+              name: "唐僧",
+              checked: false,
+            },
+            {
+              name: "白龙马",
+              checked: false,
+            },
+          ],
+        },
+        computed: {
+          isAll: {
+            get() {
+             return this.arr.every(item => item.checked)
+            },
+            set(newVal) {
+              this.arr.forEach(item => item.checked = newVal);
+            },
+          },
+        },
+        methods: {
+          reverseBtn(){
+            this.isAll = !this.isAll
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

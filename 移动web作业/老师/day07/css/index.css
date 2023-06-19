@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div{
+    /* 没有写在媒体查询中的代码就是默认css样式 */
+    width: 50%;
+    background-color: pink;
+    float: left;
+    height: 100px;
+    background-color: pink;
+    box-sizing: border-box;
+}

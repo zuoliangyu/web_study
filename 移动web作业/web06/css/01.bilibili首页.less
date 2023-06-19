@@ -1,0 +1,144 @@
+@vw:3.75vw;
+@maincolor:#fb7299;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.top{
+    width: ( 375 / @vw);
+    height: ( 44/ @vw);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 (12/@vw) 0 (18/@vw);
+    .left{
+        .icon-bilibili{
+        font-size: (28/@vw);
+        color: @maincolor;
+        }
+    }
+    .right{
+        display: flex;
+        align-items: center;
+        .icon-fangdajing{
+            font-size: ( 22 / @vw);
+            color: #ccc;
+        }
+        .login{
+            width: ( 24 / @vw);
+            margin-left: ( 24 / @vw);
+        }
+        .download{
+            width: ( 72 / @vw);
+            margin-left: ( 24 / @vw);
+        }
+    }
+}
+.nav{
+    display: flex;
+    width: 100%;
+    height: ( 40 / @vw);
+    justify-content: space-between;
+    padding: 0 (12/@vw) 0 (18/@vw);
+    border-bottom: 1px solid #ccc;
+    ul{
+        display: flex;
+        li{
+            padding: 0 ( 16 / @vw);
+            &:first-child{
+                padding-left: 0;
+            }
+            a{
+                display: block;
+                font-size: ( 14 / @vw);
+                color: #333;
+                height: ( 38 / @vw);
+                line-height: ( 38 / @vw);
+                &:hover{
+                    color: @maincolor;
+                    border-bottom: 2px solid @maincolor;
+                }
+            }
+            .active{
+                color: @maincolor;
+                border-bottom: 2px solid @maincolor;
+            }
+
+        }
+        
+    }
+    .more{
+        font-size: ( 22 / @vw);
+        color: #443a3a;
+    }
+}
+.vedio{
+    width: 100%;
+    display: flex;
+    padding: 0 (5/@vw);
+    a{
+        width: 50%;
+        padding: (8/@vw) (5/@vw);
+        color: #333;
+        position: relative;
+        img{
+            width: ( 172.5/ @vw);
+        }
+        .shipin{
+            color: #fff;
+            position: absolute;
+            font-size: (12/@vw);
+            left: ( 10 / @vw);
+            top: ( 80 / @vw);
+            i{
+                font-size: (14/@vw);
+            }
+        }
+        .pinglun{
+            color: #fff;
+            position: absolute;
+            font-size: (12/@vw);
+            left: ( 127 / @vw);
+            top: ( 80 / @vw);
+            i{
+                font-size: (13/@vw);
+            }
+        }
+        p{
+            display: block;
+            height: (32/@vw);
+            font-size: (12/@vw);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        }
+    }
+    .bottom{
+        width: 100%;
+        height: (50/@vw);
+        background-color: @maincolor;
+        border-radius: 30px;
+        position: fixed;
+        left: 0;
+        bottom: (30/@vw);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a{
+            font-size: (16/@vw);
+            color: #fff;
+            i{
+                font-size: (20/@vw);
+            }
+        }
+    }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>f11进入函数内部调试</title>
+</head>
+
+<body>
+  <script>
+    function some(ele, arr = []) {
+      let flag = false
+      for (let i = 0; i < arr.length; i++) {
+        if (ele === arr[i]) {
+          flag = true
+          break
+        }
+      }
+      return flag
+    }
+    let re = some('香蕉', ['苹果', '香蕉', '橘子'])
+    console.log(re) 
+  </script>
+</body>
+
+</html>

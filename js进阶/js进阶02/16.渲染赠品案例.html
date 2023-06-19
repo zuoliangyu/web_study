@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        let gift = '50g茶叶,清洗球'
+        let str = gift.split(',').map(function(item){
+            return `<span>【赠品】 ${item}</span><br>`
+        })
+        // console.log(str.join(''))
+        document.querySelector('div').innerHTML = str.join('')
+    </script>
+</body>
+</html>

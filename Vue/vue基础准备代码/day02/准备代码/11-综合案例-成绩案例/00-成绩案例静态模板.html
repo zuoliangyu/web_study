@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" class="score-case">
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>编号</th>
+              <th>科目</th>
+              <th>成绩</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(v,i) of list" :key="v.id">
+              <td>{{ i + 1 }}</td>
+              <td>{{ v.subject }}</td>
+              <td :class="{ red : v.score>60 ? false : true}">{{ v.score }}</td>
+              <td><a @click="del(v.id)" href="#">删除</a></td>
+            </tr>
+          </tbody>
+          <tbody v-show="list.length === 0">
+            <tr>
+              <td colspan="5">
+                <span class="none">暂无数据</span>
+              </td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                <span>总分：{{ totalScore }}</span>
+                <span style="margin-left: 50px">平均分：{{ avgScore }}</span>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="form">
+        <div class="form-item">
+          <div class="label">科目：</div>
+          <div class="input">
+            <input
+              v-model.trim="subject"
+              type="text"
+              placeholder="请输入科目"
+            />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="label">分数：</div>
+          <div class="input">
+            <input
+              @keyup.enter="add"
+              v-model.number.trim="score"
+              type="text"
+              placeholder="请输入分数"
+            />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="label"></div>
+          <div class="input">
+            <button @click="add" class="submit" >添加</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../vue.js"></script>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          list: [
+            { id: 1, subject: '语文', score: 20 },
+            { id: 7, subject: '数学', score: 99 },
+            { id: 12, subject: '英语', score: 70 },
+          ],
+          subject: '',
+          score: ''
+        },
+        computed:{
+          totalScore(){
+            return this.list.reduce( (sum,v) => sum + v.score ,0 )
+          },
+          avgScore(){
+            return (this.totalScore / this.list.length).toFixed(2)
+          }
+        },
+        methods:{
+          del(id){
+            this.list = this.list.filter(v => v.id !== id)
+          },
+          add(){
+            this.list.push({
+              id: Date.now(), 
+              subject: this.subject, 
+              score: this.score
+            })
+            this.subject = ''
+            this.score = ''
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

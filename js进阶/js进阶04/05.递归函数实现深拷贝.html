@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student = {
+            name:'李好',
+            age:18,
+            school:undefined,
+            girlFriend:{
+                name:'翠花',
+                age:18,
+                mother:{
+                    name:'翠花妈',
+                    age:42
+                }
+            },
+            sing:function(){
+                console.log('我会唱歌')
+            }
+        }
+        //封装深拷贝函数
+        function cloneDeep(student){
+            //创建一个对象（三元判断是数组或对象）
+            let newStu = Array.isArray(student) ? [] :{ }
+            //遍历对象
+            for(let k in student){
+                //判断k对应的数据是否是一个对象
+                if( typeof student[k] === 'object'){
+                    newStu[k] = cloneDeep(student[k])
+                }else{
+                    newStu[k] = student[k]
+                }
+            }
+            return newStu
+        }
+        let studentCopy = cloneDeep(student)
+        console.log(studentCopy)
+        console.log(studentCopy === student)
+        console.log(studentCopy.girlFriend === student.girlFriend)
+        console.log(studentCopy.girlFriend.mother === student.girlFriend.mother)
+    </script>
+</body>
+</html>

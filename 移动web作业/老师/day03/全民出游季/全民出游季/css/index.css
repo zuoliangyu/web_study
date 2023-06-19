@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* *** 让网页和body的高度是浏览器窗口 的 高度 */
+html,
+body {
+    height: 100%;
+}
+
+.box {
+    /* width: ; */
+    height: 100%;
+    background: url(../images/f1_1.jpg) no-repeat center 0;
+    /* background-size: contain; */
+    background-size: cover;
+}
+
+/* 
+    1. 放图片 - img
+    2. 调整img的位置
+    3. 定义调用动画
+*/
+
+/* 云彩 */
+.cloud img {
+    position: absolute;
+    left: 50%;
+    /* top: 0; */
+}
+
+.cloud img:nth-child(1) {
+    margin-left: -250px;
+    top: 20px;
+    animation: yun 1s infinite alternate;
+}
+.cloud img:nth-child(2) {
+    margin-left: 400px;
+    top: 100px;
+    animation: yun 1s infinite alternate .2s;
+}
+.cloud img:nth-child(3) {
+    margin-left: -500px;
+    top: 200px;
+    animation: yun 1s infinite alternate .4s;
+}
+
+@keyframes yun {
+    100% {
+        transform: translateX(30px);
+    }
+}
+/* 云彩 */

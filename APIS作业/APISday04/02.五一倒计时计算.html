@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>距离五月一日的倒计时：</p>
+    <div>
+        <span id="day">?天</span>
+        <span id="hour">?小时</span>
+        <span id="minute">?分钟</span>
+        <span id="second">?秒</span>
+    </div>
+    <script>
+        let fiveone = new Date('2023-05-01 00:00:00')
+        function getTime(){
+            let now = new Date()
+            let jiange = fiveone - now
+            jiange = parseInt(jiange/1000)
+            let second = parseInt(jiange % 60)
+            let minute = parseInt((jiange / 60) % 60)
+            let hour = parseInt((jiange / 60 / 60) % 24)
+            let day = parseInt(jiange / 60 / 60 % 24)
+            document.querySelector('#day').innerHTML = `${day}天`
+            document.querySelector('#hour').innerHTML = `${hour}小时`
+            document.querySelector('#minute').innerHTML = `${minute}分钟`
+            document.querySelector('#second').innerHTML = `${second}秒`
+
+        }
+        getTime()
+        setInterval(getTime,1000)
+    </script>
+</body>
+</html>

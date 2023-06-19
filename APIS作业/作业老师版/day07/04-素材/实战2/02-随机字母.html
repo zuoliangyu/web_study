@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>随机字母</title>
+  <style>
+    h1 {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    #wrapper {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-size: 100% 100%;
+      font-size: 20px;
+      height: 300px;
+      width: 500px;
+      margin: 50px auto;
+      padding-top: 20px;
+    }
+
+    #oknum {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      width: 200px;
+      border: 10px solid #555;
+      border-radius: 10px;
+      margin: 20px auto 20px;
+      font-size: 30px;
+    }
+
+    #showresult {
+      border: 10px solid rgba(250, 50, 0);
+      background-color: #fff;
+      border-radius: 10px;
+      height: 50px;
+      text-align: center;
+      font-size: 40px;
+      width: 100px;
+      line-height: 50px;
+      margin-top: 20px;
+    }
+
+    button {
+      height: 40px;
+      width: 80px;
+      background-color: #a5f;
+      border-radius: 20px;
+      color: #fff;
+      border: none;
+      font-weight: bolder;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>编程能力测试2——随机字母</h1>
+  <div id="wrapper">
+    <div id="oknum">点击按钮开始</div>
+    <button class="start">开始</button>
+    <button class="end">停止</button>
+    <br />
+    您的选择是：
+    <input type="text" id="showresult" value="" />
+  </div>
+
+  <script>
+    // 所有字母对应的数组
+    let data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+    // 1、找对象——》获取两个按钮+展示div+选择input
+    let startBtn = document.querySelector('.start')
+    let endBtn = document.querySelector('.end')
+    let showDiv = document.querySelector('#oknum')
+    let showInput = document.querySelector('#showresult')
+
+    // 2、给两个按钮注册事件
+    //   1、startBtn被点击之后，开启定时器，每隔100ms，则随机从data中获取随机一项，展示在showDiv中
+    //   2、endBtn被点击之后，结束定时器，并且把当前的data数据展示到showInput中
+    // 变量储存定时器id
+  
+  </script>
+</body>
+
+</html>

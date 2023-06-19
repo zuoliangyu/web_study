@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小米搜索框显示隐藏案例</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul {
+
+      list-style: none;
+    }
+
+    .mi {
+      position: relative;
+      width: 223px;
+      margin: 100px auto;
+    }
+
+    .mi .search-text {
+      width: 223px;
+      height: 48px;
+      padding: 0 10px;
+      font-size: 14px;
+      line-height: 48px;
+      border: 1px solid #e0e0e0;
+      outline: none;
+    }
+
+    /* 搜索框边框颜色 */
+    .mi .search {
+      border: 1px solid #ff6700;
+    }
+
+    /* 下拉菜单 */
+    .result-list {
+      /* 先隐藏下拉菜单 */
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 48px;
+      width: 223px;
+      border: 1px solid #ff6700;
+      border-top: 0;
+      background: #fff;
+    }
+
+    .result-list a {
+      display: block;
+      padding: 6px 15px;
+      font-size: 12px;
+      color: #424242;
+      text-decoration: none;
+    }
+
+    .result-list a:hover {
+      background-color: #eee;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="mi">
+    <input type="search" placeholder="小米笔记本" class="search-text">
+    <ul class="result-list">
+      <li><a href="#">全部商品</a></li>
+      <li><a href="#">小米11</a></li>
+      <li><a href="#">小米10S</a></li>
+      <li><a href="#">小米笔记本</a></li>
+      <li><a href="#">小米手机</a></li>
+      <li><a href="#">黑鲨4</a></li>
+      <li><a href="#">空调</a></li>
+    </ul>
+  </div>
+  <script>
+    // 小米搜索框显示隐藏案例
+    // 1. 先隐藏我们的下拉菜单
+
+    // 2. 获得焦点，显示下拉菜单，并且修改搜索框的边框颜色
+    const search_text = document.querySelector('.search-text')
+    const result_list = document.querySelector('.result-list')
+    search_text.addEventListener('focus', function () {
+      // console.log('获得焦点')
+      result_list.style.display = 'block'
+      // 搜索框添加边框颜色
+      search_text.classList.add('search')
+    })
+
+    // 3. 失去焦点，隐藏下拉菜单，并且修改搜索框的边框颜色为原先的灰色
+    search_text.addEventListener('blur', function () {
+      result_list.style.display = 'none'
+      // 搜索框复原为原来灰色
+      search_text.classList.remove('search')
+    })
+  </script>
+</body>
+
+</html>

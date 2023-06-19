@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes move {
+            to{
+                transform: translateX(800px);
+            }
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            /* 设置动画名称 */
+            animation-name: move;
+            /* 设置动画时长 */
+            animation-duration: 2s;
+            /* 延迟多长时间开始动画 */
+            animation-delay: 1s;
+            /* linear:匀速动画   ease: 先慢后快最后慢速结束 */
+            animation-timing-function: linear;
+            /* 次数写几就播放几次，写 infinite 就是无限播放 */
+            animation-iteration-count: 3;
+            /* 默认是normal 正常， alternate 来回播放 */
+            animation-direction: normal;
+            /* forwards:保持动画最后的效果 */
+            animation-fill-mode: both;
+        }
+        div:hover{
+            /* paused 就是暂停动画 */
+            animation-play-state: paused;
+        }
+        /* 练习：将花儿转动案例制作成一个动画进行使用，然后鼠标悬停的时候，花儿停止转动
+        否则花儿会一直无限的转动。
+        1. 创建一个动画，设置 to{ transform: rotate(360deg) }
+        2. 给花儿元素设置动画，
+        3. 将动画次数设置为无限
+        4. 给花儿元素添加鼠标悬停效果，将动画状态设置为暂停。 */
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

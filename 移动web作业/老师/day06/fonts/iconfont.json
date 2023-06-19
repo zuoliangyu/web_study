@@ -1,0 +1,58 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "356438",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "672036",
+      "name": "下拉",
+      "font_class": "xiala",
+      "unicode": "e6b9",
+      "unicode_decimal": 59065
+    },
+    {
+      "icon_id": "1221260",
+      "name": "手机",
+      "font_class": "shouji",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "2154210",
+      "name": "弹幕数_32",
+      "font_class": "danmushu",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "2306764",
+      "name": "BILIBILI_LOGO",
+      "font_class": "bilibili",
+      "unicode": "e6b4",
+      "unicode_decimal": 59060
+    },
+    {
+      "icon_id": "7594063",
+      "name": "24gl-playSquare",
+      "font_class": "24gl-playSquare",
+      "unicode": "ea72",
+      "unicode_decimal": 60018
+    },
+    {
+      "icon_id": "34064732",
+      "name": "哔哩哔哩",
+      "font_class": "bilibili1",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    }
+  ]
+}

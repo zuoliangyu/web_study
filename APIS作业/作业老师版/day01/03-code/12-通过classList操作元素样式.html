@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通过classList操作元素样式</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    /* 准备类使用 */
+    .circle {
+      background-color: skyblue;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box circle">classList操作样式</div>
+  <script>
+
+    // 1. 获取box盒子
+    const box = document.querySelector('.box')
+
+    // 2.通过classList操作元素样式(推荐)
+    // 2.1 追加类名
+    // box.classList.add('circle')
+
+    // 2.2 删除类名
+    // box.classList.remove('box')
+
+    // 2.3 切换类名： 如果元素身上有这个类名，那么就删除，如果没有这个类名则添加
+    box.classList.toggle('circle')
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let result = +prompt(`
+        请选择您要借阅的图书：
+        1.三国演义
+        2.西游记
+        3.水浒传
+        4.红楼梦
+        `)
+        switch(result){
+            case 1:
+                alert('您选择的是编号为1的三国演义')
+                break
+            case 2:
+                alert('您选择的是编号为2的西游记')
+                break
+            case 3:
+                alert('您选择的是编号为3的水浒传')
+                break
+            case 4:
+                alert('您选择的是编号为4的红楼梦')
+                break
+            default:
+                alert('您选择的书籍不存在')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let length = +prompt('请输入长方形的长：')
+        let width = +prompt('请输入长方形的宽：')
+        let color = +prompt('请输入长方形的颜色：')
+        let round = 2 * (length + width)
+        let area = length * width
+        document.write(`长方形的长为：${length}<br>
+                        长方形的长为：${width}<br>
+                        长方形的周长为：${round}<br>
+                        长方形的面积为：${area}
+        `)
+    </script>
+</body>
+</html>

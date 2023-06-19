@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 100%;
+            height: 100px;
+            background-color: pink;
+            /* 想要进行flex布局，我们需要给父元素设置display:flex 开启flex布局
+            flex布局会对子元素进行布局的处理，默认会将子元素并排放在一行(有点像float:left) */
+            display: flex;
+            /* justify-content属性可以设置 子盒子的排列方式 center(放在父盒子的中央) flex-end(将子盒子放在父盒子的右边)
+            space-around(平均分配子盒子之间的剩余空间) space-between(平均分配子盒子之间的剩余空间，两端的子盒子会贴边)  */
+            justify-content:space-between;
+            align-items: center;
+        }
+
+        .father>div{
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+        }
+        /* 当我们给子盒子设置flex属性的时候， 子盒子原本设置的固定宽度会无效，子盒子的宽度会进行计算
+           计算方式：会将所有子盒子的份数加起来，然后平均分配剩余空间
+           假设剩余空间是350px，分成了7份，每一份就是50px的宽度 */
+        .father>div:nth-of-type(1){
+            flex:1
+        }
+        .father>div:nth-of-type(2){
+            flex:2
+        }
+        .father>div:nth-of-type(3){
+            flex:1
+        }
+        .father>div:nth-of-type(4){
+            flex:2
+        }
+        .father>div:nth-of-type(5){
+            flex:1
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+</body>
+</html>

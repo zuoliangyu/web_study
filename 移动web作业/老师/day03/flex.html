@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: pink;
+        }
+        .pay{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:0 11px;
+            border-top: 1px solid #ccc;
+        }
+        .red{
+            color:red;
+            font-size:20px;
+        }
+        .pay .right a{
+            display: block;
+            text-decoration: none;
+            color:#fff;
+            width: 90px;
+            height: 35px;
+            background-image: linear-gradient(90deg, #6fc2aa 5%, #54b196 100%);
+            line-height: 35px;
+            text-align: center;
+        }
+        .user_msg{
+            background-color: #fff;
+            margin:10px 10px 0 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            padding:15px 0 14px 11px
+        }
+        .user{
+            flex: 1;
+        }
+        .location{
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-image: linear-gradient(90deg, #6fc2aa 5%, #54b196 100%);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+        }
+        .top{
+            display: flex;
+            font-size: 15px;
+        }
+        .top h5{
+            margin-right:20px;
+        }
+        .bottom{
+            font-size: 12px;
+        }
+        .more{
+            height: 44px;
+            width: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .goods{
+            margin: 9px 11px 0px 11px;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            padding:11px;
+        }
+        .goods .left{
+            border-radius: 2px;
+            width: 85px;
+            height: 85px;
+            background: url(./uploads/pic.png);
+            background-size: 100% 100%;
+        }
+        .goods .center{
+            flex: 1;
+            margin-left:12px;
+        }
+        .goods .center h5{
+            font-size: 13px;
+            line-height: 19px;
+            color:#262626;
+        }
+        .goods .center p{
+            color:#888;
+            font-size:11px;
+            margin-top:10px;
+        }
+        .goods .right{
+            height: 44px;
+            width: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <link rel="stylesheet" href="./lib/iconfont/iconfont.css">
+</head>
+<body>
+    <div class="main">
+        <div class="user_msg">
+            <div class="location">
+                <i class="iconfont icon-location"></i>
+            </div>
+            <div class="user">
+                <div class="top">
+                    <h5>林丽</h5>
+                    <p>18500000000</p>
+                </div>
+                <div class="bottom">北京市  海淀区  中关村软件园   信息科技大厦1号
+                    楼410#   </div>
+            </div>
+            <div class="more">
+                <i class="iconfont icon-more"></i>
+            </div>
+        </div>
+        <div class="goods">
+            <div class="left"></div>
+            <div class="center">
+                <h5>康尔贝 非接触式红外体温仪  领券立减30元 婴儿级材质 测温…</h5>
+                <p>
+                    <span style="margin-right:5px">粉色</span>
+                    <span>红外体温计</span>
+                </p>
+                <div class="price">
+                    <span class="red">
+                        ￥
+                    </span>
+                </div>
+            </div>
+            <div class="right">
+                X 1
+            </div>
+        </div>
+    </div>
+    <div class="pay">
+        <div class="left">
+            合计：￥
+            <span class="red">266.00</span>
+        </div>
+        <div class="right">
+            <a href="#">去支付</a>
+        </div>
+    </div>
+</body>
+</html>

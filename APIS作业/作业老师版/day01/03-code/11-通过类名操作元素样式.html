@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通过类名操作元素样式</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    /* 准备类使用 */
+    .circle {
+      background-color: skyblue;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">类名操作样式</div>
+  <script>
+    // 通过类名操作元素样式
+    // 1. 获取box盒子
+    const box = document.querySelector('.box')
+
+    // 2. 利用类名操作元素样式
+    // box.className = 'circle'
+    box.className = 'box circle'
+
+    // 3. 利用类名操作样式添加的新的类名会覆盖掉原先的类名
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
+  <style>
+    .panel {
+      width: 900px;
+      margin: 10px auto;
+    }
+
+    .table img {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel panel-primary">
+      <!-- Default panel contents -->
+      <div class="panel-heading">英雄列表管理</div>
+      <div class="panel-body">
+        <!-- 存放的搜索区域 -->
+        <form action="" autocomplete="off">
+          <div class="row">
+            <div class="col-lg-3">
+              <input type="text" class="form-control" placeholder="输入英雄名称" name="name" />
+            </div>
+            <div class="col-lg-3">
+              <select class="form-control" name="gender">
+                <option value="">--选择性别--</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+              </select>
+            </div>
+            <div class="col-lg-3">
+              <input name="age" type="text" class="form-control" placeholder="输入年龄" />
+            </div>
+            <div class="col-lg-3">
+              <button type="button" class="btn btn-success" id="search">
+                搜索
+              </button>
+              <button type="button" class="btn btn-warning" id="reset">
+                重置
+              </button>
+              <!-- 添加按钮 -->
+              <button type="button" class="btn btn-primary" id="add">
+                添加
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>英雄名称</th>
+            <th>英雄性别</th>
+            <th>年龄</th>
+            <th>操作区</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr>
+            <td>1</td>
+            <td>大乔</td>
+            <td>女</td>
+            <td>18</td>
+            <td>
+              <button type="button" class="btn btn-danger">删除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- 模态框开始 -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">添加英雄</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" autocomplete="off">
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">英雄名称</label>
+              <div class="col-sm-10">
+                <input type="text" name="heroName" class="form-control" placeholder="输入英雄名称" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">性别</label>
+              <div class="col-sm-10">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="heroGender" value="男" checked />
+                    男
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="heroGender" value="女" />
+                    女
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">年龄</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" placeholder="输入英雄年龄" name="heroAge" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="addFormCancel">
+            取消
+          </button>
+          <button id="submit" type="button" class="btn btn-primary">
+            确认
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 模态框结束 -->
+  <script src="./jquery/jquery.min.js"></script>
+  <script src="./bootstrap/js/bootstrap.js"></script>
+  <script>
+
+    const list = [
+      { id: 1, name: "大乔", gender: "男", age: 18 },
+      { id: 2, name: "小乔", gender: "女", age: 20 },
+      { id: 3, name: "鲁班", gender: "男", age: 48 },
+      { id: 4, name: "后羿", gender: "女", age: 28 },
+      { id: 8, name: "廉颇", gender: "男", age: 28 },
+    ]
+    const tbody = document.querySelector("tbody")
+    const searchBtn = document.querySelector("#search")
+    const resetBtn = document.querySelector("#reset")
+    const nameDom = document.querySelector("[name='name']")
+    const genderDom = document.querySelector("[name='gender']")
+    const ageDom = document.querySelector("[name='age']")
+    // 渲染模块
+    function render(list) {
+      const strArr = list.map((ele, index) => {
+        const { id, name, gender, age } = ele
+        return `
+         <tr>
+         <td>${id}</td>
+         <td>${name}</td>
+         <td>${gender}</td>
+         <td>${age}</td>
+         <td>
+           <button type="button" class="btn btn-danger delete-btn" data-index="${id}" >删除</button>
+         </td>
+       </tr>
+      `
+      }).join('')
+      tbody.innerHTML = strArr
+    }
+    render(list)
+
+    // 搜索模块
+    searchBtn.addEventListener("click", function () {
+      const name = nameDom.value.trim()
+      const gender = genderDom.value.trim()
+      const age = ageDom.value.trim()
+      const newList = list.filter((ele) => {
+        const validName = name === "" || name === ele.name
+        const validGender = gender === "" || gender === ele.gender
+        const validAge = age === "" || +age === ele.age
+        return validName && validGender && validAge
+      })
+      render(newList)
+    })
+    // 重置模块
+    resetBtn.addEventListener("click", function () {
+      nameDom.value = ""
+      genderDom.value = ""
+      ageDom.value = ""
+      render(list)
+    });
+
+    // 删除模块
+
+    tbody.addEventListener("click", function (e) {
+      const target = e.target
+      if (target.classList.contains("delete-btn")) {
+        if (!confirm("您确定删除吗")) return
+        const { index } = target.dataset
+        // 根据id号找到对应对象，并且返回对象所在的索引号， 注意这里 index 是字符串型, 
+        const id = list.findIndex(ele => +index === ele.id)
+        list.splice(id, 1)
+        render(list)
+      }
+    })
+
+    // 添加功能
+    const addBtn = document.querySelector("#add")
+    // 点击添加，弹出模态框
+    addBtn.addEventListener('click', function () {
+      // 显示模态框 利用 jquery js库中的方法
+      $("#myModal").modal("show")
+    })
+    // 点击模态框里面的确定按钮，可以新增数据并且渲染
+    const submitBtn = document.querySelector("#submit") // 确认 提交按钮
+
+    submitBtn.addEventListener('click', function () {
+      const name = document.querySelector("[name=heroName]")
+      // 注意单选的是选中状态的值
+      const gender = document.querySelector("[name=heroGender]:checked")
+      const age = document.querySelector("[name=heroAge]")
+      // 如果未输入内容则停止创建数据
+      if (!age.value.trim() || !name.value.trim()) return
+      list.push({
+        id: list.length ? list[list.length - 1].id + 1 : 1,
+        name: name.value,
+        gender: gender.value,
+        age: age.value
+      })
+      render(list)
+
+      // 隐藏模态框
+      $("#myModal").modal("hide")
+      // 清空表单值
+      name.value = ''
+      document.querySelector("[name=heroGender][value=男]").checked = true
+      age.value = ''
+    })
+  </script>
+</body>
+
+</html>

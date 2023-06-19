@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 id="title">{{ msg }}</h1>
+        <button @click="reverse(msg)">逆转世界</button>
+    </div>
+    <script src="../准备代码/vue.js"></script>
+    <script>
+        const str = new Vue({
+            el:'#app',
+            data:{
+                msg:'Hello World'
+            },
+            methods:{
+                reverse(mess){
+                    this.msg = mess.split('').reverse().join('')
+                }
+            }
+        })
+        // const str = 'Hello World!'
+        // console.log(str.split('').reverse().join(''))
+
+    </script>
+</body>
+</html> 

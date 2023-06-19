@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深拷贝-lodash库实现</title>
+</head>
+
+<body>
+  <!-- 引入lodash库 -->
+  <script src="./js/lodash.min.js"></script>
+  <script>
+    const obj = {
+      name: '佩奇',
+      love: undefined,
+      family: {
+        father: '猪爸爸'
+      },
+      hobby: ['跳泥坑', '唱歌'],
+      sayHi() {
+        console.log('我会唱歌')
+      }
+    }
+    // lodash 库实现
+    const newObj = _.cloneDeep(obj)
+    // console.log(newObj)
+    newObj.family.father = 'dad'
+    console.log(obj)
+    console.log(newObj)
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>微博发布</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .w {
+      width: 900px;
+      margin: 0 auto;
+    }
+
+    .controls textarea {
+      width: 878px;
+      height: 100px;
+      resize: none;
+      border-radius: 10px;
+      outline: none;
+      padding-left: 20px;
+      padding-top: 10px;
+      font-size: 18px;
+    }
+
+    .controls {
+      overflow: hidden;
+    }
+
+    .controls div {
+      float: right;
+    }
+
+    .controls div span {
+      color: #666;
+    }
+
+    .controls div .useCount {
+      color: red;
+    }
+
+    .controls div button {
+      width: 100px;
+      outline: none;
+      border: none;
+      background: rgb(0, 132, 255);
+      height: 30px;
+      cursor: pointer;
+      color: #fff;
+      font: bold 14px '宋体';
+      transition: all 0.5s;
+    }
+
+    .controls div button:hover {
+      background: rgb(0, 225, 255);
+    }
+
+    .controls div button:disabled {
+      background: rgba(0, 225, 255, 0.5);
+    }
+
+    .contentList {
+      margin-top: 50px;
+    }
+
+    .contentList li {
+      padding: 20px 0;
+      border-bottom: 1px dashed #ccc;
+      position: relative;
+    }
+
+    .contentList li .info {
+      position: relative;
+    }
+
+    .contentList li .info span {
+      position: absolute;
+      top: 15px;
+      left: 100px;
+      font: bold 16px '宋体';
+    }
+
+    .contentList li .info p {
+      position: absolute;
+      top: 40px;
+      left: 100px;
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    .contentList img {
+      width: 80px;
+      border-radius: 50%;
+    }
+
+    .contentList li .content {
+      padding-left: 100px;
+      color: #666;
+      word-break: break-all;
+    }
+
+    .contentList li .the_del {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 28px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="w">
+    <!-- 操作的界面 -->
+    <div class="controls">
+      <img src="./images/9.6/tip.png" alt="" /><br />
+      <!-- maxlength 可以用来限制表单输入的内容长度 -->
+      <textarea placeholder="说点什么吧..." id="area" cols="30" rows="10" maxlength="200"></textarea>
+      <div>
+        <span class="useCount" id="useCount">0</span>
+        <span>/</span>
+        <span>200</span>
+        <button id="send">发布</button>
+      </div>
+    </div>
+    <!-- 微博内容列表 -->
+    <div class="contentList">
+      <ul id="list"></ul>
+    </div>
+  </div>
+
+  <!-- 需要的模板li 追加给 list ul -->
+  <!-- <li>
+    <div class="info">
+      <img class="userpic" src="./images/9.6/03.jpg" />
+      <span class="username">死数据:百里守约</span>
+      <p class="send-time">死数据:发布于 2020年12月05日 00:07:54</p>
+    </div>
+    <div class="content">死数据:111</div>
+    <span class="the_del">X</span>
+  </li> -->
+
+  <script>
+    // 模拟数据 随机生成头像和名字
+    const dataArr = [
+      { uname: '司马懿', imgSrc: './images/9.5/01.jpg' },
+      { uname: '女娲', imgSrc: './images/9.5/02.jpg' },
+      { uname: '百里守约', imgSrc: './images/9.5/03.jpg' },
+      { uname: '亚瑟', imgSrc: './images/9.5/04.jpg' },
+      { uname: '虞姬', imgSrc: './images/9.5/05.jpg' },
+      { uname: '张良', imgSrc: './images/9.5/06.jpg' },
+      { uname: '安其拉', imgSrc: './images/9.5/07.jpg' },
+      { uname: '李白', imgSrc: './images/9.5/08.jpg' },
+      { uname: '阿珂', imgSrc: './images/9.5/09.jpg' },
+      { uname: '墨子', imgSrc: './images/9.5/10.jpg' },
+      { uname: '鲁班', imgSrc: './images/9.5/11.jpg' },
+      { uname: '嬴政', imgSrc: './images/9.5/12.jpg' },
+      { uname: '孙膑', imgSrc: './images/9.5/13.jpg' },
+      { uname: '周瑜', imgSrc: './images/9.5/14.jpg' },
+      { uname: '老夫子', imgSrc: './images/9.5/15.jpg' },
+      { uname: '狄仁杰', imgSrc: './images/9.5/16.jpg' },
+      { uname: '扁鹊', imgSrc: './images/9.5/17.jpg' },
+      { uname: '马可波罗', imgSrc: './images/9.5/18.jpg' },
+      { uname: '露娜', imgSrc: './images/9.5/19.jpg' },
+      { uname: '孙悟空', imgSrc: './images/9.5/20.jpg' },
+      { uname: '黄忠', imgSrc: './images/9.5/21.jpg' },
+      { uname: '百里玄策', imgSrc: './images/9.5/22.jpg' },
+    ]
+
+    // 1. 读取本地存储数据
+    const data = JSON.parse(localStorage.getItem('weibo')) || []
+    // 2. 渲染业务
+    const list = document.querySelector('#list')
+    function render() {
+      const strArr = data.map(function (ele, index) {
+        return `
+            <li>
+              <div class="info">
+                <img class="userpic" src="${ele.imgSrc}" />
+                <span class="username">${ele.uname}</span>
+                <p class="send-time">发布于 ${ele.time}</p>
+              </div>
+              <div class="content"> ${ele.text}</div>
+              <span class="the_del" data-id="${index}">X</span>
+            </li>
+        `
+      })
+      list.innerHTML = strArr.join('')
+    }
+    render()
+    // 3. 新增业务
+    const btn = document.querySelector('#send')
+    const area = document.querySelector('#area')
+    btn.addEventListener('click', function () {
+      // 生成一个随机数
+      const random = Math.floor(Math.random() * dataArr.length)
+      // 注意留言应该是最新的靠上显示，所以是前面追加
+      data.unshift({
+        uname: dataArr[random].uname,
+        imgSrc: dataArr[random].imgSrc,
+        text: area.value,
+        time: new Date().toLocaleString()
+      })
+      console.log(data)
+      render()
+      area.value = ''
+      // 存入本地
+      localStorage.setItem('weibo', JSON.stringify(data))
+    })
+
+    // 4. 删除业务
+    list.addEventListener('click', function (e) {
+      if (e.target.className === 'the_del') {
+        data.splice(e.target.dataset.id, 1)
+        render()
+        localStorage.setItem('weibo', JSON.stringify(data))
+      }
+    })
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 通过meta标签来进行网页信息设置 -->
+    <!-- 通过name属性来告诉meta标签要设置 什么信息 viewport(视口：页面中的可视区域)  -->
+    <!-- 通过content属性来设置 viewport 区域的信息
+        width=device-width ：width就是当前可视区域的宽度，  device-width(device：设备)
+        , initial-scale=1.0：初始缩放比
+        user-scalable=0  : 禁止用户进行缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div{
+            width: 375px;
+            height: 375px;
+        }
+
+        img{
+            width: 515px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        今天天气不错
+    </div>
+    <img src="./images/rmb@1x.jpeg" alt="">
+
+    <img src="./images/rmb@2x.jpeg" alt="">
+</body>
+</html>

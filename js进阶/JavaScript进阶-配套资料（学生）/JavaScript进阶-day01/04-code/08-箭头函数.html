@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数（重点）</title>
+</head>
+
+<body>
+  <script>
+    // 箭头函数
+    // 1. 基本语法
+    // const fn = function () {
+    //   console.log('我是函数表达式')
+    // }
+    // fn()
+    // const fn = () => {
+    //   console.log('我是箭头函数')
+    // }
+    // fn()
+
+    // 2. 细节使用
+    // 2.1 如果只有一个形参则可以省略小括号,其余个数不能省略，如果没有参数则写空的小括号
+    // const sum = (x) => {
+    //   console.log(x + x)
+    // }
+    // sum(2)
+    // const sum = x => {
+    //   console.log(x + x)
+    // }
+    // sum(2)
+
+    // 2.2 如果函数体只有一句代码，则可以省略大括号，这句代码就是返回值（省略return）
+    // const sum = x => {
+    //   return x + x
+    // }
+    // const sum = x => x + x
+    // console.log(sum(5))
+
+    // 2.3 如果返回的是一个对象，则需要用小括号把对象包裹起来
+    // const fn = function() {
+    //   return {name: '佩奇'}
+    // }
+    // const fn = () => ({ name: '佩奇' })
+    // console.log(fn())
+
+    // 2.4 箭头函数里面没有 arguments，但是有剩余参数
+    const fn = (...other) => {
+      // console.log(arguments)
+      console.log(other)
+    }
+    fn(1, 2)
+  </script>
+</body>
+
+</html>

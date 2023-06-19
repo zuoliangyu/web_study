@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数提升</title>
+</head>
+
+<body>
+  <script>
+    function fn() {
+      console.log('函数提升')
+    }
+    var fun
+    // 函数提升
+    // 1.函数提升提升到当前作用域最前面
+    // 2.函数提升只提升声明，不提升调用
+    // 3.函数表达式不存在提升的现象
+    // 4.函数提升能够使函数的声明调用更灵活
+    fn()
+    fun()
+    fun = function () {
+      console.log('函数表达式不存在提升')
+    }
+    fun()
+  </script>
+</body>
+
+</html>

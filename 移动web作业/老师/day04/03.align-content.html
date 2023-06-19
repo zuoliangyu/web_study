@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            display: flex;
+            flex-wrap: wrap;
+            background-color: pink;
+            height:600px;
+            /* align-content 可以设置 子盒子多行排列的情况下，侧轴如何对齐 */
+            align-content: center;
+        }
+
+        .father div{
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/index.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app" class="score-case">
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <td>1</td>
+            <td>语文</td>
+            <td class="red">46</td>
+            <td><a href="#">删除</a></td>
+          </tr>
+          -->
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <span class="total">总分：246</span>
+              <span style="margin-left: 50px" class="average">平均分：79</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="form">
+      <div class="form-item">
+        <div class="label">姓名：</div>
+        <div class="input">
+          <input type="text" placeholder="请输入姓名" class="username" />
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">科目：</div>
+        <div class="input">
+          <input type="text" placeholder="请输入科目" class="subject" />
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">分数：</div>
+        <div class="input">
+          <input type="text" placeholder="请输入分数" class="score" />
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label"></div>
+        <div class="input">
+          <button class="submit">添加</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const list = [
+      { name: '古丽扎娜', subject: '语文', score: 20 },
+      { name: '佟丽丫丫', subject: '数学', score: 99 },
+      { name: '马尔扎哈', subject: '英语', score: 70 },
+    ]
+    const tbody = document.querySelector('tbody')
+    const total = document.querySelector('.total')
+    const average = document.querySelector('.average')
+    // 封装渲染函数
+    function render() {
+      let str = ''
+      let totalScore = 0
+      list.forEach(function (ele, index) {
+        str += `
+          <tr>
+            <td>${ele.name}</td>
+            <td>${ele.subject}</td>
+            <td class="red">${ele.score}</td>
+            <td><a href="#" data-id="${index}">删除</a></td>
+          </tr>
+        `
+        // 累加计算总成绩
+        totalScore += ele.score
+      })
+      tbody.innerHTML = str
+      total.innerHTML = `总分：${totalScore}`
+      average.innerHTML = `平均分：${totalScore / list.length || 0}`
+    }
+    render()
+
+    // 2. 新增模块
+    const submit = document.querySelector('.submit')
+    const username = document.querySelector('.username')
+    const subject = document.querySelector('.subject')
+    const score = document.querySelector('.score')
+    submit.addEventListener('click', function () {
+      if (!username.value || !subject.value || !score.value) {
+        return alert('输入内容不能为空')
+      }
+      list.push({
+        name: username.value,
+        subject: subject.value,
+        score: +score.value,  // 记得转换为数字型
+      })
+      render()
+      username.value = ''
+      subject.value = ''
+      score.value = ''
+    })
+
+    // 3. 删除模块
+    tbody.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        list.splice(e.target.dataset.id, 1)
+        render()
+      }
+    })
+  </script>
+</body>
+
+</html>

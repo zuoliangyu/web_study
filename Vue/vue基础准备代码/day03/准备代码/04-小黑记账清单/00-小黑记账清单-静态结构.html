@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="../bootstrap.min.css"
+    />
+    <style>
+      .red {
+        color: red!important;
+      }
+      .search {
+        width: 300px;
+        margin: 20px 0;
+      }
+      .my-form {
+        display: flex;
+        margin: 20px 0;
+      }
+      .my-form input {
+        flex: 1;
+        margin-right: 20px;
+      }
+      .table > :not(:first-child) {
+        border-top: none;
+      }
+      .contain {
+        display: flex;
+        padding: 10px;
+      }
+      .list-box {
+        flex: 1;
+        padding: 0 30px;
+      }
+      .list-box  a {
+        text-decoration: none;
+      }
+      .echarts-box {
+        width: 600px;
+        height: 400px;
+        padding: 30px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+      }
+      tfoot {
+        font-weight: bold;
+      }
+      @media screen and (max-width: 1000px) {
+        .contain {
+          flex-wrap: wrap;
+        }
+        .list-box {
+          width: 100%;
+        }
+        .echarts-box {
+          margin-top: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="contain">
+        <!-- 左侧列表 -->
+        <div class="list-box">
+
+          <!-- 添加资产 -->
+          <form class="my-form">
+            <input v-model.trim="name" type="text" class="form-control" placeholder="消费名称" />
+            <input v-model.trim.number="price" type="text" class="form-control" placeholder="消费价格" />
+            <button @click="add" type="button" class="btn btn-primary">添加账单</button>
+          </form>
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>编号</th>
+                <th>消费名称</th>
+                <th>消费价格</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(v,i) of list">
+                <td>{{ i + 1 }}</td>
+                <td>{{ v.name }}</td>
+                <td :class="{red:v.price>200}">{{ v.price }}</td>
+                <td><a href="javascript:;" @click="del(v.id)">删除</a></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4">消费总计： {{ total }}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        
+        <!-- 右侧图表 -->
+        <div class="echarts-box" id="main"></div>
+      </div>
+    </div>
+    <script src="../echarts.min.js"></script>
+    <script src="../vue.js"></script>
+    <script src="../axios.js"></script>
+    <script>
+      /**
+       * 接口文档地址：
+       * https://www.apifox.cn/apidoc/shared-24459455-ebb1-4fdc-8df8-0aff8dc317a8/api-53371058
+       * 
+       * 功能需求：
+       * 1. 基本渲染
+       * 2. 添加功能
+       * 3. 删除功能
+       * 4. 饼图渲染
+       */
+      const app = new Vue({
+        el: '#app',
+        data: {
+          name:'',
+          price:'',
+          list:[]
+        },
+        methods:{
+          //封装渲染方法
+          async getList(){
+            const res = await axios({
+              url:'https://applet-base-api-t.itheima.net/bill',
+              params:{
+                creator:'QQ'
+              }
+            })
+            console.log(res)
+            this.list = res.data.data
+          },
+          //添加功能
+          async add(){
+            const res = await axios({
+              method:'post',
+              url:'https://applet-base-api-t.itheima.net/bill',
+              data:{
+                creator:'QQ',
+                name:this.name,
+                price:this.price,
+              }
+            })
+            console.log(res)
+            this.name = '',
+            this.price = ''
+            this.getList()
+          },
+          //删除功能
+          async del(id){
+            const res = await axios({
+              method:'delete',
+              url:'https://applet-base-api-t.itheima.net/bill/' + id
+            })
+            console.log(res)
+            this.getList()
+            },
+          },
+          mounted() {
+          // 初始化图表实例
+          this.myChart = echarts.init(document.querySelector('#main'));
+
+          // 设置配置项
+          this.myChart.setOption({
+            // 大标题
+            title: {
+              text: '消费账单列表',
+              left: 'center',
+            },
+            // 提示
+            tooltip: {
+              trigger: 'item',
+            },
+            // 图例
+            legend: {
+              orient: 'vertical',
+              left: 'left',
+            },
+            // 系列数据配置
+            series: [
+              {
+                name: '账单项',
+                type: 'pie',
+                radius: '50%', // 半径
+                data: [
+                  // { value: 1048, name: 'Search Engine' },
+                  // { value: 735, name: 'Direct' },
+                  // { value: 580, name: 'Email' },
+                  // { value: 484, name: 'Union Ads' },
+                  // { value: 300, name: 'Video Ads' },
+                  
+                ],
+                // 样式配置
+                emphasis: {
+                  itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                  },
+                },
+              },
+            ],
+          });
+        },
+        computed: {
+          total() {
+            return this.list.reduce((sum, v) => sum + v.price, 0).toFixed(2);
+          },
+        },
+        async created(){
+          await this.getList()
+        }
+      })
+    </script>
+  </body>
+</html>

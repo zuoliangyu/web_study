@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //split方法 将字符串转换为数组
+        let str = 'pink,red'
+        let arr1 = str.split(',')
+        console.log(arr1)
+        let str1 = '2023-05-01'
+        let arr2 = str1.split('-')
+        console.log(arr2)
+        //substring方法 截取字符串
+        let str2 = '今天天气不错'
+        console.log(str2.substring(2,4))
+        //startswith方法 判断字符串是否一某个子字符串开头，返回布尔值
+        let str3 = 'pink老师在上课'
+        console.log(str3.startsWith('pink',0))
+        //includes方法 判断字符串是否包含一个子字符串
+        let str4 = 'pink老师'
+        console.log(str3.includes('老师'))
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(arr,num){
+            let index = -1
+            for(let i = 0;i <arr.length; i++){
+                if (arr[i] === num){
+                    index = i
+                    break
+                }else{
+                    index = index
+                }
+            }
+            return index
+        }
+        let pos = fn( ['张三','李四','王麻子','刘五','周一'] ,'周一')
+        let pos1 = fn( ['张三','李四','王麻子','刘五','周五'] ,'周一')
+        console.log(`周一的索引是：${pos}`);
+        console.log(`周一的索引是：${pos1}`);
+    </script>
+</body>
+</html>

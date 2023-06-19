@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>查询子节点和兄弟节点</title>
+</head>
+
+<body>
+  <ul>
+    <li>我是第1个孩子</li>
+    <li>我是第2个孩子</li>
+    <li>我是第3个孩子</li>
+    <li>我是第4个孩子</li>
+  </ul>
+  <script>
+    // 1. 查询子节点
+    const ul = document.querySelector('ul')
+    console.log(ul.children)
+
+    // 2. 查询兄弟节点
+    const li2 = document.querySelector('ul li:nth-child(2)')
+    // console.log(li2)
+    console.log(li2.previousElementSibling) // 上一个兄弟
+    console.log(li2.nextElementSibling)  // 下一个兄弟
+    console.log(ul.children[0]) // 第一个孩子
+    console.log(ul.children[2]) // 第三个孩子
+  </script>
+</body>
+
+</html>

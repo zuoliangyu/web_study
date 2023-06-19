@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1167280",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "5835467",
+      "name": "个人中心",
+      "font_class": "gerenzhongxin",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "11372654",
+      "name": "电影",
+      "font_class": "dianying",
+      "unicode": "e8ae",
+      "unicode_decimal": 59566
+    },
+    {
+      "icon_id": "11372732",
+      "name": "演出",
+      "font_class": "yanchu",
+      "unicode": "e8bf",
+      "unicode_decimal": 59583
+    },
+    {
+      "icon_id": "13805002",
+      "name": "视频",
+      "font_class": "shipin1",
+      "unicode": "e786",
+      "unicode_decimal": 59270
+    }
+  ]
+}

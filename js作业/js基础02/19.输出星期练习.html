@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let today = +prompt(`
+        请输入今天是星期几：
+        1.星期一
+        2.星期二
+        3.星期三
+        4.星期四
+        5.星期五
+        6.星期六
+        7.星期日
+        `)
+        switch (today){
+            case 1:
+                alert('Monday')
+                break
+            case 2:
+                alert('Tuesday')
+                break
+            case 3:
+                alert('Wednesday')
+                break
+            case 4:
+                alert('Thirsday')
+                break
+            case 5:
+                alert('Friday')
+                break
+            case 6:
+                alert('Saturday')
+                break
+            case 7:
+                alert('Sunday')
+                break
+            default:
+                alert('请输入今天是星期几？')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>关羽 <button>删除</button></li>
+        <li>张飞 <button>删除</button></li>
+        <li>赵云 <button>删除</button></li>
+        <li>夏侯惇 <button>删除</button></li>
+    </ul>
+    <p>
+        <button class="before">往前加</button>
+        <button class="after">往后加</button>
+    </p>
+</body>
+<script>
+    let before = document.querySelector('.before')
+    let after = before.nextElementSibling
+    let ul = document.querySelector('ul')
+    console.log(before,after)
+    before.addEventListener('click',function(){
+        let name = prompt('请输入一个武将名称：')
+        let li = document.createElement('li')
+        li.innerHTML = `${name}  <button>删除</button>`
+        ul.prepend(li)
+    })
+    after.addEventListener('click',function(){
+        let name = prompt('请输入一个武将名称：')
+        let li = document.createElement('li')
+        li.innerHTML = `${name}  <button>删除</button>`
+        ul.append(li)
+    })
+    //删除节点
+    ul.addEventListener('click',function(e){
+        if(e.target.tagName === 'BUTTON'){
+            e.target.parentNode.remove()
+        }
+    })
+</script>
+</html>

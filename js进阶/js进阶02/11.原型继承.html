@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function People(){
+            this.eyes = 2
+            this.nouse = 1
+        }
+        function Woman(){
+
+        }
+        
+        Woman.prototype = new People()
+        Woman.prototype.constructor = Woman
+        Woman.prototype.baby = function(){
+            console.log('生宝贝')
+        }
+        let red = new Woman()
+        console.log(red)
+        
+        function Man(){
+
+        }
+        Man.prototype = new People()
+        Man.prototype.constructor = Man
+        let blue = new Man()
+        console.log(blue)
+        // let people = {
+        //     eyes:2,
+        //     nouse:1
+        // }
+        // function Woman(){
+
+        // }
+        // Woman.prototype = people
+        // Woman.prototype.constructor = Woman
+        // let red = new Woman()
+        
+        // console.log(red)
+        // function Man(){
+
+        // }
+        // Man.prototype = people
+        // Man.prototype.constructor = Man
+        // let blue = new Man()
+        
+        // console.log(blue)
+    </script>
+</body>
+</html>

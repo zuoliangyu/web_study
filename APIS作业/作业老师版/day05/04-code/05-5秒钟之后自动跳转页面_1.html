@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5秒倒计时跳转页面</title>
+  <style>
+    span {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="http://www.itcast.cn">支付成功<span>5</span>秒钟之后跳转到首页</a>
+  <script>
+    // 5秒钟之后跳转页面
+    // 1. 利用间歇函数来实现链接里面的文字变化 num-- 
+    const a = document.querySelector('a')
+    // 声明变量 num
+    let num = 5
+    // 开启间歇函数
+    let timerId = setInterval(function () {
+      num--
+      // console.log(num)
+      a.innerHTML = `支付成功<span>${num}</span>秒钟之后跳转到首页`
+
+      // 2. 时间到了，就自动跳转到新的页面 location.href
+      if (num === 0) {
+        // 停止定时器
+        clearInterval(timerId)
+        location.href = 'http://www.itcast.cn'
+      }
+    }, 1000)
+  </script>
+</body>
+
+</html>

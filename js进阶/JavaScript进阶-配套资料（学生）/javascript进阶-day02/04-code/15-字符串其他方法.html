@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串其他方法</title>
+</head>
+
+<body>
+  <script>
+    // 字符串 String 其他方法 
+    const str = '传智播客传递知识'
+    // 1. startsWith(检测字符，[检测位置])
+    // 检测是否以某个字符开头，返回布尔值
+    console.log(str.startsWith('传'))  // true
+    console.log(str.startsWith('智'))  // false
+    console.log(str.startsWith('传', 1))  // false
+    console.log(str.startsWith('传', 4))  // true
+
+
+    // 2. endsWith(检测字符，[字符串长度])
+    // 检测是否以某个字符结尾，返回布尔值
+    console.log(str.endsWith('知识'))  // true
+    console.log(str.endsWith('传递')) // false
+    console.log(str.endsWith('播客', 4)) // true
+    console.log(str.endsWith('传递', 6)) // true
+
+
+    const str1 = "To be, or not to be, that is the question."
+    // 3. includes(搜索的字符，[检测位置])
+    // 判断一个字符串是否 包含 在另外一个字符串中，返回布尔值
+    console.log(str1.includes('to be'))  // true
+    console.log(str1.includes('to be or'))  // false
+    console.log(str1.includes('To be'))  // true
+    console.log(str1.includes('To be', 1))  // false
+
+
+    // 4. 以上方法都是区分大小写的
+  </script>
+</body>
+
+</html>

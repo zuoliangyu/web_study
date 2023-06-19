@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes move {
+            25%{
+                transform: translateX(800px);
+            }
+            50%{
+                transform: translateX(800PX) translateY(400px);
+            }
+            75%{
+                transform: translateY(400px);
+            }
+            100%{
+                transform: translateX(0PX) translateY(0px);
+            }
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            animation: move 3s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

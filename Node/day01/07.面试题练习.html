@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //两个数组 var A = [1, 5, 6]; var B = [2, 6, 7]，实现一个方法，找出仅存在于A 或者 仅 存在于B中的所有数字。
+        var A = [1, 5, 6]
+        var B = [2, 6, 7]
+        function getDiff(arr, brr){
+    	    // 仅存在于arr中的内容
+            //数组的filter方法可以按照一定的条件进行 数据筛选，会将符合条件的数据
+            //作为结果数组返回，结果数组中会包含所有符合条件的数据
+            // 数组的some方法: 检测元素是否满足条件，返回布尔型
+            // some(某一些) 只要有1个数组元素满足条件则返回 true，都不满足则返回false
+            // var onlyArr = arr.filter(item => !brr.some(v => item === v))
+            var onlyArr = arr.filter(function(item){
+                const res = brr.some(ele => item === ele)
+                console.log(res)
+                return !res
+            })
+            console.log(onlyArr)
+            // 仅存在于brr中的内容
+            
+            var onlyBrr = brr.filter(v => !arr.some(item => v === item))
+            // 需要哪个就返回哪个，或者一起返回
+            return {
+                // "仅存在于arr中的内容": onlyArr,
+                // "仅存在于brr中的内容": onlyBrr
+                onlyArr
+            }
+            console.log(onlyArr,onlyBrr)
+        }
+        getDiff(A, B)
+        
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <h3 id="h3">{{ title }}</h3>
+    <div>
+      <button @click="count--">-</button>
+      <span id="span">{{ count }}</span>
+      <button @click="count++">+</button>
+    </div>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        count: 100,
+        title: '计数器'
+      },
+      beforeCreate(){
+        console.log('这个时候还没有初始化数据，还不能使用数据')
+        console.log(this.count)
+      },
+      created(){
+        console.log('这个时候已经初始化数据了，可以使用数据，但是不能操作dom')
+        console.log(this.count)
+      },
+      beforeMount(){
+        console.log('这个时候还没有渲染dom')
+        console.log(document.querySelector('#h3'))
+      },
+      mounted(){
+        console.log('这个时候dom渲染完成')
+        console.log(document.querySelector('#h3'))
+      },
+      beforeUpdate(){
+        console.log('此时数据更新了，但是视图还没有更新')
+        console.log(this.count)
+        console.log(document.querySelector('#span').outerHTML)
+      },
+      updated(){
+        console.log('此时视图也已经更新了')
+        console.log(this.count)
+        console.log(document.querySelector('#span'))
+      },
+      beforeDestroy(){
+        console.log('beforeDestroy,这个阶段可以进行释放资源和清除定时器')
+      },
+      destroyed(){
+        console.log('destroyed')
+      }
+    })
+  </script>
+</body>
+
+</html>

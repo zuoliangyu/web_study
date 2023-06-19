@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let year = 1
+        let salary = 0
+        let deposit = 0
+        while(year < 8){
+            alert(`阿强出来打工了，今年是第${year}年，现在阿强手里有${deposit}元`)
+            salary = +prompt('请输入你今年支付给阿强的薪水：')
+            deposit += salary
+            if (deposit >=100000){
+                alert('阿强回老家和阿珍结婚了！')
+            }else{
+                alert('结婚本没赚够，明年继续给老板上班！')
+            }
+            year++
+            if(year === 8 && deposit <100000){
+                alert('阿强和阿珍没有在一起')
+            }
+        }
+    </script>
+</body>
+</html>

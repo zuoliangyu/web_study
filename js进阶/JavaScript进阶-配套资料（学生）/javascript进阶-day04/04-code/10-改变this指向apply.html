@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>改变this指向apply</title>
+</head>
+
+<body>
+  <script>
+    // 改变this指向apply 
+    // 1. 基本使用
+    const obj = { name: '佩奇' }
+    function fun(x, y) {
+      console.log(this)
+      console.log(x + y)
+    }
+    fun()
+    // fun.apply()  // 1. 作用1调用函数
+    // fun.apply(obj)  // 2. 作用2 改变this指向 obj
+    fun.apply(obj, [1, 2])  // 参数必须是数组
+
+    // 2. 使用场景- 求数组的最大值/最小值
+    console.log(Math.max(...[1, 2, 3]))  // 3
+
+    // apply 或者 call 如果不需要改变this指向 写 null 
+    console.log(Math.max.apply(null, [8, 2, 3]))  // 8
+    console.log(Math.min.apply(null, [8, 2, 3]))  // 2
+
+  </script>
+</body>
+
+</html>

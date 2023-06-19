@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型继承</title>
+</head>
+
+<body>
+  <script>
+    // 原型继承： 核心借助于原型对象实现继承
+
+    // 1. 抽取封装 公共的属性和方法  person对象
+    const person = {
+      eyes: 2,
+      eat() {
+        console.log('我会吃饭')
+      }
+    }
+    // 男人构造函数
+    function Man() {
+
+    }
+    // 女人构造函数
+    function Woman() {
+
+    }
+    // 2. 继承-借助于原型对象
+    Man.prototype = person
+    const zs = new Man()
+    // console.log(zs)
+
+    Woman.prototype = person
+    const xl = new Woman()
+    // console.log(xl)
+
+    // 3. 利用字面量对象实现继承会有问题
+    // 女人会生孩子
+    Woman.prototype.baby = function () {
+      console.log('我会生孩子')
+    }
+    console.log(xl)
+
+    console.log(zs)
+
+
+  </script>
+</body>
+
+</html>

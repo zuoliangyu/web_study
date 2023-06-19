@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+      <div>
+        <span>姓名:</span>
+        <input v-model.trim="name" type="text" />
+      </div>
+      <div>
+        <span>年龄:</span>
+        <input v-model.number.trim="age" type="number" />
+      </div>
+      <div>
+        <span>性别:</span>
+        <select v-model="gender">
+          <option value="男">男</option>
+          <option value="女">女</option>
+        </select>
+      </div>
+      <div>
+        <button @click="add">添加</button>
+        <button @click="change">修改</button>
+      </div>
+      <div>
+        <table border="1" cellpadding="10" cellspacing="0">
+          <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+          </tr>
+          <tr v-for="(v,i) of studentList" :key="v.id">
+            <td>{{ i + 1 }}</td>
+            <td>{{ v.name }}</td>
+            <td>{{ v.age }}</td>
+            <td>{{ v.gender }}</td>
+            <td>
+              <button @click="del(v.id)">删除</button>
+              <button @click="edit(i)">编辑</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <script src="../准备代码/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        name:'',
+        age:0,
+        gender:'',
+        id:0,
+        studentList:[
+            {id:1, name:'Tom', age:19, gender:'男'},
+            {id:2, name:'Jone', age:21, gender:'女'}
+        ]
+      },
+      methods:{
+        add(){
+            if(this.name === '' || this.age === ''){
+                return alert('姓名和年龄不能为空！')
+            }
+            this.studentList.push({
+                id:Math.max(0,...this.studentList.map(v => v.id)) + 1,
+                name:this.name,
+                age:this.age,
+                gender:this.gender
+            })
+            this.name = ''
+            this.age = 0
+            this.gender = ''
+
+        },
+        change(){
+            
+            this.studentList.splice(this.id -1,1,{
+                id: this.id,
+                name:this.name,
+                age:this.age,
+                gender:this.gender
+            })
+            // const changeStudent = this.studentList.filter(v => v.id === this.id)
+            // // console.log(changeStudent)
+            // changeStudent.forEach(v => {
+            //     v.name = this.name
+            //     v.age = this.age
+            //     v.gender = this.gender
+
+            // })
+            this.name = ''
+            this.age = 0
+            this.gender = ''
+
+        },
+        edit(i){
+            this.name = this.studentList[i].name
+            this.age = this.studentList[i].age
+            this.gender = this.studentList[i].gender
+            this.id = this.studentList[i].id
+        },
+        del(id){
+            this.studentList = this.studentList.filter(v => v.id !== id)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

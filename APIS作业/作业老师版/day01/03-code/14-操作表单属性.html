@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>操作表单属性</title>
+</head>
+
+<body>
+  <input type="text" name="username" value="用户名">
+  <button>按钮</button>
+  <input type="checkbox" name="agree">
+  <script>
+    // 操作表单属性
+    // 1. 操作表单 type 和 value 属性
+    // 1.1 修改type属性
+    const username = document.querySelector('[name=username]')
+    console.log(username)
+    // username.type = 'password'
+
+    // 1.2 操作表单的 value 属性
+    // console.log(username.value)  // 查
+    // username.value = '用户名试试'  // 增
+    // username.value = '请输入用户名' // 改
+    // username.value = ''  // 删
+
+    // 2. 禁用按钮或者是勾选复选框  布尔型
+    // 2.1 禁用按钮  
+    const button = document.querySelector('button')
+    // button.disabled = true  // true 是禁用
+    button.disabled = false  // false 是不禁用
+
+    // 2.2 勾选复选框
+    const agree = document.querySelector('[name=agree]')
+    console.log(agree)
+    // agree.checked = true // true 是选中复选框
+    agree.checked = false // flase 是不选中复选框
+  </script>
+</body>
+
+</html>

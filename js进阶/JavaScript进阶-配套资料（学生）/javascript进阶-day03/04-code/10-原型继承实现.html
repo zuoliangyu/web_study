@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型继承实现</title>
+</head>
+
+<body>
+  <script>
+    // 1. 抽取封装 公共的属性和方法  Person构造函数
+    // 父级
+    function Person() {
+      this.eyes = 2
+    }
+    Person.prototype.eat = function () {
+      console.log('我会吃饭')
+    }
+    console.log(new Person())
+    console.log(new Person() === new Person())  // false
+
+    // 男人构造函数
+    function Man() {
+
+    }
+    // 女人构造函数
+    function Woman() {
+
+    }
+    // 2. 继承-借助于原型对象
+    Man.prototype = new Person()
+    Man.prototype.constructor = Man
+    console.log(Man.prototype)
+    const zs = new Man()
+    // console.log(zs)
+
+    Woman.prototype = new Person()
+    Woman.prototype.constructor = Woman
+
+    const xl = new Woman()
+    // console.log(xl)
+
+    Woman.prototype.baby = function () {
+      console.log('我会生孩子')
+    }
+    console.log(xl)
+    console.log(zs)  // 张三没有baby方法了
+
+  </script>
+</body>
+
+</html>

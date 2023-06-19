@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .countdown {
+      width: 240px;
+      height: 305px;
+      text-align: center;
+      line-height: 1;
+      color: #fff;
+      background-color: brown;
+      /* background-size: 240px; */
+      /* float: left; */
+      overflow: hidden;
+    }
+
+    .countdown .next {
+      font-size: 16px;
+      margin: 25px 0 14px;
+    }
+
+    .countdown .title {
+      font-size: 33px;
+    }
+
+    .countdown .tips {
+      margin-top: 80px;
+      font-size: 23px;
+    }
+
+    .countdown small {
+      font-size: 17px;
+    }
+
+    .countdown .clock {
+      width: 142px;
+      margin: 18px auto 0;
+      overflow: hidden;
+    }
+
+    .countdown .clock span,
+    .countdown .clock i {
+      display: block;
+      text-align: center;
+      line-height: 34px;
+      font-size: 23px;
+      float: left;
+    }
+
+    .countdown .clock span {
+      width: 34px;
+      height: 34px;
+      border-radius: 2px;
+      background-color: #303430;
+    }
+
+    .countdown .clock i {
+      width: 20px;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="countdown">
+    <p class="next">今天是2222年2月22日</p>
+    <p class="title">下班倒计时</p>
+    <p class="clock">
+      <span id="hour">00</span>
+      <i>:</i>
+      <span id="minutes">25</span>
+      <i>:</i>
+      <span id="second">20</span>
+    </p>
+    <p class="tips">18:30:00下课</p>
+  </div>
+  <script>
+    // 倒计时案例 当前距离  2023年1月28日 18:30 还剩多少时间
+
+    //  转换公式
+    //  h = parseInt(总秒数 / 60 / 60 % 24)   //   计算小时
+    //  m = parseInt(总秒数 / 60 % 60)        //   计算分数
+    //  s = parseInt(总秒数 % 60)             //   计算当前秒数
+
+    // 1. 封装 getTimer 函数： 将来的时间戳减去现在的时间戳可以得到剩余的时间戳
+    function getTimer() {
+      // 1.1 得到将来的时间戳
+      const end = +new Date('2023-1-28 18:30:00')
+      // 1.2 得到现在的时间戳
+      const now = +new Date()
+      // 1.3 得到剩余的时间戳(毫秒数) 记得转换为秒数
+      const count = (end - now) / 1000
+      console.log(count)
+
+      // 2. 把剩余的时间戳转换为 时分秒
+      let h = parseInt(count / 60 / 60 % 24)   //   计算小时
+      h = h < 10 ? '0' + h : h
+      let m = parseInt(count / 60 % 60)        //   计算分数
+      m = m < 10 ? '0' + m : m
+      let s = parseInt(count % 60)             //   计算当前秒数
+      s = s < 10 ? '0' + s : s
+      // console.log(h, m, s)
+
+      // 3. 把计算的时分秒写到对应的span盒子里面
+      document.querySelector('#hour').innerHTML = h
+      document.querySelector('#minutes').innerHTML = m
+      document.querySelector('#second').innerHTML = s
+    }
+
+    getTimer() // 注意页面一打开就要先调用函数，防止默认的内容显示
+
+    // 4. 添加定时器效果让时间自动变化
+    setInterval(getTimer, 1000)
+  </script>
+</body>
+
+</html>

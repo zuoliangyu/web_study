@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            transform: translate(0px,0px);
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txt">
+    <div>123</div>
+    <script>
+        let txt = document.querySelector('#txt')
+        let div = document.querySelector('div')
+        let x = 0, y = 0
+        txt.addEventListener('keydown',function(e){
+            console.log(e)
+            if(e.key === 'a'){
+                x -= 20
+            }else if(e.key === 'd'){
+                x += 20
+            }else if(e.key === 'w'){
+                y -= 20
+            }else if(e.key === 's'){
+                y += 20
+            }
+            div.style.transform = `translate(${x}px,${y}px)`
+        })
+    </script>
+</body>
+</html>

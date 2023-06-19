@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>焦点事件</title>
+  <style>
+    [type=text] {
+      width: 245px;
+      height: 50px;
+      padding-left: 20px;
+      border: 1px solid #ccc;
+      font-size: 17px;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" class="search-text">
+  <input type="text" class="search">
+  <script>
+    // 1. 焦点事件(手动触发)
+    const search_text = document.querySelector('.search-text')
+
+    // 1.1 获得焦点  focus
+    search_text.addEventListener('focus', function () {
+      console.log('获得了焦点')
+    })
+
+    // 1.2 失去焦点 blur
+    search_text.addEventListener('blur', function () {
+      console.log('失去了焦点')
+    })
+
+    // 2. 拓展 自动获得焦点 focus()    自动失去焦点 blur()
+    //  2.1 语法: 元素.focus()  比如百度首页搜索框自动获得焦点
+    const search = document.querySelector('.search')
+    search.focus()
+  </script>
+</body>
+
+</html>

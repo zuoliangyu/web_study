@@ -1,0 +1,198 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f8;
+}
+.top{
+    width: 100%;
+    height: 43px;
+    line-height: 43px;
+    background-color: #fff;
+    text-align: center;
+}
+.top i{
+    position: absolute;
+    left: 20px;
+    transform: rotateY(180deg);
+}
+.address{
+    background-color: #fff;
+    margin: 12px 11px 0 11px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+.address .location{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-image: linear-gradient(90deg, 
+    #6fc2aa 5%, 
+    #54b196 100%);
+    margin: 24px 12px 0 11px;
+    border-radius: 50%;
+    text-align: center;
+}
+.address .location i{
+    color: #fff;
+}
+.address .msg .name{
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 4px;
+}
+.address .msg .name span{
+    font-size: 13px;
+    margin-left: 20px;
+}
+.address .msg .info{
+    font-size: 12px;
+    margin-bottom: 14px;
+}
+.address .right-arrow{
+    width: 44px;
+    height: 44px;
+    border: 1px dashed #3a9cff;
+    text-align: center;
+    line-height: 44px;
+    margin: 17px 0 0 0;
+}
+.address .right-arrow i{
+    color: #808080;
+}
+.goods{
+    background-color: #fff;
+    margin: 9px 11px 0 11px;
+    border-radius: 5px;
+    display: flex;
+}
+.goods img{
+    width: 85px;
+    height: 85px;
+    margin: 11px 12px 11px 11px;
+}
+.goods .right{
+    flex: 1;
+}
+.goods .right .info{
+    font-size: 13px;
+    color: #262626;
+    margin-top: 18px;
+    margin-bottom: 5px;
+}
+.goods .right .goods-style{
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 5px;
+}
+.goods .right .money{
+    font-size: 16px;
+    color: #cf4444;
+}
+.goods .right .money span:first-child{
+    font-size: 12px;
+}
+.goods .right .money span:last-child{
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+}
+.goods .num{
+    font-size: 15px;
+    margin-top: 28px;
+    margin-right: 18px;
+}
+.goods .num i{
+    font-size: 7px;
+}
+.main{
+    background-color: #fff;
+    margin: 6px 11px 0 11px;
+    border-radius: 5px;
+    padding: 0 15px 0 13px;
+    font-size: 13px;
+}
+.main .expressage{
+    height: 42px;
+    line-height: 42px;
+    display: flex;
+    justify-content: space-between;
+}
+.main .remark{
+    height: 42px;
+    line-height: 42px;
+}
+.main .remark span{
+    font-size: 12px;
+    color: #989898;
+    margin-left: 19px;
+}
+.main .freight{
+    height: 42px;
+    line-height: 42px;
+    display: flex;
+    justify-content: space-between;
+}
+.main .pay{
+    height: 42px;
+    line-height: 42px;
+    display: flex;
+    justify-content: space-between;
+}
+.main .pay .iconfont{
+    font-size: 7px;
+    color: #808080;
+    margin-left: 9px;
+}
+.main .discount{
+    height: 42px;
+    line-height: 42px;
+    display: flex;
+    justify-content: space-between;
+}
+.main .discount span{
+    color: #cf4444;
+}
+.bottom{
+    width:100%;
+    height: 79px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    padding: 0 11px 0 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+button{
+    width: 91px;
+    height: 35px;
+    color: #fff;
+    background-image: linear-gradient(90deg, 
+    #6fc2aa 5%, 
+    #54b196 100%);
+    border: 0;
+    border-radius: 3px;
+}
+.total{
+    color: #cf4444;
+}
+.total span:first-child{
+    font-size: 12px;
+    color: #1e1e1e;
+}
+.total span:nth-child(2){
+    font-size: 12px;
+}
+.total span:nth-child(3){
+    font-size: 20px;
+}
+.total span:nth-child(4){
+    font-size: 18px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组解构变量和值不匹配的情况</title>
+</head>
+
+<body>
+  <script>
+    // 数组解构变量和值不匹配的情况
+
+    // 1. 变量多，值少的情况
+    // const [a, b, c, d] = ['小米', '华为', '苹果']
+    // console.log(a)
+    // console.log(b)
+    // console.log(c)
+    // console.log(d) // undefined
+
+    // 2. 防止undefined传值，可以设置默认值
+    // const [a, b, c, d = '三星'] = ['小米', '华为', '苹果']
+    // console.log(a)
+    // console.log(b)
+    // console.log(c)
+    // console.log(d)
+
+    // 3. 变量少，值多的情况
+    // const [a, b] = ['小米', '华为', '苹果']
+    // console.log(a)
+    // console.log(b)
+
+    // 4. 利用剩余参数解决变量少值多的情况
+    // const [a, ...b] = ['小米', '华为', '苹果']
+    // console.log(a)
+    // console.log(b)
+
+    // 5. 按需导入，忽略某些值
+    const [a, , c, d] = ['小米', '华为', '苹果', 'vivo']
+    console.log(a)
+    console.log(c)
+    console.log(d)
+  </script>
+</body>
+
+</html>

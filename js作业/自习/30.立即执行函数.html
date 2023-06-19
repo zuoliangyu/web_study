@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function (){
+            console.log(11)
+        })();
+        (function(){
+            console.log(123);
+        }());
+        (function ( x, y){
+            console.log(x - y)
+        })(2,1);
+        (function(x, y){
+            console.log(x - y);
+        }( 4, 2));
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-wrap {
+    width: 420px;
+    height: 340px;
+    background-color: #fff;
+    padding: 60px;
+    box-sizing: border-box;
+}
+.login-wrap span {
+  display: inline-block;
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.img-wrap{
+  margin-bottom: 20px;
+}
+
+.login-wrap input{
+  padding: 5px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  outline: #fff;
+}
+
+.login-wrap button{
+  margin-top: 20px;
+  padding: 8px 15px;
+  background: #0d6efd;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}

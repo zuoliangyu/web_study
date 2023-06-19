@@ -1,0 +1,80 @@
+// 导入基准设置less文件
+@import './base.less';
+@import './normalize.less';
+
+// 处理rem
+@rootFontSize: 37.5rem;
+
+.first {
+  width: (375 / @rootFontSize);
+  height: (160 / @rootFontSize);
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.second {
+  .title {
+    width: (57 / @rootFontSize);
+    height: (17 / @rootFontSize);
+    margin: (10 / @rootFontSize) 0 (10 / @rootFontSize) (15 / @rootFontSize);
+    font-size: (14 / @rootFontSize);
+    font-weight: 800;
+  }
+  .image {
+    width: (375 / @rootFontSize);
+    height: (160 / @rootFontSize);
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    &::before{
+        position: absolute;
+        content:'进行中';
+        font-size:(12/@rootFontSize);
+        color:#fff;
+        text-align: center;
+        line-height: (29 / @rootFontSize);
+        left: (15 / @rootFontSize);
+        top: (-5 / @rootFontSize);
+        width: (68 / @rootFontSize);
+        height: (29 / @rootFontSize);
+        background-image: url(../../03-项目-游乐园/FC/images/status_active.png);
+        background-size: (68 / @rootFontSize) (29 / @rootFontSize);
+    }
+  }
+  .name{
+    display: flex;
+    justify-content: space-between;
+    height: (43 / @rootFontSize);
+    margin-top: (8 / @rootFontSize);
+    .left{
+        margin-left: (15 / @rootFontSize);
+        width: (295/ @rootFontSize);
+        height: (43 / @rootFontSize);
+        font-size: .4rem;
+        line-height: .56rem;
+    }
+    .right{
+        margin-right: .4rem;
+        color:#FE6249;
+        font-size: .4rem;
+        line-height: .4533rem;
+    }
+  }
+  .timer{
+    margin-top: .4267rem;
+    font-size: .32rem;
+    color:#B4B4B4;
+    .icon-qizhi{
+        margin-left: .4rem;
+        margin-right: .1867rem;
+    }
+    .icon-shizhong{
+        margin-left: .4rem;
+        margin-right: .1333rem;
+    }
+  }
+}

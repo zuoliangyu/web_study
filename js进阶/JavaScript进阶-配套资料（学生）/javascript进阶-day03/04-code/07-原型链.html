@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型链</title>
+</head>
+
+<body>
+  <script>
+    // __proto__属性链状结构称为原型链
+
+    // Person构造函数
+    function Person(name) {
+      this.name = name
+    }
+
+    // 1. 实例对象
+    const zs = new Person('张三')
+    zs.sayHi = function () {
+      console.log('实例对象的方法')
+    }
+    // zs.sayHi()
+    // 2. Person 原型对象
+    Person.prototype.sayHi = function () {
+      console.log('Person原型对象的方法')
+    }
+    // zs.sayHi()
+    // 3. Ojbect 原型对象
+    Object.prototype.sayHi = function () {
+      console.log('Object原型对象的方法')
+    }
+    // zs.sayHi()
+
+    // 4. null
+    zs.sayHi()
+    // console.log(zs.sayHi)  // undefined
+  </script>
+</body>
+
+</html>

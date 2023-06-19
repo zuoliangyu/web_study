@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阻止默认行为</title>
+</head>
+
+<body>
+  <form action="">
+    姓名: <input type="text" name="username">
+    <button>提交</button>
+  </form>
+  <a href="http://www.baidu.com">点击跳转</a>
+  <script>
+    // 阻止默认行为
+    const form = document.querySelector('form')
+    const input = document.querySelector('[name=username]')
+    form.addEventListener('submit', function (e) {
+      // 如果input表单的值为空则不允许提交
+      if (input.value === '') {
+        // return 无法阻止提交事件
+        e.preventDefault()  // 阻止提交事件
+      }
+    })
+
+    document.querySelector('a').addEventListener('click', function (e) {
+      e.preventDefault()
+    })
+  </script>
+</body>
+
+</html>

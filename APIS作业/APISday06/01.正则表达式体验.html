@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = 'abcde'
+        let str1 = 'aoeiu'
+        //正则表达式1
+        let reg1 = /abc/
+        //正则表达式2
+        let reg2 = new RegExp('def')
+        let n = 'aoe'
+        let reg3 = new RegExp(n)
+        console.log(reg1,reg2,reg3)
+        
+        let res1 = reg1.test(str)
+        let res2 = reg2.test(str)
+        let res3 = reg3.test(str1)
+        console.log(res1,res2,res3)
+    </script>
+</body>
+</html>

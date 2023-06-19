@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>删除节点</title>
+</head>
+
+<body>
+  <div class="remove">我要删除</div>
+  <div class="none">我要隐藏</div>
+  <script>
+    // 1. 删除节点, remove 会从dom树中删除这个元素
+    const remove = document.querySelector('.remove')
+    remove.remove()
+
+    // 2. display:none 隐藏元素，页面看不见，但是dom树中还存在这个标签
+    const none = document.querySelector('.none')
+    none.style.display = 'none'
+  </script>
+</body>
+
+</html>

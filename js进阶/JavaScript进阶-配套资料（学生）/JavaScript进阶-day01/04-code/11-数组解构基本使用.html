@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组解构</title>
+</head>
+
+<body>
+  <script>
+    // 数组解构
+    // 1. 基本语法
+    const [a, b, c] = [1, 2, 3]
+    console.log(a)
+    console.log(b)
+    console.log(c)
+
+    // 2. 典型的使用场景  交换2个变量的值
+    let x = 1
+    let y = 2;
+    [y, x] = [x, y]
+    console.log(x, y);
+
+    // 3. js 2个特殊情况需要加分号
+    // 3.1 如果是小括号开头的则需要加分号
+    (function () { })();
+    (function () { })();
+    // 3.2 如果是中括号开头的则需要加分号
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>constructor属性</title>
+</head>
+
+<body>
+  <script>
+    // constructor属性
+    function Person(name) {
+      this.name = name
+    }
+
+    // 1. constructor属性在原型对象里面
+    // console.log(Person.prototype)
+
+    // 2.  constructor属性 指向原型对象的构造函数
+    console.log(Person.prototype.constructor === Person)  // true
+
+    // 3. 有什么使用场景呢？
+    // Person.prototype.sing = function () {
+    //   console.log('我会唱歌')
+    // }
+    // Person.prototype.dance = function () {
+    //   console.log('我会跳舞')
+    // }
+
+    // console.log(Person.prototype)
+
+    Person.prototype = {
+      // 手动指定一个constructor 指回构造函数
+      constructor: Person,
+      sing() {
+        console.log('我会唱歌')
+      },
+      dance() {
+        console.log('我会跳舞')
+      }
+    }
+    console.log(Person.prototype)
+
+  </script>
+</body>
+
+</html>

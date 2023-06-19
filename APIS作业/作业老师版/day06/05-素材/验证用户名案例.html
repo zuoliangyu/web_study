@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>验证用户名案例</title>
+  <style>
+    dt,
+    dd {
+      margin: 0;
+      position: relative;
+    }
+
+    dl {
+      display: flex;
+      width: 600px;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    dl dt {
+      margin-right: 5px;
+    }
+
+    dl input {
+      width: 269px;
+      height: 28px;
+      padding-left: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+      background: transparent;
+      line-height: 30px;
+      border-radius: 5px;
+    }
+
+    .tip {
+      display: none;
+      position: relative;
+      width: 220px;
+      height: 30px;
+      margin-left: 15px;
+      border: 1px solid #f59fb1;
+      color: #d93c3c;
+      text-align: center;
+      font-size: 14px;
+      background-color: #fff2f5;
+      border-radius: 5px;
+    }
+
+    .tip::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -6px;
+      width: 10px;
+      height: 10px;
+      background-color: #fff2f5;
+      border-left: 1px solid #f59fb1;
+      border-bottom: 1px solid #f59fb1;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    span {
+      position: absolute;
+      top: 9px;
+      right: 10px;
+      width: 15px;
+      height: 15px;
+    }
+
+    .right {
+      background: url(./images/right.png) no-repeat;
+    }
+
+    .wrong {
+      background: url(./images/error1.png) no-repeat;
+    }
+  </style>
+</head>
+
+<body>
+  <dl>
+    <dt>用户名:</dt>
+    <dd><input type="text" class="uname"><span></span></dd>
+    <dd class="tip">输入6~16位数字字母-_组成</dd>
+  </dl>
+  <script>
+    // 用户名正则：
+    const reg = /^[a-zA-Z0-9-_]{6,16}$/
+  </script>
+</body>
+
+</html>

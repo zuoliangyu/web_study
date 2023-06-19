@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>请选择你喜欢的专栏</h2>
+        <span v-for="(item,index) in list">
+            <input @click="render(index)" type="checkbox">{{ item }}
+        </span>
+        <ul>
+            <li v-for="(item,index) in newList">{{ item }}</li>
+        </ul>
+    </div>
+    <script src="../准备代码/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                list:["科幻", "喜剧", "动漫", "冒险", "科技", "军事", "娱乐", "奇闻"],
+                newList:[]
+            },
+            methods:{
+                render(i){
+                    this.newList.push(this.list[i])
+                }
+            }
+                    
+        })
+    </script>
+</body>
+</html>

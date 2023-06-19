@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>排他思想</title>
+  <style>
+    .pink {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="pink">按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+  <button>按钮4</button>
+  <button>按钮5</button>
+  <script>
+    // 需求： 点击哪个按钮，哪个按钮高亮，其余不高亮
+    // 1. 先获取所有的button按钮 
+    const btns = document.querySelectorAll('button')
+
+    // 2. 利用循环来依次的给这5个按钮绑定点击事件
+    for (let i = 0; i < btns.length; i++) {
+      // console.log(btns[i])  // 里面的5个按钮
+      btns[i].addEventListener('click', function () {
+        // alert('弹出了')
+        // 排他思想
+        // 3. 先排除其他人，让其他的按钮移除 pink 类
+        document.querySelector('.pink').classList.remove('pink')
+
+        // 4. 留下我自己， 点击了谁，让谁添加 pink类
+        this.classList.add('pink')
+      })
+    }
+  </script>
+</body>
+
+</html>

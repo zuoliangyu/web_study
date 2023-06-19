@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>通讯录案例</title>
+  <link rel="stylesheet" href="./iconfont/iconfont.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding-bottom: 50px;
+    }
+
+    .address-header {
+      position: fixed;
+      width: 100%;
+      height: 46px;
+      line-height: 45px;
+      color: #fff;
+      border-bottom: 1px solid #e4e4e4;
+      text-align: center;
+      background-color: #f4664f;
+      z-index: 999;
+    }
+
+    .address-header i {
+      position: absolute;
+      right: 10px;
+    }
+
+    .address-book {
+      margin: 0 15px;
+      overflow: hidden;
+      padding-top: 50px;
+    }
+
+    .address-book .item {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      border-bottom: 1px solid #e9e9e9;
+      position: relative;
+      transition: all 0.3s linear;
+    }
+
+    /* 实现滑动效果 */
+    .address-book .item.active {
+      transform: translateX(-50px);
+    }
+
+    .address-book .item>.circle {
+      width: 30px;
+      height: 30px;
+      margin-right: 15px;
+      text-align: center;
+      line-height: 30px;
+      color: #fff;
+      background-color: #f38383;
+      border-radius: 50%;
+    }
+
+    .address-book .item>.name {
+      width: 80px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .address-book .item>.tel {
+      margin-left: 20px;
+      color: #666;
+    }
+
+    .address-book .item>.del {
+      position: absolute;
+      right: -50px;
+      top: 0;
+      height: 50px;
+      width: 50px;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      background-color: #eee;
+    }
+
+    .address-book .item>.del i {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      margin-top: 10px;
+      border-radius: 50%;
+      background-color: #f60;
+    }
+
+    .address-footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      border-top: 1px solid #e4e4e4;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 15px;
+    }
+
+    .address-footer input {
+      appearance: none;
+      border: 0;
+      outline: 0;
+      width: 130px;
+    }
+
+    .address-footer button {
+      appearance: none;
+      border: 0;
+      outline: 0;
+      background-color: #069;
+      color: #fff;
+      padding: 5px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="address-header">
+    通讯录
+    <i class="iconfont icon-tianjiayonghu"></i>
+  </div>
+  <div class="address-book">
+    <!-- 添加item 核心区域-->
+    <div class="item">
+      <p class="circle">华</p>
+      <p class="name">刘德华</p>
+      <p class="tel">13511112222</p>
+      <a class="del" href="javascript:;" ">
+        <i class=" iconfont icon-shanchutianchong"></i>
+      </a>
+    </div>
+
+  </div>
+  <div class="address-footer">
+    <input id="name" type="text" placeholder="请输入姓名" />
+    <input id="tel" type="text" placeholder="请输入手机号" />
+    <button id="add">添加联系人</button>
+  </div>
+  <!-- 引入手势插件 -->
+  <script src="https://unpkg.com/alloyfinger@0.1.16/alloy_finger.js"></script>
+  <script>
+    // 初始化数据
+    const arr = [
+      { name: "周杰伦", tel: "13411112222" },
+      { name: "刘德华", tel: "13511112222" },
+      { name: "张学友", tel: "13711112222" },
+      { name: "岳云鹏", tel: "13911112222" }
+    ]
+
+  </script>
+</body>
+
+</html>

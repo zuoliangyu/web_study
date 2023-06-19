@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function sub(money, food , life ){
+            let fee = money - food - life
+            // return fee
+            document.write(`银行卡的剩余金额为${fee}`)
+            return fee
+        }
+        
+        let money = +prompt('请输入银行卡余额：')
+        let food = +prompt('请输入当月食宿消费金额：')
+        let life = +prompt('请输入当月生活消费金额：')
+        sub(money,food,life)
+    </script>
+</body>
+</html>

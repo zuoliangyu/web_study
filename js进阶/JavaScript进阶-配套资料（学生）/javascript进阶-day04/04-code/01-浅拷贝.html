@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浅拷贝</title>
+</head>
+
+<body>
+  <script>
+    // 浅拷贝方法
+
+    // 1. 对象拷贝
+    // const obj = {
+    //   name: '佩奇'
+    // }
+    // 1.1 Object.assign()
+    // const newObj = {}
+    // Object.assign(newObj, obj)
+    // // console.log(newObj)
+    // console.log(newObj === obj)  // false
+    // newObj.name = '乔治'
+    // console.log(obj)
+    // console.log(newObj)
+
+    // 1.2 展开运算符
+    // const newObj = { ...obj }
+    // console.log(newObj === obj)  // false
+    // newObj.name = '乔治'
+    // console.log(obj)
+    // console.log(newObj)
+
+
+    // // 2. 数组拷贝
+    // const arr = ['佩奇', '乔治']
+    // 2.1 concat 方法实现数组浅拷贝
+    // const arr1 = []
+    // const newArr = arr1.concat(arr)
+    // console.log(newArr)
+    // newArr[1] = '猪爸爸'
+    // console.log(arr)
+    // console.log(newArr)
+
+    // 2.2 展开运算符
+    // const newArr = [...arr]
+    // console.log(newArr)
+    // newArr[1] = '猪爸爸'
+    // console.log(arr)
+    // console.log(newArr)
+
+    // 3. 浅拷贝的问题如果遇到多层拷贝还是会影响原来的对象
+    const obj = {
+      name: '佩奇',
+      family: {
+        father: '猪爸爸'
+      }
+    }
+    const newObj = { ...obj }
+    // console.log(newObj)
+    newObj.family.father = 'dad'
+    console.log(newObj)
+    console.log(obj)
+  </script>
+</body>
+
+</html>

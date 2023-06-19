@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        .news{
+            width: 1200px;
+            margin: 20px auto;
+        }
+        .box{
+            float: left;
+            width: 350px;
+            position: relative;
+            overflow: hidden;
+            margin-right: 50px;
+        }
+        .box:hover img{
+            transform: scale(1.2);
+        }
+        img{
+            width: 350px;
+            transform: scale(1);
+            vertical-align: bottom;
+            transition: all 0.5s;
+        }
+        .title{
+            position: absolute;
+            width: 310px;
+            left: 20px;
+            bottom: -40px;
+            color: #fff;
+            z-index: 1;
+            transition: all 0.5s;
+        }
+        .box:hover .title{
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+        }
+        .title p{
+            font-size: 14px;
+        }
+        .title h3{
+            margin-top: 5px;
+            margin-bottom: 40px;
+        }
+        .title a{
+            font-size: 14px;
+            color: #fff;
+        }
+        .box:hover .mask{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            background-image: linear-gradient(
+                transparent,
+                rgba(0,0,0,0.6)
+            );
+        }
+        .mask{
+            opacity: 0;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="news">
+        <div class="box">
+            <img src="./images/product.jpeg" alt="">
+            <div class="title">
+                <p>产品</p>
+                <h3>OceanStor Pacific 海量存储斩获2021 Interop金奖</h3>
+                <a href="#">了解更多</a>
+            </div>
+            <div class="mask"></div>
+        </div>
+        <div class="box">
+            <img src="./images/huawei1.jpeg" alt="">
+            <div class="title">
+                <p>行业洞察</p>
+                <h3>迈向智能世界2030</h3>
+                <a href="#">了解更多</a>
+            </div>
+            <div class="mask"></div>
+        </div>
+        <div class="box">
+            <img src="./images/huawei2.jpeg" alt="">
+            <div class="title">
+                <p>《ICT新世界》刊首语</p>
+                <h3>笃行致远，共建具有获得感、幸福感、安全感的智慧城市</h3>
+                <a href="#">了解更多</a>
+            </div>
+            <div class="mask"></div>
+        </div>
+    </div>
+</body>
+</html>

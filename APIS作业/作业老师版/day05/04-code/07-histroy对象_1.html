@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>histroy对象</title>
+</head>
+
+<body>
+  <button class="back">←后退</button>
+  <button class="forward">前进→</button>
+  <script>
+    // histroy对象
+
+    // 1.前进
+    const forward = document.querySelector('.forward')
+    forward.addEventListener('click', function () {
+      // history.forward() 
+      history.go(1)
+    })
+    // 2.后退
+    const back = document.querySelector('.back')
+    back.addEventListener('click', function () {
+      // history.back()
+      history.go(-1)
+    })
+  </script>
+</body>
+
+</html>

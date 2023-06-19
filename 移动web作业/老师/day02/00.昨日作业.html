@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 380px;
+            height: 260px;
+            background-image: url(./images/01.jpg);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 5px;
+        }
+
+        /* .mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: all 1s;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transform-origin: left bottom;
+            transform: scale(0);
+        }
+
+        .father:hover .mask {
+            transform: scale(1);
+        }
+
+        div.inner{
+            width: 230px;
+            height: 90px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color:#fff;
+            text-align: center;
+        }
+
+        i.iconfont{
+            color:#fff;
+            font-size: 50px;
+            display: block;
+            text-align: center;
+        } */
+
+        .father .mask{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 5px;
+            transition: all 1s;
+            transform: scale(0);
+            transform-origin: left bottom;
+        }
+
+        .father:hover .mask{
+            transform: scale(1);
+        }
+        .father .mask .inner{
+            width: 230px;
+            height: 90px;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            text-align: center;
+            color:#fff;
+        }
+        i.iconfont {
+            
+            font-size: 50px;
+            
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="./fonts/iconfont.css">
+</head>
+<body>
+    <!-- 1. 设置图片内容 -->
+    <!-- 2. 将遮盖在图片上方的半透明层布局出来 -->
+    <!-- 3. 将遮盖层中间的内容布局出来(字体图标，文字内容) -->
+    <!-- 4. 鼠标悬停的时候，将遮盖层从左下角放大展示 -->
+    <div class="father">
+        <div class="mask">
+            <div class="inner">
+                <i class="iconfont icon-fangda"></i>
+                <p>青海塔尔寺艺术僧指尖绽放“百年梦境”酥油花</p>
+            </div>
+        </div>
+        <!-- <div class="mask">
+            <div class="inner">
+                <i class="iconfont icon-fangda"></i>
+                <p>青海塔尔寺艺术僧指尖绽放“百年梦境”酥油花</p>
+            </div>
+            
+        </div> -->
+    </div>
+</body>
+</html>

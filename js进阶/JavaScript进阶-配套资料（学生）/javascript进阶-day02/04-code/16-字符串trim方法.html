@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串trim方法</title>
+</head>
+
+<body>
+  <input type="text"> <button>录入</button>
+  <script>
+    // 字符串trim方法: 可以去除字符串两侧的空格
+    const str = ' pi nk '
+    console.log(str)
+    console.log(str.trim())
+
+    // trim方法使用场景
+    const input = document.querySelector('input')
+    const btn = document.querySelector('button')
+    btn.addEventListener('click', () => {
+      // if (input.value === '') {
+      //   alert('输入内容不能为空')
+      // }
+      // if (input.value.trim() === '') {
+      //   alert('输入内容不能为空')
+      // }
+      if (!input.value.trim()) {
+        alert('输入内容不能为空')
+      }
+    })
+  </script>
+</body>
+
+</html>

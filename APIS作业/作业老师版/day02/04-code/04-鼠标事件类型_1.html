@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼠标事件类型</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    // 鼠标事件类型
+    const box = document.querySelector('.box')
+
+    // 1. 鼠标点击
+    box.addEventListener('click', function () {
+      console.log('我点击了盒子')
+    })
+
+    // 2. 鼠标经过
+    box.addEventListener('mouseenter', function () {
+      console.log('我鼠标经过了盒子')
+    })
+
+    // 3. 鼠标离开
+    box.addEventListener('mouseleave', function () {
+      console.log('我鼠标离开了盒子')
+    })
+  </script>
+</body>
+
+</html>

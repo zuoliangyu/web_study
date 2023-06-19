@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <button>点我看看</button>
+    <script>
+        function sum(a,b){
+            console.log(this)
+            return a+b
+        }
+        let fn = sum.bind(document.querySelector('p'),100,100)
+        let re1 = fn()
+        console.log(re1)
+        let i = 0
+        setInterval(function(){
+            
+            // console.log(this)
+            this.innerHTML = i++
+        }.bind(document.querySelector('p')),1000)
+        let btn = document.querySelector('button')
+        let obj = { i:0 }
+        btn.addEventListener('click',function(){
+            this.i ++
+        }.bind(obj))
+    </script>
+</body>
+</html>

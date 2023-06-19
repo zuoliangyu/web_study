@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .xtx-cart-page .container {
+      width: 1200px;
+      margin: 50px auto;
+      border: 3px solid #ccc;
+    }
+
+    .xtx-cart-page h3 {
+      text-align: center;
+      font-size: 30px;
+      margin: 20px 0;
+    }
+
+    .tc {
+      text-align: center;
+    }
+
+    .tc .xtx-numbox {
+      margin: 0 auto;
+      width: 120px;
+    }
+
+    .red {
+      color: #db2828;
+    }
+
+    .green {
+      color: #32aa66;
+    }
+
+    .f16 {
+      font-size: 16px;
+    }
+
+    .goods {
+      display: flex;
+      align-items: center;
+    }
+
+    .goods img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .goods>div {
+      width: 280px;
+      font-size: 16px;
+      padding-left: 10px;
+    }
+
+    .goods>div .attr {
+      font-size: 14px;
+      color: #999;
+    }
+
+    .action {
+      display: flex;
+      background: #fff;
+      margin-top: 20px;
+      height: 80px;
+      align-items: center;
+      font-size: 16px;
+      justify-content: space-between;
+      padding: 0 30px;
+    }
+
+    .action .xtx-checkbox {
+      color: #999;
+    }
+
+    .action .batch a {
+      margin-left: 20px;
+    }
+
+    .action .red {
+      font-size: 18px;
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    .tit {
+      color: #666;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 50px;
+    }
+
+    .xtx-cart-page .cart {
+      background: #fff;
+      color: #666;
+    }
+
+    .xtx-cart-page .cart table {
+      border-spacing: 0;
+      border-collapse: collapse;
+      line-height: 24px;
+    }
+
+    .xtx-cart-page .cart table th,
+    .xtx-cart-page .cart table td {
+      padding: 10px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .xtx-cart-page .cart table th:first-child,
+    .xtx-cart-page .cart table td:first-child {
+      text-align: left;
+      padding-left: 30px;
+      color: #999;
+    }
+
+    .xtx-cart-page .cart table th {
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 50px;
+    }
+
+    .box {
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    .box p {
+      height: 30px;
+      line-height: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ---------------------- 题目区域 --------------------------- -->
+  <div class="box">
+    <p>题目说明：</p>
+    <p>1. 基于 arr（代码中已准备） 渲染下面购物车列表</p>
+    <p>2. 基于 arr 计算 底部总价 和 总数量</p>
+    <p>3. 注册事件 实现 删除功能</p>
+  </div>
+
+  <!-- ---------------------- 代码区域 ---------------------------- -->
+  <div class="xtx-cart-page">
+    <div class="container">
+      <div class="cart">
+        <h3>确认订单</h3>
+        <table>
+          <thead>
+            <tr>
+              <th width="120">序号</th>
+              <th width="400">商品信息</th>
+              <th width="220">单价</th>
+              <th width="180">数量</th>
+              <th width="180">小计</th>
+              <th width="140">操作</th>
+            </tr>
+          </thead>
+          <!-- 商品列表 -->
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+      <!-- 操作栏 -->
+      <div class="action">
+        <div class="batch"></div>
+        <div class="total">
+          共 9 件商品，商品合计：
+          <span class="red">¥1800</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const arr = [
+      {
+        id: '1652038',
+        attrsText: '规格：公道杯230ml/手工吹制',
+        name: '共享品茶乐趣公道杯闻香杯手工吹制',
+        price: '89.00',
+        picture:
+          'https://yanxuan-item.nosdn.127.net/6aaff130c1d97c60f9931e00734bbad6.png',
+        count: 10,
+      },
+      {
+        id: '1096001',
+        attrsText: '规格：不锈钢除味皂',
+        name: '祛味除腥神器，不锈钢除味皂',
+        price: '9.90',
+        picture:
+          'https://yanxuan-item.nosdn.127.net/b38f9ac476ec494235f4aa80fc8e198c.png',
+        count: 1,
+      },
+      {
+        id: '3446012',
+        attrsText: '颜色：芭比粉-老款',
+        name: '一锅包揽煎烤蒸煮日本爱丽思多功能料理锅',
+        price: '299.00',
+        picture:
+          'https://yanxuan-item.nosdn.127.net/667dbc276e46e31b5a00869b9b1b8ef3.png',
+        count: 2,
+      },
+      {
+        id: '1652037',
+        attrsText: '规格：黑白对杯',
+        name: '茶水分离杯耐热隔热玻璃杯',
+        price: '188.00',
+        picture:
+          'https://yanxuan-item.nosdn.127.net/a09de222ed32efa8ffe359b1d5780574.jpg',
+        count: 5,
+      },
+      {
+        id: '3504000',
+        name: '儿童防污/防蚊T恤110cm',
+        attrsText: '颜色：白色草莓（防污） 尺码：160cm',
+        price: '89.00',
+        picture:
+          'https://yanxuan-item.nosdn.127.net/f899c55f36cb74232abb349234d9e676.png',
+        count: 4,
+      },
+    ]
+    const tbody = document.querySelector('.cart tbody')
+    const action = document.querySelector('.action')
+
+    // 根据 arr 数据动态渲染 tbody
+    function render() {
+      const strArr = arr.map((ele, index) => {
+        const { picture, name, attrsText, price, count } = ele
+        return `
+          <tr>
+            <td>${index + 1}</td>
+            <td>
+              <div class="goods">
+                <a href="#/"
+                  ><img
+                    src="${picture}"
+                    alt=""
+                /></a>
+                <div>
+                  <p class="name ellipsis">
+                    ${name}
+                  </p>
+                  <p class="attr">${attrsText}</p>
+                </div>
+              </div>
+            </td>
+            <td class="tc">
+              <p>&yen;${price}</p>
+            </td>
+            <td class="tc">${count}</td>
+            <td class="tc"><p class="f16 red">&yen;${(count * price).toFixed(2)}</p></td>
+            <td class="tc">
+              <p><a data-index="${index}" class="green" href="javascript:;">删除</a></p>
+            </td>
+          </tr>`
+      }).join('')
+      tbody.innerHTML = strArr
+    }
+    render()
+
+    // 根据 arr 数据动态计算 总数量 和 总价
+    function renderPrice() {
+      const totalCount = arr.reduce((sum, item) => sum + item.count, 0)
+      const totalPrice = arr.reduce((sum, item) => sum + item.count * item.price, 0)
+      action.innerHTML = `
+          <div class="batch"></div>
+          <div class="total">
+            共 ${totalCount} 件商品，商品合计：
+            <span class="red">¥${totalPrice.toFixed(2)}</span>
+          </div>
+        `
+    }
+    renderPrice()
+
+    // 事件委托，注册删除事件
+    tbody.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        const index = e.target.dataset.index
+        arr.splice(index, 1)
+        render()
+        renderPrice()
+      }
+    })
+
+  </script>
+</body>
+
+</html>

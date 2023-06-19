@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let stu = {
+            name:'jack',
+            age:20,
+            sex:'male',
+            hello(){
+                console.log('你好！')
+            }
+        }
+        //调用hello方法
+        stu.hello()
+        console.log(typeof stu.hello)  //function
+        console.log(typeof stu.name)   //string
+        //遍历对象
+        for(let key in stu){
+            // console.log(stu[key])
+            if(typeof stu[key] === 'function'){
+                stu[key]()
+            }else{
+                console.log(stu[key])
+            }
+        }
+    </script>
+</body>
+</html>

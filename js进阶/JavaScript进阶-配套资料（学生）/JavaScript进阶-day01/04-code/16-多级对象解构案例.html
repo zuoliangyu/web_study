@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多级对象解构案例</title>
+</head>
+
+<body>
+  <script>
+    // 1. 这是后台传递过来的数据
+    const msg = {
+      "code": 200,
+      "msg": "获取新闻列表成功",
+      "data": [
+        {
+          "id": 1,
+          "title": "5G商用自己，三大运用商收入下降",
+          "count": 58
+        },
+        {
+          "id": 2,
+          "title": "国际媒体头条速览",
+          "count": 56
+        },
+        {
+          "id": 3,
+          "title": "乌克兰和俄罗斯持续冲突",
+          "count": 1669
+        },
+
+      ]
+    }
+    // 需求1： 请把 msg对象里面的 data 解构出来，后期使用
+    // const { data } = msg
+    // console.log(data)
+
+    // 需求2： 把 msg当做参数传递给函数，但是函数里面只需要 data，用于后期渲染
+
+    // function render(msg) {
+    //   const { data } = msg
+    //   console.log(data)
+    // }
+    // render(msg)
+    // 更简练的写法： 形参接受数据的同时进行对象解构
+    // function render({ data }) {
+    //   console.log(data)
+    // }
+    // render(msg)
+
+    // 需求3， 防止变量名冲突，要求把data变量重命名为 myData
+
+    function render({ data: myData }) {
+      console.log(myData)
+    }
+    render(msg)
+
+
+  </script>
+</body>
+
+</html>

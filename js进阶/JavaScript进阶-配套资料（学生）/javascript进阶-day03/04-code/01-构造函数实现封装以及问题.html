@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>构造函数实现封装以及问题</title>
+</head>
+
+<body>
+  <script>
+    // 1. 构造函数实现封装，封装人的姓名、年龄和 sayHi方法
+
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+      this.sayHi = function () {
+        console.log('hi~')
+      }
+    }
+
+    // 实例化
+    const zs = new Person('张三', 18)
+    const ls = new Person('李四', 19)
+    console.log(zs)
+    console.log(ls)
+    console.log(zs === ls)  // false 
+
+    // 2. 构造函数实现封装有个小问题
+    console.log(zs.sayHi === ls.sayHi)  // false 两个函数不一样
+
+  </script>
+</body>
+
+</html>

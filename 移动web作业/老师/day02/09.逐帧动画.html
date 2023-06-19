@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            animation: move 3s steps(6) infinite;
+        }
+        @keyframes move{
+            to{
+                transform: translateX(500px);
+            }
+        }
+
+        div{
+            width: 140px;
+            height: 140px;
+            background: url(./images/bg.png);
+            /* backgournd-repeat: ; */
+            background-position: 0 0;
+            animation: move1 1s steps(11) infinite;
+        }
+
+        @keyframes move1 {
+            to{
+                background-position: -1540px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/car.jpg" alt="">
+    <div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function handleData(arr = [], bool){
+            function qh(){
+                let sum = 0
+                for(let i = 0;i < arr.length; i++){
+                    sum += arr[i]
+                }  
+                return sum
+            }
+            if(!!bool === true || bool === undefined){
+                    return qh()
+            }else{
+                    return qh()/arr.length
+            }
+        }
+        let one = handleData([10,20,30,40,50,60],true)
+        let two = handleData([10,20,30,40,50,60],false)
+        console.log(one)
+        console.log(two)
+    </script>
+</body>
+</html>

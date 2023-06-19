@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 80%;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      color: #333;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e6e6e6;
+    }
+
+    h5 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+<div id="app">
+    <table>
+        <h5>欢迎光临_vue开发的收银系统水果店</h5>
+        <thead>
+          <tr>
+            <th>苹果{{ price }}￥/斤，折扣<{{ zhe }}折>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>请输入你要购买的斤数 &nbsp;&nbsp;<input v-model.number="kg" type="text"></td>
+          </tr>
+          <tr>
+            <td><button @click="buy">结账买单~</button></td>
+          </tr>
+          <tr>
+            <td>结账单：总价{{ total }}￥元 折后价：{{ zhePrice }}￥元 省了：{{ shengPrice }}￥元</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+  
+  <script src="../准备代码/vue.js"></script>
+  <script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            kg:0,
+            price:10,
+            zhe:8,
+            total:0,
+            zhePrice:0,
+            shengPrice:0
+        },
+        methods:{
+            buy(){
+                this.total = (this.kg * this.price).toFixed(2)
+                this.zhePrice = (this.price *this.kg * (this.zhe / 10)).toFixed(2)
+                this.shengPrice = (this.total - this.zhePrice).toFixed(2)
+            }
+        }
+    })
+  </script>
+</body>
+
+</html>

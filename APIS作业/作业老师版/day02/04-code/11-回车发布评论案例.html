@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>回车发布评论案例</title>
+  <style>
+    .wrapper {
+      min-width: 400px;
+      max-width: 800px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .avatar {
+      overflow: hidden;
+      width: 48px;
+      height: 48px;
+      margin-right: 20px;
+      border-radius: 50%;
+      background: url(./images/avatar.jpg) no-repeat center / cover;
+    }
+
+    .wrapper textarea {
+      flex: 1;
+      height: 30px;
+      padding: 10px;
+      border-color: transparent;
+      outline: none;
+      resize: none;
+      background: #f5f5f5;
+      border-radius: 4px;
+      transition: all 0.5s;
+    }
+
+    .wrapper textarea:focus {
+      height: 50px;
+      border-color: #e4e4e4;
+      background: #fff;
+    }
+
+    .wrapper button {
+      width: 70px;
+      margin-left: 10px;
+      border: none;
+      color: #fff;
+      background: #00aeec;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .wrapper .total {
+      margin-right: 80px;
+      margin-top: 5px;
+      color: #999;
+      opacity: 0;
+      transition: all 0.5s;
+    }
+
+    .list {
+      display: flex;
+      min-width: 400px;
+      max-width: 800px;
+    }
+
+    .list .item {
+      display: flex;
+      width: 100%;
+    }
+
+    .list .item .info {
+      flex: 1;
+      border-bottom: 1px dashed #e4e4e4;
+      padding-bottom: 10px;
+    }
+
+    .list .item p {
+      margin: 0;
+    }
+
+    .list .item .name {
+      color: #FB7299;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .list .item .text {
+      padding: 10px 0;
+      color: #333;
+      font-size: 13px;
+
+    }
+
+    .list .item .time {
+      color: #999;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <i class="avatar"></i>
+    <textarea id="tx" placeholder="发一条友善的评论" rows="2" maxlength="200"></textarea>
+    <button>发布</button>
+  </div>
+  <div class="wrapper">
+    <span class="total">0/200字</span>
+  </div>
+  <div class="list">
+    <div class="item" style="display: none;">
+      <i class="avatar"></i>
+      <div class="info">
+        <p class="name">清风徐来</p>
+        <p class="text">大家都辛苦啦，感谢各位大大的努力，能圆满完成真是太好了[笑哭][支持]</p>
+        <p class="time">2099-10-10 20:29:21</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 需求1： 文本域获得焦点则让 total 透明度改为1，失去焦点则改为0
+    const tx = document.querySelector('#tx')
+    const total = document.querySelector('.total')
+    // 1.1 得到焦点
+    tx.addEventListener('focus', function () {
+      // 透明度为1
+      total.style.opacity = 1
+    })
+
+    // 1.2 失去焦点
+    tx.addEventListener('blur', function () {
+      // 透明度为0
+      total.style.opacity = 0
+    })
+
+    // 需求2： 得到用户输入的字符长度，写到total盒子里面
+    // 2.1 根据input事件，得到用户的字符长度
+    tx.addEventListener('input', function () {
+      // console.log(tx.value)  // 得到用户输入的字符
+      // console.log(tx.value.length)  // 得到用户输入的字符的长度
+
+      // 2.2 把字符长度写到 total盒子里面
+      total.innerText = `${tx.value.length}/200字`
+    })
+
+    // 需求3： 用户按下回车，可以发表评论
+    const item = document.querySelector('.item')
+    const text = document.querySelector('.text')
+    // 3.1 用事件对象来判断是否是回车键，则显示评论模块，并且把输入内容显示对应盒子里面
+    tx.addEventListener('keyup', function (e) {
+      // console.log(e.key)
+      if (e.key === 'Enter') {
+        // 自动去调用 发布按钮
+        btn.click()
+      }
+    })
+    // 需求4： 点击发布按钮可以发布评论
+    const btn = document.querySelector('.wrapper button')
+    btn.addEventListener('click', function () {
+      // console.log('按下了回车')
+      item.style.display = 'flex'
+      // 把文本域的值赋值给 text 盒子p
+      text.innerHTML = tx.value
+
+      // 3.2 清空文本域，复原字符的个数
+      tx.value = ''
+      total.innerText = '0/200字'
+    })
+  </script>
+</body>
+
+</html>

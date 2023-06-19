@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>关羽</li>
+        <li>张飞</li>
+        <li>赵云</li>
+        <li>夏侯惇</li>
+    </ul>
+    <p>选出你最喜欢的英雄：</p>
+</body>
+<script>
+    let ul = document.querySelector('ul')
+    let didi = ul.nextElementSibling
+    console.log(didi)
+    let gy = ul.children[0]
+    let father = gy.parentNode
+    console.log(father)
+</script>
+</html>

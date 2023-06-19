@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>加加减减</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="btnRandom">走一走</button>
+      <ul>
+        <li
+          v-for="(item, index) in dataList"
+          :key="index"
+          @click="delBtn(item.id)"
+        >
+          <span>{{item.id}}</span>
+          <button>{{item.content}}</button>
+        </li>
+      </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          dataList: [],
+          randomVal: "",
+        },
+        methods: {
+          btnRandom() {
+            //Math.floor(Math.random() * (m-n)) + n;
+            this.dataList.push({ id: Math.floor(Math.random() * 20), content: "删除" });
+          },
+          delBtn(id) {
+            this.dataList = this.dataList.filter((item) => item.id !== id);
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

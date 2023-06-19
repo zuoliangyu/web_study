@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 希望当前页面再不同的设备上展示不同的布局效果
+           1. 在768px以下的移动设备(手机)上展示一行两个盒子，
+           2. 在768px以上，992px以下的屏幕上展示一行三个盒子
+           3. 在992px以上的屏幕上展示一行五个盒子 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            float: left;
+            height: 100px;
+            background-color: pink;
+            box-sizing: border-box;
+        }
+        /* max-width:768px : 最大的宽度是 768px  */
+        @media screen and (max-width:768px) {
+            div{
+                width: 50%;
+                background-color: pink;
+            }
+        }
+        /* min-width:768px : 最小的屏幕是 768px
+           max-width:992px ：最大的宽度是 992px   */
+        @media screen and (min-width:768px) and (max-width:992px){
+            div{
+                width: 33.33333%;
+                background-color: orange;
+            }
+        }
+
+        @media screen and (min-width:992px){
+            div{
+                width: 20%;
+                background-color: cyan;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+</body>
+</html>

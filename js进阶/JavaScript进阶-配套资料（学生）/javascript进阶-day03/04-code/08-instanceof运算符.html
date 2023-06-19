@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>instanceof运算符</title>
+</head>
+
+<body>
+  <script>
+    // instanceof 运算符 
+    // 语法:  实例对象  instanceof  构造函数
+    // 作用： 检测构造函数的原型对象是否在实例对象的原型链上
+    // Person构造函数
+    function Person(name) {
+      this.name = name
+    }
+
+    function Person1(name) {
+      this.name = name
+    }
+    const zs = new Person('张三')
+    console.log(zs instanceof Person)  // true
+    console.log(zs instanceof Person1)  // false
+
+    // 数组 
+    const arr = [1, 2, 3]
+    console.log(arr instanceof Array)  //  true
+    console.log(arr instanceof Object)  //  true 
+
+    console.log(arr) // __proto__
+    console.log(arr.__proto__ === Array.prototype) // true
+    console.log(Array.prototype.__proto__ === Object.prototype) // true
+  </script>
+</body>
+
+</html>

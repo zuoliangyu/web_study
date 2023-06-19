@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组find和findIndex方法</title>
+</head>
+
+<body>
+  <script>
+    // 数组find和findIndex方法
+    const goods = [
+      {
+        name: '小米',
+        price: 1999
+      },
+      {
+        name: '华为',
+        price: 4999
+      },
+      {
+        name: '苹果',
+        price: 9999
+      }
+    ]
+
+    // 1. find  查找满足条件的元素，返回第一个满足条件的元素，找不到则返回undefined
+    // const o = goods.find(function (ele, index) {
+    //   // console.log(ele)
+    //   // console.log(index)
+    //   return ele.name === '华为'
+    // })
+    // console.log(o)
+    // 1.1 和 filter的区别
+    // (1) 返回值不一样， filter 返回的是数组  find 返回的是数组元素
+    // (2) 查找方式不一样，filter是查找所有满足条件的数组元素， find只查找第一个满足条件的，找到就终止查找
+
+    // 2. findIndex 查找满足条件的元素的索引号，找不到则返回-1
+    // const i = goods.findIndex(function (ele, index) {
+    //   // console.log(ele)
+    //   // console.log(index)
+    //   return ele.name === '华为1'
+    // })
+    // console.log(i)
+    const i = goods.findIndex(ele => ele.name === '华为')
+    console.log(i)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>逻辑中断</title>
+</head>
+
+<body>
+  <script>
+    // 逻辑中断   && ||
+
+    // 1. 逻辑与中断：如果左边为假，则中断，如果左边为真，则返回右边的值
+    console.log(false && 1 + 2)  // false
+    console.log(0 && 1 + 2)  // 0
+    console.log('' && 1 + 2)  // ''
+    console.log(undefined && 1 + 2)  // undefined
+    console.log(true && 1 + 2)  // 3 此处不会发生逻辑中断
+    console.log(1 && 1 + 2)  // 3 此处不会发生逻辑中断
+
+    // 2. 逻辑或中断，如果左侧为真，则中断，如果左侧为假，则返回右边的值
+    console.log(true || 1 + 2) // true  发生了中断
+    console.log(1 || 1 + 2) // 1  发生了中断
+    console.log(false || 1 + 2) // 3 此处不会发生逻辑中断
+
+    // 3. 使用场景
+    // function sum(x, y) {
+    //   return x + y
+    // }
+    // console.log(sum(1, 2)) // 3
+    // console.log(sum()) // NaN
+
+    function sum(x, y) {   // x = undefined
+      //  x = undefined || 0
+      // x = 1 || 0
+      x = x || 0
+      y = y || 0
+      return x + y
+    }
+    console.log(sum())  // 0
+    console.log(sum(1, 2)) // 3
+  </script>
+</body>
+
+</html>

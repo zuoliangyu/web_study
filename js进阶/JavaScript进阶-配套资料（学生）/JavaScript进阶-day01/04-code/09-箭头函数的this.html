@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="btn1">点击</button>
+  <button class="btn2">5秒后启用</button>
+  <script>
+    // 1. 以前this的指向：  指向调用者
+    // console.log(this)  // window
+    // // 普通函数
+    // function fn() {
+    //   console.log(this)  // window
+    // }
+    // window.fn()
+    // // 对象方法里面的this
+    // const obj = {
+    //   name: 'andy',
+    //   sayHi: function () {
+    //     console.log(this)  // obj
+    //   }
+    // }
+    // obj.sayHi()
+
+    // 2. 箭头函数的中this指向-沿用上一层作用域的this 
+    const fn = () => {
+      console.log(this)  // window
+    }
+    fn()
+    // const obj = {
+    //   name: 'andy',
+    //   sayHi: () => {
+    //     console.log(this)  // window
+    //   }
+    // }
+    // obj.sayHi()
+
+    const obj = {
+      name: 'andy',
+      sayHi: function () {
+        const fun = () => {
+          console.log(this)  // obj 
+        }
+        fun()
+      }
+    }
+    obj.sayHi()
+
+    // 3. 我们可以根据需求来选择是否使用箭头函数 this
+    // document.querySelector('.btn1').addEventListener('click', function () {
+    //   this.style.color = 'red'
+    // })
+    document.querySelector('.btn1').addEventListener('click', () => {
+      // this.style.color = 'red'
+      // 此处不能用 this 指向 Window不是 按钮了
+      document.querySelector('.btn1').style.color = 'red'
+    })
+
+    document.querySelector('.btn2').addEventListener('click', function () {
+      this.disabled = true
+      // setTimeout(function () {
+      //   console.log(this) //  定时器里面的this 指向 window 
+      //   this.disabled = false
+      // }, 5000)
+
+      setTimeout(() => {
+        console.log(this) //  
+        this.disabled = false
+      }, 5000)
+    })
+  </script>
+</body>
+
+</html>

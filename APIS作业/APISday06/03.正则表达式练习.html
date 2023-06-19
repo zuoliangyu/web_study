@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+        let txt = document.querySelector('input')
+        let str = /^[a-zA-Z0-9_]{6,16}$/
+        
+        
+        txt.addEventListener('input',function(){
+            let res = str.test(txt.value)
+            if(res){
+                txt.style.color = 'green'
+            }else{
+                txt.style.color = 'red'
+            }
+        })
+        
+    </script>
+</body>
+</html>

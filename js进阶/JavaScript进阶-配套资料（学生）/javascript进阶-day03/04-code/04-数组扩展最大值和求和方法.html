@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组扩展求最大值和求和方法</title>
+</head>
+
+<body>
+  <script>
+    const arr = [1, 2, 3]
+    // 1. 数组扩展求最大值/最小值
+    Array.prototype.max = function () {
+      // 求最大值的逻辑
+      // 原型对象里面的this指向谁？ 实例对象
+      return Math.max(...this)
+    }
+
+    console.log(arr.max())  // 最大值
+    console.log([2, 4, 6].max())  // 最大值
+    console.log([21, 34, 6].max())  // 最大值
+    // 最小值
+    Array.prototype.min = function () {
+      // 原型对象里面的this指向谁？ 实例对象
+      return Math.min(...this)
+    }
+    const arr1 = [1, 2, 3]
+    console.log(arr1.min())
+
+
+    // 2. 数组扩展求和方法
+
+    const arr2 = [1, 2, 3]
+
+    Array.prototype.sum = function () {
+      // 求和的逻辑
+      // 原型对象里面的this指向谁？ 实例对象
+      return this.reduce((prev, current) => prev + current, 0)
+    }
+
+    console.log(arr2.sum())  // 6
+    console.log([3, 5, 9].sum())  // 17
+  </script>
+</body>
+
+</html>

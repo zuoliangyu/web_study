@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        //语法结构：函数名.call（参数1，参数2，参数3，...参数n）
+        //参数1就是this
+        let div = document.querySelector('div')
+        function sum(a,b){
+            console.log(this)
+            return a+b
+        }
+        let re1 = sum(10,20)
+        console.log(re1)
+        let obj = {
+            name:'rose',
+            age:20
+        }
+        let re2 = sum.call(obj,100,200)
+        console.log(re2)
+        let re3 = sum.call(div,100,200)
+        console.log(re3)
+        let re4 = sum.call(undefined,100,200)
+        console.log(re4)
+        let re5 = sum.call(window,100,200)
+        console.log(re5)
+        let re6 = sum.call(123,100,200)
+        console.log(re6)
+    </script>
+</body>
+</html>

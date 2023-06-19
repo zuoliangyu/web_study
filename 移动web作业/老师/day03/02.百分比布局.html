@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tabbar{
+            background-color: pink;
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+
+        .tabbar>div{
+            float:left;
+            width: 20%;
+            height: 100%;
+            text-align: center;
+            /* padding-top:5px; */
+            line-height: 25px;
+        }
+        .tabbar>div>span{
+            color:#fff;
+            font-size: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="./lib/iconfont/iconfont.css">
+</head>
+<body>
+    <!-- 1. 底部固定定位一个 底部tab栏 的盒子，盒子的宽度跟屏幕一样宽，高度固定(50px)
+         2. 底部tab栏 的盒子里面放5个子盒子，每个子盒子的宽度是20%，子盒子在同一行所以需要float:left
+         3. 子盒子里面分为上下两个内容(上面是字体图标，下面是文字内容) -->
+    <div class="tabbar">
+        <div>
+            <span class="iconfont icon-location"></span>
+            <div>首页</div>
+        </div>
+        <div>
+            <span class="iconfont icon-location"></span>
+            <div>首页</div>
+        </div>
+        <div>
+            <span class="iconfont icon-location"></span>
+            <div>首页</div>
+        </div>
+        <div>
+            <span class="iconfont icon-location"></span>
+            <div>首页</div>
+        </div>
+        <div>
+            <span class="iconfont icon-location"></span>
+            <div>首页</div>
+        </div>
+    </div>
+</body>
+</html>

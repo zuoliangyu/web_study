@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型 __proto__</title>
+</head>
+
+<body>
+  <script>
+    // 构造函数
+    function Person(name) {
+      this.name = name
+    }
+
+    // 1. 实例对象里面有 __proto__ 属性
+    const zs = new Person('张三')
+    console.log(zs)
+
+    // 2.  __proto__ 指向原型对象 
+    console.log(zs.__proto__ === Person.prototype)  // true
+
+    // 3. 注意事项
+    // 3.1 prototype 原型对象    __proto__ 原型
+    // 3.2 __proto__ 非标准属性，在现代浏览器里面显示的是 [[Prototype]] 但是他们是等价的
+    // 3.3 __proto__ 尽量不要修改它，否则会影响性能
+
+  </script>
+</body>
+
+</html>

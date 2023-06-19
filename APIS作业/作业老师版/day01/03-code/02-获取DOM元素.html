@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取DOM元素</title>
+</head>
+
+<body>
+  <div class="box">我是一个div</div>
+  <ol>
+    <li>我是第一个孩子</li>
+    <li>我是第二个孩子</li>
+    <li>我是第三个孩子</li>
+  </ol>
+  <ul class="nav">
+    <li>新闻</li>
+    <li>体育</li>
+    <li>娱乐</li>
+  </ul>
+  <script>
+    // 利用css选择器来获取DOM元素
+    // 1. document.querySelector() 选择指定css选择器的第一个元素
+    // 1.1 参数是字符串的css选择器
+    // const box = document.querySelector('div')
+    // console.log(box)
+
+    // 1.2 返回值是dom对象
+    // console.log(typeof box)  // object
+    // console.dir(box)
+
+    // const box = document.querySelector('.box')
+    // console.log(box)
+
+    // const li = document.querySelector('ol li')
+    // console.log(li)   // 只选择满足条件的第一个元素li
+
+    // const li = document.querySelector('ol li:nth-child(2)')
+    // console.log(li)   // 选择第2个小li
+
+    // 1.3 如果获取不到则返回 null
+    // const p = document.querySelector('p')
+    // console.log(p)  // null
+
+    // 2. document.querySelectorAll() 选择指定css选择器的所有元素
+    // 2.1 参数还是字符串的css选择器
+    const lis = document.querySelectorAll('.nav li')
+
+    // 2.2 返回值是一个伪数组里面包含了所有的dom对象 li
+    console.log(lis)
+
+    // 2.3 伪数组
+    // (1) 有长度和索引号
+    // (2) 没有数组的一些常用方法 比如 push  pop  splice等方法
+    // lis.push(1)
+    // console.log(lis)  // 因为lis是伪数组无法使用push方法所以报错
+
+    // 2.4 利用循环遍历伪数组得到里面的每一个元素对象
+    for (let i = 0; i < lis.length; i++) {
+      console.log(lis[i]) // 里面的每一个元素对象
+    }
+
+    // 2.5 即使只有1个元素，我们querySelectorAll 获得的也是一个伪数组，里面只有1个元素而已
+
+    const boxs = document.querySelectorAll('.box')
+    console.log(boxs)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件委托</title>
+</head>
+
+<body>
+  <ul>
+    <li>第1个孩子</li>
+    <li>第2个孩子</li>
+    <li>第3个孩子</li>
+    <li>第4个孩子</li>
+    <li>第5个孩子</li>
+  </ul>
+  <script>
+    // 需求： 点击每个小li都会有弹窗效果
+    // 1. 获取父元素ul
+    const ul = document.querySelector('ul')
+
+    // 2. 给ul注册点击事件
+    ul.addEventListener('click', function (e) {
+      // alert('我会弹窗')
+      // 3. 利用事件对象.target 得到目标元素
+      // console.log(e.target)
+      // e.target.style.color = 'pink'
+
+      // 需求2：点击哪个小li，对应的li变色
+      // console.dir(e.target.tagName) 可以得到目标元素的标签名
+      if (e.target.tagName === 'LI') {
+        e.target.style.color = 'pink'
+      }
+    })
+  </script>
+</body>
+
+</html>

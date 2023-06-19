@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <style>
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="container">
+      <!-- 顶部搜索框模块 -->
+      <div class="form-group">
+        <div class="input-group">
+          <h4>品牌管理</h4>
+        </div>
+      </div>
+
+      <!-- 数据表格 -->
+      <table class="table table-bordered table-hover mt-2">
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>资产名称</th>
+            <th>价格</th>
+            <th>创建时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody v-show="list.length > 0">
+          <tr v-for="v of list">
+            <td>{{ v.id }}</td>
+            <td>{{ v.name }}</td>
+
+            <!-- 如果价格超过100，就有red这个类 -->
+            <td :class="{red:v.price > 100}">{{ v.price }}</td>
+            <td>{{ v.time }}</td>
+            <td><a @click="del(v.id)" href="#">删除</a></td>
+          </tr>
+          <tr style="background-color: #EEE">
+              <td>统计:</td>
+              <td colspan="2">总价钱为: {{ totalMoney }}</td>
+              <td colspan="2">平均价: {{ avgMoney }}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td v-show="list.length === 0" colspan="5" style="text-align: center">暂无数据</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <!-- 添加资产 -->
+      <form class="form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <input v-model.trim="name" type="text" class="form-control" placeholder="资产名称" />
+          </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="form-group">
+          <div class="input-group">
+            <input v-model.trim.number="price" type="text" class="form-control" placeholder="价格" />
+          </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- 阻止表单提交 -->
+        <button @click.prevent="add" class="btn btn-primary">添加资产</button>
+      </form>
+    </div>
+  </div>
+  <script src="../准备代码/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        name: "", // 名称
+        price: 0, // 价格
+        // list:JSON.parse(localStorage.getItem('list')) || []
+        list: [
+          { id: 100, name: "外套", price: 199, time: new Date('2010-08-12') },
+          { id: 101, name: "裤子", price: 34, time: new Date('2013-09-01') },
+          { id: 102, name: "鞋", price: 25.4, time: new Date('2018-11-22') },
+          { id: 103, name: "头发", price: 19900, time: new Date('2020-12-12') }
+        ],
+      },
+      methods:{
+        del(id){
+            this.list = this.list.filter(v => v.id !== id)
+        },
+        add(){
+            if(this.name === '' || this.price === ''){
+                return alert('请输入正确的商品和价格')
+            }
+            this.list.push({
+                id: Math.max(0,...this.list.map(v => v.id)) + 1, 
+                name: this.name, 
+                price: this.price, 
+                time: new Date()
+            })
+            this.name = ''
+            this.price = ''
+        }
+      },
+      computed:{
+        totalMoney(){
+            return this.list.reduce((sum,v) => sum + v.price, 0)
+        },
+        avgMoney(){
+            return (this.totalMoney / this.list.length).toFixed(2)
+        }
+      },
+      watch:{
+        list:{
+            deep:true,
+            handler(){
+                console.log('数据改变了')
+                localStorage.setItem('list',JSON.stringify(this.list))
+            }
+        }
+      }
+    })
+  </script>
+
+
+</body>
+
+</html>

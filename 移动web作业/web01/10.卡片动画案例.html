@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./font_6kmihq1vlot/iconfont.css">
+    <style>
+        .box{
+            width: 380px;
+            height: 260px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        img{
+            vertical-align: bottom;
+        }
+        .box:hover .mask{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 80px;
+            opacity: 1;
+            transform: scale(1);
+        }
+        .mask{
+            opacity: 0;
+            transition: all 0.5s;
+            transform: scale(0.6);
+            transform-origin: left bottom;
+        }
+        .icon-fangdajing{
+            color: #fff;
+            font-size: 50px;
+        }
+        a{
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./images/01.jpg" alt="">
+        <div class="mask">
+            <i class="iconfont icon-fangdajing"></i><br>
+            <a href="#">青海塔尔寺艺僧指尖绽放“百<br><br>年梦境”酥油花</a>
+        </div>
+    </div>
+</body>
+</html>

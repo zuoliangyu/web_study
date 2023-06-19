@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>练习 - 网页时钟</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .clock {
+      width: 600px;
+      height: 600px;
+      background: url(./images/clock.jpg) no-repeat;
+      margin: 50px auto 0;
+      position: relative;
+    }
+
+    .hh,
+    .mm,
+    .ss {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: url(./images/hour.png) no-repeat center;
+    }
+
+    .mm {
+      background-image: url(./images/minute.png);
+      transform: rotate(270deg);
+    }
+
+    .ss {
+      background-image: url(./images/second.png);
+      transform: rotate(30deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="clock">
+    <div class="hh"></div>
+    <div class="mm"></div>
+    <div class="ss"></div>
+  </div>
+  <script>
+    /*
+      知识点：
+        1. 创建日期对象 获取当前时间
+    
+
+        2. 多次定时器，重复获取时间，让指针动起来
+    */
+
+    //    角度换算： 公式复制即可
+    //   小时角度公式：小时 * 30 + 分钟 / 60 * 30
+    //   分钟角度公式：分钟* 6 + 秒 / 60 * 6
+    //   秒角度公式： 当前秒数 * 6
+
+
+
+
+    const hh = document.querySelector('.hh')
+    const mm = document.querySelector('.mm')
+    const ss = document.querySelector('.ss')
+
+    function time() {
+      const data = new Date()
+      let hours = data.getHours()
+      let minutes = data.getMinutes()
+      // console.log(minutes);
+      let seconds = data.getSeconds()
+      hh.style.transform = `rotate(${hours * 30 + minutes / 60 * 30}deg)`
+      mm.style.transform = `rotate(${minutes * 6 + seconds / 60 * 6}deg)`
+      console.log(minutes * 6 + seconds / 60 * 6);
+      ss.style.transform = `rotate(${seconds * 6}deg)`
+    }
+    time()
+    setInterval(time, 1000)
+
+  </script>
+</body>
+
+</html>

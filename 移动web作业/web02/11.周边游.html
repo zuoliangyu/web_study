@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+        }
+        .white1{
+            position: absolute;
+            left: 700px;
+            top: 20px;
+            animation: move 1.5s alternate infinite;
+        }
+        @keyframes move {
+            to{
+                transform: translateX(40px);
+            }  
+        }
+        .white2{
+            position: absolute;
+            left: 1300px;
+            top: 100px;
+            animation: move 2s alternate infinite;
+            animation-delay: 1s;
+        }
+        .white3{
+            position: absolute;
+            left: 460px;
+            top: 180px;
+            animation: move 2s alternate infinite;
+            animation-delay: 0.5s;
+        }
+        .san{
+            position: absolute;
+            left: 600px;
+            top: 100px;
+            animation: move1 1.5s alternate infinite;
+        }
+        @keyframes move1 {
+            to{
+                transform: translateY(10px);
+            }
+        }
+        .lu{
+            position: absolute;
+            left: 1100px;
+            top: 100px;
+        }
+        .font{
+            position: absolute;
+            left: 43%;
+            top: 30%;
+            transform: scale(0.9);
+        }
+        .box:hover .font{
+            transform: scale(1.0);
+        }
+        .look1{
+            position: absolute;
+            left: 590px;
+            top: 450px;
+            transform: scale(0.7);
+            animation: move2 1s alternate infinite;
+        }
+        .look2{
+            position: absolute;
+            left: 790px;
+            top: 450px;
+            transform: scale(0.7);
+            animation: move2 1s alternate infinite;
+            animation-delay: 0.1s;
+        }
+        .look3{
+            position: absolute;
+            left: 990px;
+            top: 450px;
+            transform: scale(0.7);
+            animation: move2 1s alternate infinite;
+            animation-delay: 0.4s;
+        }
+        .look4{
+            position: absolute;
+            left: 1190px;
+            top: 450px;
+            transform: scale(0.7);
+            animation: move2 1s alternate infinite;
+            animation-delay: 0.5s;
+        }
+        @keyframes move2 {
+            to{
+                transform: translateY(30PX) scale(0.7);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./images/f1_1.jpg" alt="">
+        <img class="white1" src="./images/yun1.png" alt="">
+        <img class="white2" src="./images/yun2.png" alt="">
+        <img class="white3" src="./images/yun3.png" alt="">
+        <img class="san" src="./images/san.png" alt="">
+        <img class="lu" src="./images/lu.png" alt="">
+        <img class="font" src="./images/font1.png" alt="">
+        <img class="look1" src="./images/1.png" alt="">
+        <img class="look2" src="./images/2.png" alt="">
+        <img class="look3" src="./images/3.png" alt="">
+        <img class="look4" src="./images/4.png" alt="">
+    </div>
+</body>
+</html>

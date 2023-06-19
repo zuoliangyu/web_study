@@ -1,0 +1,391 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.w {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.top-nav {
+  width: 100%;
+  height: 53px;
+  background-color: #333;
+  padding-top: 18px;
+}
+
+.top-nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.top-nav ul li {
+  height: 17px;
+  line-height: 17px;
+  text-align: center;
+  padding: 0 15px;
+  border-right: 1px solid #dcdcdc;
+}
+
+.top-nav ul li:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+
+.top-nav ul li i {
+  color: #dcdcdc;
+}
+
+.top-nav ul li a {
+  font-size: 14px;
+  text-align: center;
+  color: #dcdcdc;
+}
+
+.nav {
+  background-color: #fff;
+}
+
+.nav .w {
+  display: flex;
+}
+
+.nav .w img {
+  width: 143px;
+  margin: 19px 0 19px 50px;
+}
+
+.nav .w ul {
+  flex: 1;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav .w ul li a {
+  font-size: 16px;
+  color: #000;
+}
+
+.nav .w .search {
+  width: 264px;
+  height: 30px;
+  margin-top: 70px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.nav .w .search .icon-fangdajing {
+  font-size: 17px;
+  margin: 0 8px;
+}
+
+.nav .w .search input {
+  width: 226px;
+  height: 28px;
+  outline: none;
+  border: 0;
+}
+
+.nav .w .icon-gouwuche {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 75px;
+}
+
+.nav .w .icon-gouwuche::after {
+  content: '';
+  border-radius: 50%;
+  background-color: #333;
+}
+
+.main {
+  height: 1348px;
+  margin-top: 29px;
+}
+
+.main .w {
+  height: 1348px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .w .left {
+  width: 227px;
+  background-color: #fff;
+}
+
+.main .w .left .personal {
+  border-bottom: 1px solid #dcdcdc;
+  text-align: center;
+  padding: 47px auto 32px;
+}
+
+.main .w .left .personal img {
+  width: 85px;
+}
+
+.main .w .left .personal .photo {
+  margin-top: 47px;
+}
+
+.main .w .left .personal h1 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.main .w .left .personal .vip {
+  width: 93px;
+  height: 26px;
+  background-color: #e05e30;
+  border-radius: 13px;
+  line-height: 26px;
+  text-align: center;
+  margin: 12px auto 32px;
+}
+
+.main .w .left .personal .vip img {
+  width: 15px;
+}
+
+.main .w .right {
+  width: 999px;
+}
+
+.main .w .right .main1 {
+  height: 132px;
+  display: flex;
+  background-color: #fff;
+  margin-bottom: 18px;
+}
+
+.main .w .right .main1 .user {
+  flex: 1;
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+  border-right: 1px solid #dcdcdc;
+}
+
+.main .w .right .main1 .user li {
+  align-self: center;
+}
+
+.main .w .right .main1 .user li a {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+
+.main .w .right .main1 .user li a .dizhi {
+  width: 16px;
+}
+
+.main .w .right .main1 .user li a img {
+  margin: 0 auto;
+  width: 25px;
+  margin-bottom: 18px;
+}
+
+.main .w .right .main1 .ticket {
+  flex: 1;
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.main .w .right .main1 .ticket li {
+  align-self: center;
+}
+
+.main .w .right .main1 .ticket li a {
+  color: #000;
+}
+
+.main .w .right .main1 .ticket li a h4 {
+  font-size: 23px;
+  color: #e05e30;
+  margin-bottom: 8px;
+}
+
+.main .w .right .order {
+  height: 392px;
+  background-color: #fff;
+  padding: 28px 20px;
+}
+
+.main .w .right .order .title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .w .right .order .title h4 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+
+.main .w .right .order .title a {
+  font-size: 16px;
+  color: #999;
+}
+
+.main .w .right .order .details {
+  height: 137px;
+  display: flex;
+  border: 1px solid #f4f4f4;
+  margin-bottom: 21px;
+}
+
+.main .w .right .order .details li {
+  font-size: 14px;
+  height: 137px;
+}
+
+.main .w .right .order .details li:nth-child(1) {
+  flex: 1;
+  display: flex;
+}
+
+.main .w .right .order .details li:nth-child(1) img {
+  width: 107px;
+  margin: 17px 0 14px 12px;
+}
+
+.main .w .right .order .details li:nth-child(1) .info {
+  align-self: center;
+}
+
+.main .w .right .order .details li:nth-child(1) .info h5 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.main .w .right .order .details li:nth-child(1) .info p {
+  font-size: 14px;
+  color: #999;
+  margin-top: 8px;
+}
+
+.main .w .right .order .details li:nth-child(2) {
+  width: 120px;
+  line-height: 137px;
+  color: #e05e30;
+  text-align: center;
+  border-right: 1px solid #f4f4f4;
+}
+
+.main .w .right .order .details li:nth-child(3) {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid #f4f4f4;
+  width: 200px;
+}
+
+.main .w .right .order .details li:nth-child(3) p:first-child {
+  color: #9a2e1f;
+}
+
+.main .w .right .order .details li:nth-child(4) {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 180px;
+}
+
+.main .w .right .order .details li:nth-child(4) a {
+  color: #000;
+}
+
+.main .w .right .order .details li:nth-child(4) a:first-child {
+  display: block;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #5eb69c;
+  color: #fff;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+
+.main .w .right .goods {
+  height: 383px;
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 28px 20px;
+}
+
+.main .w .right .goods .title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.main .w .right .goods .title h4 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.main .w .right .goods .title a {
+  font-size: 16px;
+  color: #999;
+}
+
+.main .w .right .goods .details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .w .right .goods .details li {
+  margin-top: 31px;
+  width: 171px;
+  height: 251px;
+}
+
+.main .w .right .goods .details li:nth-child(2) {
+  width: 181px;
+}
+
+.main .w .right .goods .details li:nth-child(2) img {
+  margin-left: 21px;
+}
+
+.main .w .right .goods .details li img {
+  width: 160px;
+  margin-left: 11px;
+}
+
+.main .w .right .goods .details li h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.main .w .right .goods .details li p {
+  font-size: 22px;
+  color: #9a2e1f;
+  margin-top: 10px;
+}
+
+.main .w .right .goods .details li p span {
+  font-size: 17px;
+}

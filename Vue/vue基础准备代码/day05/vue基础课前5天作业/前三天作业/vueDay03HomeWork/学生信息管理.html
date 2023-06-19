@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>学生信息管理</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <div>
+        <span>姓名:</span>
+        <input type="text" v-model.trim="name" />
+      </div>
+      <div>
+        <span>年龄:</span>
+        <input type="number" v-model.trim="age" />
+      </div>
+      <div>
+        <span>性别:</span>
+        <select v-model="selected">
+          <option value="男">男</option>
+          <option value="女">女</option>
+        </select>
+      </div>
+      <div>
+        <button @click="toggleOpera" v-if="isShow">添加/修改</button>
+        <button @click="toggleOpera" v-else>添加/修改</button>
+      </div>
+      <div>
+        <table border="1" cellpadding="10" cellspacing="0">
+          <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+          </tr>
+          <tr v-for="(item, index) in list" :key="item.id">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.gender}}</td>
+            <td>
+              <button @click="del(item.id)">删除</button>
+              <button @click="edit(item.id)">编辑</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          name: "",
+          age: "",
+          selected: "",
+          curId: "",
+          isShow: true,
+          list: JSON.parse(localStorage.getItem('newList')) || []
+        },
+        methods: {
+          toggleOpera() {
+            if (this.isShow) {
+              if(!this.name || !this.age) return alert('请输入正确的信息')
+              this.list.push({
+                id: +new Date(),
+                gender: this.selected,
+                name: this.name,
+                age: this.age,
+              });
+            } else {
+              let newArr = this.list.filter((item) => item.id === this.curId);
+              newArr[0].gender = this.selected;
+              newArr[0].name = this.name;
+              newArr[0].age = this.age;
+              this.isShow = !this.isShow
+            }
+            this.name = ''
+            this.age = ''
+            this.selected = ''
+          },
+          del(id) {
+            this.list = this.list.filter((item) => item.id !== id);
+          },
+          edit(id) {
+            let newArr = this.list.filter((item) => item.id === id);
+            this.curId = id;
+            this.id = newArr[0].id;
+            this.selected = newArr[0].gender;
+            this.name = newArr[0].name;
+            this.age = newArr[0].age;
+            this.isShow = !this.isShow;
+            
+          },
+        },
+        watch: {
+          list(newVal){
+            localStorage.setItem('newList', JSON.stringify(newVal))
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

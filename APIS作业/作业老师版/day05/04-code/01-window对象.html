@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window对象</title>
+</head>
+
+<body>
+  <script>
+    // window 对象
+    var age = 18
+    // 1. 用 var 声明的全局变量，会变成window的一个属性
+    console.log(age)  // 18
+    console.log(window.age)   // 18
+    let num = 10
+    console.log(window.num)  //  undefined  使用let或者const不会变为window的属性
+
+    // 2. 函数会变成window的一个方法
+    function fn() {
+      console.log('我会变成window的一个方法')
+      function fun() {
+
+      }
+    }
+
+    fn()
+    window.fn()
+
+    window.alert('我是警示框')
+    alert('我是警示框')
+  </script>
+</body>
+
+</html>

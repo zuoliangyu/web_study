@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>异常处理-debugger</title>
+</head>
+
+<body>
+  <script>
+    // 异常处理 -debugger
+    const obj = {
+      name: '佩奇',
+      family: {
+        father: '猪爸爸'
+      },
+      hobby: ['跳泥坑', '唱歌'],
+    }
+    // 封装深拷贝函数 cloneDeep()
+    function cloneDeep(oldObj) {
+      const newObj = Array.isArray(oldObj) ? [] : {}
+      debugger9
+      for (let k in oldObj) {
+        if (typeof oldObj[k] === 'object') {
+          newObj[k] = cloneDeep(oldObj[k])
+
+        } else {
+          newObj[k] = oldObj[k]
+        }
+      }
+      return newObj
+    }
+    const newObj = cloneDeep(obj)
+    newObj.family.father = 'dad'
+    console.log(newObj)
+    console.log(obj)
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //声明式函数有函数提升现象，在声明函数之前就可以调用（函数表达式不行）
+        fn()
+        function fn(){
+            console.log('我是fn函数')
+        }
+        fn()
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>我只要点一次</button>
+    <script>
+        let btn = document.querySelector('button')
+        let btnclick = function(){
+            console.log('点击了一次')
+            btn.removeEventListener('click',btnclick)
+        }
+        btn.addEventListener('click',btnclick)
+    </script>
+</body>
+</html>

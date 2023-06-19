@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [
+            {
+                "stuId": 1,
+                "uname": "迪丽热巴",
+                "age": 22,
+                "gender": "女",
+                "salary": 12000,
+                "city": "北京",
+                "time": "2099/9/9 08:08:08"
+            },
+            {
+                "stuId": 2,
+                "uname": "买买提",
+                "age": 23,
+                "gender": "男",
+                "salary": 13000,
+                "city": "上海",
+                "time": "2023/9/9 08:08:08"
+            },
+            {
+                "stuId": 3,
+                "uname": "刘红",
+                "age": 23,
+                "gender": "女",
+                "salary": 6000,
+                "city": "长沙",
+                "time": "2023/9/9 08:08:08"
+            }
+        ]
+        let liuhong = arr.filter(function(item,index){
+            if(item.uname === '刘红'){
+                return true
+            }else{
+                return false
+            }
+        })
+        console.log(liuhong)
+        let girl = arr.filter(item => item.salary >10000 && item.gender === '女')
+        console.log(girl)
+        let man = arr.filter(item => item.age === 23 && item.gender === '男')
+        console.log(man)
+    </script>
+</body>
+</html>

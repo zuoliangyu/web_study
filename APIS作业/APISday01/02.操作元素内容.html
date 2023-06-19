@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">哈哈哈</div>
+    <div class="one">汪汪</div>
+    <div class="one">嘎嘎</div>
+    <div class="one">哞哞</div>
+    <ul>
+        <li>周杰伦</li>
+        <li>五月天</li>
+        <li>陈奕迅</li>
+        <li>孙燕姿</li>
+        <li>新裤子</li>
+    </ul>
+    <script>
+        let box = document.querySelector('#box')
+        console.log(box);
+        box.innerText = '嘻嘻嘻'
+        let ul = document.querySelector('ul')
+        ul.innerHTML = `<li>周杰伦</li>
+                        <li>五月天</li>
+                        <li>陈奕迅</li>`
+    </script>
+</body>
+</html>

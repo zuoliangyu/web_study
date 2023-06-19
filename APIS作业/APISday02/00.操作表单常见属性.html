@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        用户名：<input type="text" class="username" />
+        <br>
+        密码：<input type="password" class="pwd" />
+        <br>
+        爱好：
+        <input type="checkbox" class="hobbys"> 唱跳
+        <input type="checkbox" class="hobbys"> rap
+        <input type="checkbox" class="hobbys"> 打篮球
+        <br>
+        <select name="" id="select">
+            <option value="gz">广州</option>
+            <option value="cs" selected>长沙</option>
+            <option value="sz">深圳</option>
+        </select>
+        <button>提交</button>
+    </form>
+    <script>
+        // 1. 给用户名文本框设置默认的文字 ‘admin’
+        // 2. 给密码框设置默认的密码文字 ‘123456’
+        // 3. 将 唱跳 ，rap 两个复选框选中
+        // 4. 将 提交按钮 禁用
+        let uname = document.querySelector('.username')
+        uname.value = 'admin'
+        document.querySelector('.pwd').value = '123456'
+        document.querySelector('.pwd').checked = true
+        let hobbys = document.querySelectorAll('.hobbys')
+        hobbys[0].checked = true
+        hobbys[1].checked = true
+        let btn = document.querySelector('button')
+        btn.disabled = true
+        let select = document.querySelector('select')
+        // console.log(select.value)
+    </script>
+</body>
+</html>

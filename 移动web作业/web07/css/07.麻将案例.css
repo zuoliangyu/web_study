@@ -1,0 +1,189 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.father {
+  padding-left: 80px;
+  width: 800px;
+  height: 400px;
+  background-color: green;
+  margin: 100px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.father .majiang {
+  padding: 20px;
+}
+.father .majiang .box {
+  width: 100px;
+  height: 120px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+.father .majiang .box1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.father .majiang .box1 .son {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #000;
+}
+.father .majiang .box2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.father .majiang .box2 .son {
+  background-color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.father .majiang .box3 {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.father .majiang .box3 .son {
+  background-color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.father .majiang .box3 .son1 {
+  align-self: flex-start;
+}
+.father .majiang .box3 .son3 {
+  align-self: flex-end;
+}
+.father .majiang .box4 {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.father .majiang .box4 .son {
+  background-color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-self: center;
+}
+.father .majiang .box5 {
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.father .majiang .box5 .top {
+  display: flex;
+  justify-content: space-between;
+}
+.father .majiang .box5 .center {
+  display: flex;
+  justify-content: center;
+}
+.father .majiang .box5 .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.father .majiang .box5 .son {
+  background-color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-self: center;
+}
+.father .majiang .box6 {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.father .majiang .box6 .top {
+  display: flex;
+  justify-content: center;
+}
+.father .majiang .box6 .top .son1,
+.father .majiang .box6 .top .son2 {
+  background-color: red;
+}
+.father .majiang .box6 .bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.father .majiang .box6 .son {
+  background-color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-self: center;
+}
+.father .majiang .box7 {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.father .majiang .box7 .top {
+  padding: 0 5px;
+  display: flex;
+  height: 50px;
+}
+.father .majiang .box7 .top .son1 {
+  align-self: flex-start;
+}
+.father .majiang .box7 .top .son3 {
+  align-self: flex-end;
+}
+.father .majiang .box7 .bottom {
+  padding: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.father .majiang .box7 .son {
+  color: #fff;
+  background-color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-self: center;
+}
+.father .majiang .box8 {
+  padding: 5px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.father .majiang .box8 .son {
+  color: #fff;
+  background-color: #000;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+}
+.father .majiang .box9 {
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.father .majiang .box9 .son {
+  color: #fff;
+  background-color: #000;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+}

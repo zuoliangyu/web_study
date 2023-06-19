@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 基础样式设置 */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            background-color: #ccc;
+        }
+        .bottom{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 79px;
+            border-top:1px solid #ededed;
+            background-color: skyblue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:0 11px 0 9px;
+        }
+
+        .bottom .right{
+            width: 91px;
+            height: 35px;
+            color:#fff;
+            background-image: linear-gradient(90deg, 
+		#6fc2aa 5%, 
+		#54b196 100%);
+            border-radius: 3px;
+            font-size: 13px;
+            text-align: center;
+            line-height: 35px;
+        }
+        .bottom .left{
+            font-size: 12px;
+        }
+        .bottom .left>span:first-of-type{
+            margin-right:12px;
+        }
+        .bottom .left>span:nth-of-type(n+2){
+            color:#cf4444;
+        }
+        .bottom .left>span:nth-of-type(3){
+            font-size: 20px;
+        }
+        .bottom .left>span:nth-of-type(4){
+            font-size: 18px;
+        }
+        .nav{
+            width: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 43px;
+            text-align: center;
+            line-height: 43px;
+            font-size: 14px;
+            background-color: #fff;
+        }
+        .nav i{
+            width: 14px;
+            height: 14px;
+            font-size: 14px;
+            transform: rotate(180deg);
+            position: absolute;
+            left:20px;
+            bottom:16px;
+            line-height: 14px;
+        }
+
+        .address{
+            margin:54px 11px 0 11px;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .location{
+            width: 30px;
+            height: 30px;
+            margin:24px 0 0 11px;
+            background-image: linear-gradient(90deg, 
+            #6fc2aa 5%, 
+            #54b196 100%);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            color:#fff;
+        }
+        .arrow{
+            width: 44px;
+            height: 44px;
+            border:1px dashed #3a9cff;
+            text-align: center;
+            line-height: 44px;
+            margin-top: 17px;
+            color:#808080;
+        }
+        .msg{
+            margin-left: 12px;
+            margin-top:15px;
+            width: 260px;
+            margin-bottom:14px
+        }
+        .msg>div>span:first-of-type{
+            font-size: 15px;
+        }
+        .msg>div>span:last-of-type{
+            font-size: 13px;
+        }
+        .msg .info{
+            margin-top: 13px;
+            font-size: 12px;
+        } 
+    </style>
+</head>
+<link rel="stylesheet" href="./lib/iconfont/iconfont.css">
+<body>
+    <!-- 顶部导航栏盒子，高度89px，背景颜色白色，
+        左箭头，定位left 20px bottom：16px  填写订单文字大小14px -->
+    <div class="nav">
+        <i class="iconfont icon-more"></i>
+        填写订单
+    </div>
+
+    <!-- 用户收货信息盒子：上方12px，左右11px，背景颜色白色，圆角5px
+         左侧定位图标，宽高 30px，上方24px，左边11px，定位图标背景色渐变的。
+         右侧箭头图标，宽高44px 虚线边框 #3a9cff 图标居中。上方间距17px
+         中间文字内容宽度260px 距离定位图标间隔12px,距离上方15px,距离底部14px
+        中间文字内容 林丽 15px 手机号码 13px
+        详细地址上方间距13px 字体12px -->
+    <div class="address">
+        <div class="location">
+            <i class="iconfont icon-location"></i>
+        </div>
+        <div class="msg">
+            <div><span>林丽</span> <span>18500667882</span></div>
+            <div class="info">北京市  海淀区  中关村软件园   信息科技大厦1号
+                楼410#</div>
+        </div>
+        <div class="arrow">
+            <i class="iconfont icon-more"></i>
+        </div>
+    </div>
+
+    <!-- 底部布局：父盒子固定定位在底部，宽度100%，高度79px，有1px的上边框 #ededed，整个页面的背景颜色 #ccc
+         底部右侧的去支付按钮，宽度91px，高度35px，文字的颜色是白色，文字垂直水平居中，背景颜色是渐变的。圆角3px
+         字体大小13px，
+         合计字体大小 12px，左边间距9px，
+         ￥ 字体：12px
+         266 字体：20px
+         .00 字体：18px  文字颜色#cf4444 -->
+    <div class="bottom">
+        <div class="left">
+            <span>合计：</span><span>￥</span><span>266</span><span>.00</span>
+        </div>
+        <div class="right">去支付</div>
+    </div>
+</body>
+</html>

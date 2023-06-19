@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>input事件和键盘事件</title>
+  <style>
+    textarea {
+      width: 300px;
+      height: 30px;
+      padding: 10px;
+      border-color: transparent;
+      outline: none;
+      resize: none;
+      background: #f5f5f5;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <textarea id="tx" placeholder="发一条友善的评论" rows="2"></textarea>
+  <script>
+    // 获取元素
+    const tx = document.querySelector('#tx')
+
+    // 1. 键盘事件 
+    // 1.1 键盘按下事件  keydown  当我们按下键盘的时候就触发
+    tx.addEventListener('keydown', function () {
+      console.log('我是keydown事件' + tx.value)
+    })
+
+    // 1.2 键盘弹起事件  keyup 当我们键盘弹起的时候就触发
+    tx.addEventListener('keyup', function () {
+      console.log('我是keyup事件' + tx.value)
+    })
+
+    // 2. 用户输入事件 input ，是表单value的值发生变化的时候触发
+    tx.addEventListener('input', function () {
+      console.log('我是input事件' + tx.value)
+    })
+
+    // 3. 注意事项
+    // 3.1 执行顺序  keydown →  input   →  keyup
+    // 3.2 keydown 获取值的时候得不到最后一次按键的值， keyup和input可以得到用户输入内容
+
+  </script>
+</body>
+
+</html>

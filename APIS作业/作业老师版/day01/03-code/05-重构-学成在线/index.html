@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学成在线</title>
+  <link rel="stylesheet" href="./iconfont/iconfont.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+  <!-- 精品课程 -->
+  <div class="course wrapper">
+    <div class="hd">
+      <h3>精品推荐</h3>
+      <a href="#">查看全部
+        <span class="iconfont icon-arrow-right-bold">
+        </span>
+      </a>
+    </div>
+    <div class="bd">
+      <ul class="common">
+
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // 综合案例代码
+    // 1. 利用对象数组的数据渲染页面
+    // 综合案例代码
+    let data = [
+      {
+        src: './uploads/quality01.png',
+        title: 'JavaScript数据看板项目实战',
+        num: 1125
+      },
+      {
+        src: './uploads/quality02.png',
+        title: 'Vue.js实战——面经全端项目',
+        num: 2726
+      },
+      {
+        src: './uploads/quality03.png',
+        title: '玩转Vue全家桶，iHRM人力资源项目',
+        num: 9456
+      },
+      {
+        src: './uploads/quality04.png',
+        title: 'Vue.js实战医疗项目——优医问诊',
+        num: 7192
+      },
+      {
+        src: './uploads/quality05.png',
+        title: '小程序实战：小兔鲜电商小程序项目',
+        num: 2703
+      },
+      {
+        src: './uploads/quality06.png',
+        title: '前端框架Flutter开发实战',
+        num: 2841
+      },
+      {
+        src: './uploads/quality07.png',
+        title: '熟练使用React.js——极客园H5项目',
+        num: 95682
+      },
+      {
+        src: './uploads/quality08.png',
+        title: '熟练使用React.js——极客园PC端项目',
+        num: 904
+      },
+      {
+        src: './uploads/quality09.png',
+        title: '前端实用技术，Fetch API 实战',
+        num: 1516
+      },
+      {
+        src: './uploads/quality10.png',
+        title: '前端高级Node.js零基础入门教程',
+        num: 2766
+      },
+      {
+        src: './uploads/quality10.png',
+        title: '前端高级Node.js零基础入门教程',
+        num: 27669
+      }
+    ]
+    // 2. 利用循环来做字符串拼接生成多个li标签，之后把生成的li标签放入容器 ul 里面渲染即可
+    let str = ''
+    for (let i = 0; i < data.length; i++) {
+      // console.log(data[i]) // 每个对象
+      str += `
+         <li>
+          <a href="#">
+            <div class="pic">
+              <img src="${data[i].src}" alt="">
+            </div>
+            <h4>${data[i].title}</h4>
+            <p><span>高级</span> · <i>${data[i].num}</i>人在学习</p>
+          </a>
+        </li>
+      `
+    }
+    console.log(str)
+
+    // 3. 获取li的父亲 ul标签 .common
+    const ul = document.querySelector('.common')
+
+    // 4. 把10个小li放入 ul里面作为元素内容
+    ul.innerHTML = str 
+  </script>
+</body>
+
+</html>

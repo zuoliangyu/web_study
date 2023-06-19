@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filter筛选数组元素</title>
+</head>
+
+<body>
+  <script>
+    // filter 筛选数组元素
+    const arr = [10, 20, 30, 40]
+    // const newArr = arr.filter(function (ele, index) {
+    //   // console.log(ele)
+    //   // console.log(index)
+    //   // return 筛选条件
+    //   return ele >= 30
+    //   // return ele + 30 都是真的所以都选出来了
+    // })
+
+    const newArr = arr.filter(ele => ele >= 30)
+    console.log(newArr)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>调试工具的使用</title>
+</head>
+
+<body>
+  <script>
+    // 1. 调试分支语句执行过程
+    // let uname = '刘德华1'
+    // if (uname === '刘德华') {
+    //   alert('登录成功，欢迎回来~')
+    // } else {
+    //   alert('登录失败，您输入的用户名和密码错误~')
+    // }
+
+    // 2. 调试多分支语句
+    // let score = 60
+    // if (score >= 90) {
+    //   alert('优秀，棒棒棒~')
+    // } else if (score >= 70) {
+    //   alert('良好，棒棒~')
+    // } else if (score >= 60) {
+    //   alert('及格，棒~')
+    // } else {
+    //   alert('不及格，好好加油，你可以的~')
+    // }
+
+    // 3. 调试switch分支语句
+    let fruits = '橘子'
+    switch (fruits) {
+      case '香蕉':
+        alert('香蕉的价格是: 3元/斤')
+        break
+      case '苹果':
+        alert('苹果的价格是: 4元/斤')
+        break
+      case '橘子':
+        alert('橘子的价格是: 2元/斤')
+        break
+      default:
+        alert('没有查到此水果')
+    }
+  </script>
+</body>
+
+</html>

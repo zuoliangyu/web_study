@@ -1,0 +1,138 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.top {
+  width: 100vw;
+  height: 11.73333333vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3.2vw 0 4.8vw;
+}
+.top .left .icon-bilibili {
+  font-size: 7.46666667vw;
+  color: #fb7299;
+}
+.top .right {
+  display: flex;
+  align-items: center;
+}
+.top .right .icon-fangdajing {
+  font-size: 5.86666667vw;
+  color: #ccc;
+}
+.top .right .login {
+  width: 6.4vw;
+  margin-left: 6.4vw;
+}
+.top .right .download {
+  width: 19.2vw;
+  margin-left: 6.4vw;
+}
+.nav {
+  display: flex;
+  width: 100%;
+  height: 10.66666667vw;
+  justify-content: space-between;
+  padding: 0 3.2vw 0 4.8vw;
+  border-bottom: 1px solid #ccc;
+}
+.nav ul {
+  display: flex;
+}
+.nav ul li {
+  padding: 0 4.26666667vw;
+}
+.nav ul li:first-child {
+  padding-left: 0;
+}
+.nav ul li a {
+  display: block;
+  font-size: 3.73333333vw;
+  color: #333;
+  height: 10.13333333vw;
+  line-height: 10.13333333vw;
+}
+.nav ul li a:hover {
+  color: #fb7299;
+  border-bottom: 2px solid #fb7299;
+}
+.nav ul li .active {
+  color: #fb7299;
+  border-bottom: 2px solid #fb7299;
+}
+.nav .more {
+  font-size: 5.86666667vw;
+  color: #443a3a;
+}
+.vedio {
+  width: 100%;
+  display: flex;
+  padding: 0 1.33333333vw;
+}
+.vedio a {
+  width: 50%;
+  padding: 2.13333333vw 1.33333333vw;
+  color: #333;
+  position: relative;
+}
+.vedio a img {
+  width: 46vw;
+}
+.vedio a .shipin {
+  color: #fff;
+  position: absolute;
+  font-size: 3.2vw;
+  left: 2.66666667vw;
+  top: 21.33333333vw;
+}
+.vedio a .shipin i {
+  font-size: 3.73333333vw;
+}
+.vedio a .pinglun {
+  color: #fff;
+  position: absolute;
+  font-size: 3.2vw;
+  left: 33.86666667vw;
+  top: 21.33333333vw;
+}
+.vedio a .pinglun i {
+  font-size: 3.46666667vw;
+}
+.vedio a p {
+  display: block;
+  height: 8.53333333vw;
+  font-size: 3.2vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.bottom {
+  width: 100%;
+  height: 13.33333333vw;
+  background-color: #fb7299;
+  border-radius: 30px;
+  position: fixed;
+  left: 0;
+  bottom: 8vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom a {
+  font-size: 4.26666667vw;
+  color: #fff;
+}
+.bottom a i {
+  font-size: 5.33333333vw;
+}

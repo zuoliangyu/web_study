@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let reg1 = /$com/
+        console.log(reg1.test('前端com'))  //false
+        console.log(reg1.test('com前端'))  //false
+        console.log(reg1.test('前端com前端'))  //false
+        console.log(reg1.test('前端om'))  //false
+        let reg2 = /^jack/
+        console.log(reg2.test('jackrose'))  //true
+        console.log(reg2.test('rosejack'))  //false
+        console.log(reg2.test('jack'))  //true
+        console.log(reg2.test('rosejackrose'))  //false
+        let reg3 = /^china$/
+        console.log(reg3.test('中国china'))  //false
+        console.log(reg3.test('china中国'))  //false
+        console.log(reg3.test('china'))  //true
+    </script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+        }
+        .top{
+            margin: 0 auto;
+            width: 100%;
+            height: 53px;
+            background-color: #000;
+            padding-right: 140px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .top>div{
+            width: 88px;
+            /* background-color: orange; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            
+        }
+        .top>div>a{
+            display: block;
+            width: 100%;
+            border-right: 1px solid #ccc;
+            font-size: 14px;
+            color:#fff;
+            text-align: center;
+        }
+        .top>div>i{
+            font-size: 14px;
+            color:#fff;
+        }
+
+        .nav{
+            padding:32px 0 44px;
+            background-color: #fff;
+        }
+        .nav .inner{
+            width: 1240px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .nav .inner .left{
+            margin-left: 50px;
+        }
+        .nav .inner .left img{
+            width: 143px;
+        }
+
+        .nav .inner .right{
+            width: 221px;
+            display: flex;
+            align-items: center;
+            /* background-color: pink; */
+        }
+
+        .nav .inner .center{
+            flex:1;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .nav .inner .right .souyisou{
+            width: 175px;
+            height: 37px;
+            line-height: 37px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+        }
+        .nav .inner .right .souyisou i{
+            font-size: 17px;
+            margin-right:20px;
+        }
+
+        .nav .inner .right .souyisou .input{
+            border: none;
+            outline: none;
+            flex: 1;
+        }
+        .container{
+            width: 1244px;
+            height: 1348px;
+            background-color: #ccc;
+            margin: 29px auto;
+            display: flex;
+        }
+        .container .left{
+            width: 227px;
+            height: 100%;
+            background-color: pink;
+        }
+
+        .container .right{
+            margin-left:18px;
+            flex:1;
+            background-color: #ccc;
+        }
+        .container .right>div{
+            background-color: #fff;
+            margin-bottom: 18px;
+        }
+        .container .right>div:nth-of-type(1){
+            height: 132px;
+        }
+        .container .right>div:nth-of-type(2){
+            height: 392px;
+        }
+        .container .right>div:nth-of-type(3){
+            height: 383px;
+        }
+        .container .right>div:nth-of-type(4){
+            height: 385px;
+        }
+
+        .container .right .ticket{
+            display: flex;
+        }
+
+        .container .right .ticket>div{
+            width: 50%;
+            height: 100%;
+            /* background-color:cyan */
+        }
+
+        .container .right .ticket>div:first-of-type{
+            border-right: 1px solid #ccc;
+            /* background-color: skyblue */
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .container .right .ticket>div>div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container .right .ticket>div:last-of-type{
+            /* background-color: skyblue */
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .container .right .ticket>div>div img{
+            width: 25px;
+        }
+
+        .order{
+            padding:28px 20px;
+        }
+        .ordertop{
+            display: flex;
+            justify-content: space-between;
+        }
+        .ordertop>div{
+            font-size:22px;
+        }
+        .ordertop>a{
+            font-size: 16px;
+            color:#999;
+        }
+        .orderbottom{
+            height: 137px;
+            /* background-color: pink; */
+        }
+
+        .orderbottom>.one{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            border:1px solid #ccc;
+            margin-bottom: 18px;
+        }
+
+        .orderbottom>.one>.goods{
+            /* background-color: cyan; */
+            flex:1;
+            display: flex;
+            align-items: center;
+        }
+        .orderbottom>.one>.goods>img{
+            width: 107px;
+        }
+        .orderbottom>.one>.goods>div>div:first-of-type{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 214px;
+        }
+
+        .orderbottom>.one>.action{
+            /* background-color: orange; */
+            width: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-left:1px solid #ccc;
+        }
+
+        .orderbottom>.one>.pay{
+            /* background-color: skyblue; */
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-left:1px solid #ccc;
+        }
+        .orderbottom>.one>.action>a:first-of-type{
+            width: 100px;
+            height: 30px;
+            margin-bottom: 10px;
+            background-color: #5eb69c;
+            line-height: 30px;
+            text-align: center;
+            color:#fff;
+        }
+        .orderbottom>.one>.action>a{
+            color:#000
+        }
+
+        .orderbottom>.one>.status{
+            /* background-color: green; */
+            width: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* text-align: center;
+             */
+        }
+    </style>
+    <link rel="stylesheet" href="./fonts/iconfont.css">
+</head>
+<body>
+    <!-- 1. 在页面顶部布局头部父盒子，宽1240，高53px
+         2. 父盒子设置 flex布局，设置右padding，挤压子盒子位置，设置对齐方式 flex-end
+         3. 在父盒子中放7个子盒子，子盒子里面放 超链接a，a设置border-right -->
+    <div class="top">
+        <div>
+            <a href="#">请先登录</a>
+        </div>
+        <div>
+            <a href="#">请先登录</a>
+        </div>
+        <div>
+            <a href="#">请先登录</a>
+        </div>
+        <div>
+            <a href="#">请先登录</a>
+        </div>
+        <div>
+            <a href="#">请先登录</a>
+        </div>
+        <div>
+            <a href="#">请先登录</a>
+        </div>
+        <div>
+            <i class="iconfont icon-shouji"></i>
+            <a href="#">手机版</a>
+        </div>
+    </div>
+
+    <!-- 布局导航栏
+        导航栏应该是一个版心的盒子，可以设置为flex布局，flex的子盒子有三个
+        第一个子盒子是小兔仙儿的图标
+        第二个子盒子是存放了多个nav导航项的子盒子，可以将第二个子盒子也设置flex布局，每个导航项也设置为子盒子中的子盒子。
+        排列方式应该是space-evenly
+        第三个子盒子 放了两块内容(一块是带有下划线的放大镜和搜一搜，右侧块是购物车图标) -->
+    <div class="nav">
+        <div class="inner">
+            <div class="left">
+                <img src="./images/logo.png" alt="">
+            </div>
+            <div class="center">
+                <div>生鲜</div>
+                <div>生鲜</div>
+                <div>生鲜</div>
+                <div>生鲜</div>
+                <div>生鲜</div>
+                <div>生鲜</div>
+                <div>生鲜</div>
+                <div>生鲜</div>
+                <div>生鲜</div>
+            </div>
+            <div class="right">
+                <!-- 175w 37 -->
+                <div class="souyisou">
+                    <i class="iconfont icon-fangdajing"></i>
+                    <input class="input" type="text" placeholder="搜一搜">
+                </div>
+                <!-- 34*30 -->
+                <i class="iconfont icon-shopping"></i>
+            </div>
+        </div>        
+    </div>
+
+    <!-- 324 <- 227+18+999 -> 354px -->
+    <!-- 1. 布局内容区域大盒子 1244*1348，flex布局，布局成左右两个部分
+         2. 左侧子盒子宽度227，右侧子盒子间距18并占据剩余空间
+         3. 右侧子盒子中的孙子盒子有4个，高度分别为 132 392 383 392
+         每个盒子之间有18px的间距
+         4. 第一个孙子盒子中布局左右两个子盒子，宽度各50%
+         5. 左右子盒子布局基本一致，就是flex布局三个内容，平均分配即可 -->
+    <div class="container">
+        <div class="left">侧边栏</div>
+        <div class="right">
+            <div class="ticket">
+                <div class="one">
+                    <div class="user">
+                        <img src="./images/vip.png" alt="">
+                        <span>会员中心</span>
+                    </div>
+                    <div class="settings">
+                        <img src="./images/vip.png" alt="">
+                        <span>安全设置</span>
+                    </div>
+                    <div class="address">
+                        <img src="./images/vip.png" alt="">
+                        <span>地址管理</span>
+                    </div>
+                </div>
+                <div class="two">
+                    <div class="user">
+                        <img src="./images/vip.png" alt="">
+                        <span>会员中心</span>
+                    </div>
+                    <div class="settings">
+                        <img src="./images/vip.png" alt="">
+                        <span>安全设置</span>
+                    </div>
+                    <div class="address">
+                        <img src="./images/vip.png" alt="">
+                        <span>地址管理</span>
+                    </div>
+                </div>
+            </div>
+            <div class="order">
+                <div class="ordertop">
+                    <div>我的订单</div>
+                    <a href="#">查看更多></a>
+                </div>
+                <div class="orderbottom">
+                    <div class="one">
+                        <div class="goods">
+                            <img src="./uploads/order_goods_1.jpg" alt="">
+                            <div>
+                                <div>拉夫劳伦t恤男正品圆领短袖拉夫劳伦t恤男正品圆领短袖</div>
+                                <div>颜色：白色  尺码:M  数量:1</div>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div>待收货</div>
+                        </div>
+                        <div class="pay">
+                            <div>￥99.00</div>
+                            <div>（含运费:¥10.00元）</div>
+                            <div>在线支付</div>
+                        </div>
+                        <div class="action">
+                            <a href="#">立即付款</a>
+                            <a href="#">查看详情</a>
+                            <a href="#">取消订单</a>
+                        </div>
+                    </div>
+                    <div class="two one">
+                        <div class="goods">
+                            <img src="./uploads/order_goods_1.jpg" alt="">
+                            <div>
+                                <div>拉夫劳伦t恤男正品圆领短袖拉夫劳伦t恤男正品圆领短袖</div>
+                                <div>颜色：白色  尺码：M  数量：1</div>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <div>待收货</div>
+                        </div>
+                        <div class="pay">
+                            <div>￥99.00</div>
+                            <div>（含运费：¥10.00元）</div>
+                            <div>在线支付</div>
+                        </div>
+                        <div class="action">
+                            <a href="#">立即付款</a>
+                            <a href="#">查看详情</a>
+                            <a href="#">取消订单</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product1">383</div>
+            <div class="product2">383</div>    
+        </div>
+    </div>
+</body>
+</html>
