@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+
+    </ol>
+    <script src="./axios.min.js"></script>
+    <script>
+        axios({
+            url:'http://hmajax.itheima.net/api/news'
+        }).then(
+            result => document.querySelector('ol').innerHTML = result.data.data.map(item => `<li>${item.title}</li>`).join('')
+        )
+    </script>
+</body>
+</html>

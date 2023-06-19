@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>评论-列表</title>
+  <link rel="stylesheet" href="../../../../../AJAX day02/js/bootstrap.min.css">
+  <style>
+    .badge {
+      float: right;
+      margin-right: 5px;
+    }
+    .my-page{
+      margin: 0 5px;
+    }
+    .all-page-content{
+      margin-left: 5px;
+    }
+  </style>
+</head>
+
+<body style="padding: 15px;">
+
+  <!-- 评论面板 -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">发表评论</h3>
+    </div>
+    <form class="panel-body cmt-form">
+      <div>评论人：</div>
+      <input type="text" class="form-control" name="username" autocomplete="off" />
+      <div>评论内容：</div>
+      <textarea class="form-control" name="content"></textarea>
+      <button type="submit" class="btn btn-primary submit">发表评论</button>
+    </form>
+  </div>
+
+
+  <!-- 评论列表 -->
+  <ul class="list-group">
+    <!-- <li class="list-group-item">
+       <span>评论内容</span>
+       <span class="badge del" style="cursor:pointer; background-color: lightgray;">删除</span> 
+       <span class="badge" style="background-color: #F0AD4E;">评论时间：xxx</span>
+       <span class="badge" style="background-color: #5BC0DE;">评论人：xxx</span>
+    </li> -->
+  </ul>
+
+  <!-- 分页器 -->
+  <nav >
+    <ul class="pagination">
+      <li>
+        <button class="last">
+          <span>&laquo;</span>
+        </button>
+      </li>
+      <li class="my-page">
+        <span class="page-show"></span>
+      </li>
+      <li>
+        <button class="next">
+          <span>&raquo;</span>
+        </button>
+      </li>
+      <li class="all-page-content">
+        <span>共计:<span class="all-page"></span>页</span>
+      </li>
+    </ul>
+  </nav>
+  <script src="../../../../../AJAX day03/11-14.案例_天气预报/js/axios.min.js"></script>
+  <script src="./lib/form-serialize.js"></script>
+  <script>
+    let currentPage = 1
+    let maxPage = null
+   //数据展示
+   async function render(currentPage){
+    const res = await axios({
+      url:'http://123.57.109.30:3006/api/cmtlist',
+      params:{page:currentPage}
+    })
+    console.log(res)
+    document.querySelector('.list-group').innerHTML = res.data.data.map(item =>`<li class="list-group-item">
+       <span>${item.content}</span>
+       <span data-id=${item.id} class="badge del" style="cursor:pointer; background-color: lightgray;">删除</span> 
+       <span class="badge" style="background-color: #F0AD4E;">评论时间：${item.time}/span>
+       <span class="badge" style="background-color: #5BC0DE;">评论人：${item.username}</span>
+    </li>`).join('')
+    document.querySelector('.all-page').innerHTML = res.data.allPage
+    document.querySelector('.page-show').innerHTML = currentPage
+    // 将最大页码值保存到变量中
+    maxPage = res.data.allPage
+   }
+   render(currentPage)
+   const form = document.querySelector('.cmt-form')
+   form.addEventListener('submit',async function(e){
+    e.preventDefault()
+    // console.log('触发了提交事件')
+    const data = serialize(form,{hash:true,empty:true})
+    console.log(data)
+    await axios({
+      url:'http://123.57.109.30:3006/api/addcmt',
+      method:'post',
+      data
+    })
+    render(currentPage)
+   })
+   //给上一页和下一页注册点击事件
+   document.querySelector('.last').addEventListener('click',function(){
+    
+    if(currentPage === 1){
+      return
+    }
+    currentPage--
+    render(currentPage)
+   })
+   document.querySelector('.next').addEventListener('click',function(){
+    
+    if(currentPage === maxPage){
+      return
+    }
+    currentPage++
+    render(currentPage)
+   })
+   //删除功能
+   document.querySelector('.list-group').addEventListener('click',async function(e){
+    if(e.target.classList.contains('del')){
+      const id = e.target.dataset.id
+      await axios({
+        url:'http://123.57.109.30:3006/api/delcmt',
+        params:id
+      })
+      render(currentPage)
+    }
+   })
+  </script>
+</body>
+
+</html>

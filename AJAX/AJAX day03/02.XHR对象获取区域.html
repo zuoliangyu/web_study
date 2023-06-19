@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    省：<input type="text" id="pro" value="湖南省">
+    市：<input type="text" id="city" value="长沙市">
+    <br>
+    <button>点击获取区域</button>
+    <br>
+    <ul></ul>
+    <script>
+        document.querySelector('button').addEventListener('click',function(){
+            let sheng = document.querySelector('#pro').value.trim()
+            let shi = document.querySelector('#city').value.trim()
+            let xhr = new XMLHttpRequest()
+            xhr.open('get',`http://hmajax.itheima.net/api/area?pname=${sheng}&cname=${shi}`)
+            xhr.send()
+            xhr.addEventListener('loadend',()=>{
+                console.log(xhr.responseText)
+                let obj = JSON.parse(xhr.responseText)
+                document.querySelector('ul').innerHTML = obj.list.map(item =>{
+                    `<li>${item}</li>`
+                }).join('')
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./11-14.案例_天气预报/js/axios.min.js"></script>
+    <script>
+        let pname,cname
+        axios({
+            url:'http://hmajax.itheima.net/api/province'
+        }).then(res =>{
+            pname = res.data.list[0]
+            return axios({url:'http://hmajax.itheima.net/api/city',params:{pname}})
+        }).then(res =>{
+            cname = res.data.list[0]
+            return axios({url:'http://hmajax.itheima.net/api/area',params:{pname,cname}})
+        }).then(res =>{
+            console.log(pname,cname)
+            console.log(res)
+        })
+    </script>
+</body>
+</html>

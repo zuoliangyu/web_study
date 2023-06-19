@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="sheng">
+        
+    </select>
+    <select name="" id="shi"></select>
+    <select name="" id="qu"></select>
+    <script src="./axios.min.js"></script>
+    <script>
+        //获取省，市，区元素
+        let sheng = document.querySelector('#sheng')
+        let shi = document.querySelector('#shi')
+        let qu = document.querySelector('#qu')
+        //设置默认的省市区展示
+        axios({
+            url:'http://hmajax.itheima.net/api/province'
+        }).then(
+            result => sheng.innerHTML = result.data.list.map(item => `<option value="${item}">${item}</option>`).join('')
+        )
+        axios({
+            url:'http://hmajax.itheima.net/api/city',
+            params:{
+                pname:'北京'
+            }
+        }).then(
+            result => shi.innerHTML = result.data.list.map(item => `<option value="${item}">${item}</option>`).join('')
+        )
+        axios({
+            url:'http://hmajax.itheima.net/api/area',
+            params:{
+                pname:'北京',
+                cname:'北京市'
+            }
+        }).then(
+            result => qu.innerHTML = result.data.list.map(item => `<option value="${item}">${item}</option>`).join('')
+        )
+        //给省添加
+        sheng.addEventListener('change',function(){
+            axios({
+            url:'http://hmajax.itheima.net/api/city',
+            params:{
+                pname:sheng.value
+            }
+            }).then(
+                result => {shi.innerHTML = result.data.list.map(item => `<option value="${item}">${item}</option>`).join('')
+                // qu.innerHTML = '<option>请选择区域</option>'
+                axios({
+                    url:'http://hmajax.itheima.net/api/area',
+                    params:{
+                        pname:sheng.value,
+                        cname:shi.value
+                    }
+                    }).then(
+                        result => qu.innerHTML = result.data.list.map(item => `<option value="${item}">${item}</option>`).join('')
+                )
+            })
+            
+        })
+        shi.addEventListener('change',function(){
+            axios({
+            url:'http://hmajax.itheima.net/api/area',
+            params:{
+                pname:sheng.value,
+                cname:shi.value
+            }
+            }).then(
+                result => qu.innerHTML = result.data.list.map(item => `<option value="${item}">${item}</option>`).join('')
+            )
+        })
+    </script>
+</body>
+</html>

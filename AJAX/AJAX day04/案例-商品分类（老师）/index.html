@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>案例_分类导航</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <!-- 大容器 -->
+  <div class="container">
+    <div class="sub-list">
+      <div class="item">
+        <h3>分类名字</h3>
+        <ul>
+          <li>
+            <a href="javascript:;">
+              <img src="http://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/img/category%20(9).png" />
+              <p>巧克力</p>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <img src="http://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/img/category%20(9).png" />
+              <p>巧克力</p>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <img src="http://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/img/category%20(9).png" />
+              <p>巧克力</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    /**
+     * 目标：把所有商品分类“同时”渲染到页面上
+     *  1. 获取所有一级分类数据
+     *  2. 遍历id，创建获取二级分类请求
+     *  3. 合并所有二级分类Promise对象
+     *  4. 等待同时成功后，渲染页面
+    */
+
+    // 1. 获取所有的一级分类数据
+    async function getData(){
+      // 获取一级分类数据
+      const res = await axios({ url: 'http://hmajax.itheima.net/api/category/top' })
+      console.log(res)
+
+      // 将9个一级分类数据转换为 9个promise请求
+      const tasks = res.data.data.map(item => {
+        // p得到的是 axios() 函数调用的结果
+        const p = axios( {url: 'http://hmajax.itheima.net/api/category/sub', params: { id: item.id }  } )
+        return p
+      })
+      console.log(tasks)
+
+      // 得到9个promise请求的结果
+      const secondRes = await Promise.all( tasks )
+      console.log(secondRes)
+
+      // 找到数据中的children数据，将其转换为 li字符串
+      secondRes.forEach(item=>{
+        // 将children数组的内容转换为li元素拼接成一个字符串，再赋值给 children
+        item.data.data.children = item.data.data.children.map( subItem => `<li>
+                                                                              <a href="javascript:;">
+                                                                                <img src="${subItem.picture}" />
+                                                                                <p>${subItem.name}</p>
+                                                                              </a>
+                                                                            </li>` ).join('')
+      })
+
+      console.log(secondRes)
+
+      // 将 secondRes 数据转换为html代码，设置到 sub-list 元素中展示
+      document.querySelector('.sub-list').innerHTML = secondRes.map(item=>`<div class="item">
+        <h3>${item.data.data.name}</h3>
+        <ul>
+          ${item.data.data.children}
+        </ul>
+      </div>`).join('')
+    }
+
+    getData()
+
+
+    // 
+    // axios({
+    //   url: 'http://hmajax.itheima.net/api/category/top'
+    // })
+    // .then(res=>{
+    //   // console.log(res)
+
+    //   // res.data.data 是一个数组，数组中包含了九个一级分类数据
+    //   // 此处是将 一级分类数组 转换 为 promise请求任务数组
+    //   const tasks = res.data.data.map( item=>{
+    //     return axios({
+    //       url: 'http://hmajax.itheima.net/api/category/sub',
+    //       params:{
+    //         id: item.id
+    //       }
+    //     })
+    //   })
+
+    //   // console.log(tasks)
+
+    //   // 现在需要得到9个promise任务的结果，我们可以使用Promise.all 来处理
+    //   Promise.all( tasks )
+    //   .then(result=>{
+    //     // console.log(result)
+    //     // 将请求的结果转换为 多个 .item 元素
+    //     document.querySelector('.sub-list').innerHTML = result.map(item => {
+
+    //       // first变量获取的是返回结果中真正的数据
+    //       const first = item.data.data
+    //       console.log(first)
+
+    //       return `<div class="item">
+    //                 <h3>${first.name}</h3>
+    //                 <ul>
+    //                   ${ 
+
+
+    //                     // first.children 是二级分类数组
+    //                     // 下面这段代码是将二级分类数组转换为 多个li字符串
+    //                     first.children.map( subItem=>`<li>
+    //                     <a href="javascript:;">
+    //                         <img src="${subItem.picture}" />
+    //                         <p>${subItem.name}</p>
+    //                       </a>
+    //                     </li>` ).join('')
+
+
+
+    //                    }
+    //                 </ul>
+    //               </div>`
+    //     }).join('')
+    //   })
+    //   .catch(err=>{
+    //     console.log(err.response)
+    //   })
+
+      // axios({
+      //   url: 'http://hmajax.itheima.net/api/category/sub',
+      //   params:{
+      //     id
+      //   }
+      // })
+      // .then(result=>{
+      //   console.log(result)
+      // })
+
+    // })
+
+    // 2. 根据一级分类数据 获取二级分类的数据
+
+    // 3. 渲染页面
+
+
+
+
+    // 1. 获取所有一级分类数据
+    // axios({
+    //   url: 'http://hmajax.itheima.net/api/category/top'
+    // }).then(result => {
+    //   console.log(result)
+    //   // 2. 遍历id，创建获取二级分类请求
+    //   const secPromiseList = result.data.data.map(item => {
+    //     return axios({
+    //       url: 'http://hmajax.itheima.net/api/category/sub',
+    //       params: {
+    //         id: item.id // 一级分类id
+    //       }
+    //     })
+    //   })
+    //   console.log(secPromiseList) // [二级分类请求Promise对象，二级分类请求Promise对象，...]
+    //   // 3. 合并所有二级分类Promise对象
+    //   const p = Promise.all(secPromiseList)
+    //   p.then(result => {
+    //     console.log(result)
+    //     // 4. 等待同时成功后，渲染页面
+    //     const htmlStr = result.map(item => {
+    //       const dataObj = item.data.data // 取出关键数据对象
+    //       return `<div class="item">
+    //     <h3>${dataObj.name}</h3>
+    //     <ul>
+    //       ${dataObj.children.map(item => {
+    //         return `<li>
+    //         <a href="javascript:;">
+    //           <img src="${item.picture}">
+    //           <p>${item.name}</p>
+    //         </a>
+    //       </li>`
+    //       }).join('')}
+    //     </ul>
+    //   </div>`
+    //     }).join('')
+    //     console.log(htmlStr)
+    //     document.querySelector('.sub-list').innerHTML = htmlStr
+    //   })
+    // })
+    
+  </script>
+</body>
+
+</html>

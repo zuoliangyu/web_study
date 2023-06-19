@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button data-num="big">大</button>
+    <button data-num="small">小</button>
+    <script>
+        document.querySelector('body').addEventListener('click',function(e){
+            if(e.target.tagName === 'BUTTON'){
+               const myNum = e.target.dataset.num 
+               const p = new Promise((resolve,reject) =>{
+                setTimeout(function(){
+                    const num = Math.ceil(Math.random()*6)
+                    if(myNum === 'big'){
+                     if(num > 3){
+                         resolve(`${num}点大，赢了`)
+                     }else{
+                         reject(`${num}点小，输了`)
+                     }
+                    }else{
+                     if(num <= 3){
+                         resolve(`${num}点小，赢了`)
+                     }else{
+                         reject(`${num}点大，输了`)
+                     }
+                    }
+                },2000)
+               })
+               p.then(res =>console.log(res)).catch(err => console.log(err))
+            }
+        })
+    </script>
+</body>
+</html>

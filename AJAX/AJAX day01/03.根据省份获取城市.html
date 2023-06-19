@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    省份：<input type="text">
+    <br>
+    <button>点击获取城市</button>
+    <ul>
+        
+    </ul>
+    <script src="./axios.min.js"></script>
+    <script>
+        document.querySelector('button').addEventListener('click',function(){
+            let sheng = document.querySelector('input').value.trim()
+            axios({
+                // url:`http://hmajax.itheima.net/api/city?pname=${sheng}`
+                url:'http://hmajax.itheima.net/api/city',
+                params:{
+                    pname:sheng
+                }
+            }).then(
+                result => document.querySelector('ul').innerHTML = result.data.list.map(item => `<li>${item}</li>`).join('')
+                
+            )
+        })
+    </script>
+</body>
+</html>

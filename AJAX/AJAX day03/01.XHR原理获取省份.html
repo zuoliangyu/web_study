@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //创建一个XHR对象
+        let xhr = new XMLHttpRequest()
+        //配置方法和路径
+        xhr.open('get', 'http://hmajax.itheima.net/api/province')
+        //发送请求
+        xhr.send()
+        //获取结果
+        xhr.addEventListener('loadend',() =>{
+            console.log(xhr.responseText)
+            let sheng = JSON.parse(xhr.responseText)
+            console.log(sheng)
+            document.body.innerHTML = sheng.list.map(item => `<div>${item}</div>`).join('')
+        })
+    </script>
+</body>
+</html>

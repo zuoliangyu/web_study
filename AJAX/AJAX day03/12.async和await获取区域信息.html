@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./11-14.案例_天气预报/js/axios.min.js"></script>
+    <script>
+        async function getArea(pname,cname){
+            const res = await axios({url:'http://hmajax.itheima.net/api/area',params:{pname,cname}})
+            console.log(res)
+        }
+        getArea('湖南省','长沙市')
+        // let pname,cname
+        // async function getArea(pname,cname){
+        //     const sheng = await axios({url:'http://hmajax.itheima.net/api/province'})
+        //     console.log(sheng)
+        //     pname = sheng.data.list[17]
+        //     console.log(pname)
+        //     const shi = await axios({url:'http://hmajax.itheima.net/api/city',params:{pname}})
+        //     cname = shi.data.list[0]
+        //     console.log(cname)
+        //     const res = await axios({url:'http://hmajax.itheima.net/api/area',params:{pname,cname}})
+        //     console.log(res)
+        // }
+        // getArea(pname,cname)
+    </script>
+</body>
+</html>

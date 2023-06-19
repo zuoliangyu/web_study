@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myAxios( obj ){
+    // console.log(obj.params)
+    // return
+    // obj参数就是调用myAxios 传递的配置对象
+    return new Promise( (resolve, reject)=>{
+        // 在promise里面编写代码发送ajax请求
+        const xhr = new XMLHttpRequest()
+        // 如果没有url地址，就reject报错
+        if(!obj.url){
+            reject( new Error('请求必须设置url地址') )
+        }
+        // 设置请求方式和请求地址
+        if(obj.params){
+            // 将对象形式的参数数据转换为 键值对的数据
+            let mySearch = new URLSearchParams( obj.params )
+            let str = mySearch.toString()
+            xhr.open( obj.method || 'get' , obj.url + '?' + str )
+        }else{
+            xhr.open( obj.method || 'get' , obj.url)
+        }
+
+        if(obj.method === 'post' 
+        || obj.method === 'put' 
+        || obj.method === 'patch'){
+            // 按照 post，put，patch的方式来发送请求
+            // A. 设置请求头
+            xhr.setRequestHeader('Content-Type', 'application/json')
+            // B. 处理参数数据
+            let dataStr = obj.data && JSON.stringify( obj.data )
+            // C. send发送请求并带参数
+            if(dataStr){
+                xhr.send(dataStr)
+            }else{
+                xhr.send()
+            }
+        }else{
+            // 发送请求
+            xhr.send()
+        }
+        
+        // 监听服务器返回数据
+        xhr.addEventListener('loadend', function(){
+            if( xhr.status >= 200 && xhr.status < 300){
+                // 请求成功 调用resolve返回结果
+                const result = JSON.parse( xhr.responseText )
+                resolve(result)
+            }else{
+                // 请求失败,调用reject返回一个错误
+                reject(new Error(xhr.response))
+            }
+        })
+    } )
+}
+myAxios({
+            url:'http://hmajax.itheima.net/api/register',
+            method:'post',
+            data:{
+                username:'admin123456789',
+                password:'123456'
+            }
+        }).then(res =>{
+            console.log(res)
+        }).catch(err =>{
+            console.log(err)
+        })
+    </script>
+</body>
+</html>
